@@ -1,9 +1,9 @@
-Culture Power - Third Module's Back-End Project Planning:
+🚀 Culture Power - Third Module's Back-End Project Planning 🚀:
 
 👉 What is this project about? Is a game-changing application for a company.
-👉 Starting at = 22/01/24 at 5:23pm.
+👉 Starting at = 22/01/24 at 4:13pm (GMT-4).
 👉 Finishing at = 
-👉 Final date to project's delivering: 18/02/24 at 11:59pm.
+👉 Final date to project's delivering: 18/02/24 at 11:59pm (GMT-3).
 
 /////////////////////////////////////////
 
@@ -26,70 +26,117 @@ _1st Part_ - *Planning and Setup*:
     1. Creating the layers: 
 
        ✔ **src/** @done(24-01-22 21:58)
-         ☐ **config/**
-            ☐ `db.ts`: Database configuration.
-            ☐ `dotenv.ts`: Configuration of environment variables as an object.
+         ✔ **config/** @done(24-01-22 23:27)
+           ✔ *database/* @done(24-01-22 23:27)
+            ✔ `db.ts`: Database configuration. @done(24-01-22 23:27)
+           ✔ `dotenv.ts`: Configuration of environment variables as an object. @done(24-01-22 23:27)
          
-          ☐ **modules/**
-            ☐ **admin/**
-              ☐ *controller/*
+          ✔ *modules/* @done(24-01-22 23:45)
+           ✔ **admin/** @done(24-01-22 23:45)
+             ✔ *controller/* @done(24-01-22 23:45)
                ☐ `admin.controller.ts`: Controller for admin-related operations.
-              ☐ *model/*
+               ☐ `admin.controller.interface.ts`: Interface for the admin controller.
+               ☐ `admin.controller.spec.ts`: Tests related to the admin controller.
+             ✔ *model/* @done(24-01-22 23:45)
                ☐ `admin.model.ts`: Model for the admin entity.
-              ☐ *repository/*
+             ✔ *repository/* @done(24-01-22 23:45)
                ☐ `admin.repository.ts`: Database access for the admin entity.
-              ☐ *routes/*
+               ☐ `admin.repository.interface.ts`: Interface for the admin repository.
+               ☐ `admin.repository.spec.ts`: Tests related to the admin repository.
+             ✔ *routes/* @done(24-01-22 23:45)
                ☐ `admin.routes.ts`: Routes related to admins.
-              ☐ *service/*
+             ✔ *factory/* @done(24-01-22 23:45)
+               ☐ `admin.factory.ts`: Layer used to instance all classes.
+             ✔ *service/* @done(24-01-22 23:45)
                ☐ `admin.service.ts`: Use cases related to admins.
-              ☐ *dto/*
+               ☐ `admin.service.interface.ts`: Interface for the admin service.
+               ☐ `admin.service.spec.ts`: Tests related to the admin service.
+             ✔ *dto/* @done(24-01-22 23:45)
                ☐ `admin.dto.ts`: Data Transfer Object (DTO) for admin.
-              ☐ *tests/*
-               ☐ `admin.service.spec.ts`: Tests related to admin's service.
-
-            ☐ **product/**
-              ☐ *controller/*
-               ☐ `product.controller.ts`: Controller for product-related operations.
-              ☐ *model/*
-               ☐ `product.model.ts`: Model for the product entity.
-              ☐ *repository/*
-               ☐ `product.repository.ts`: Database access for the product entity.
-              ☐ *routes/*
-               ☐ `product.routes.ts`: Routes related to products.
-              ☐ *service/*
-               ☐ `product.service.ts`: Use cases related to products.
-              ☐ *dto/*
-               ☐ `product.dto.ts`: Data Transfer Object (DTO) for product.
-              ☐ *tests/*
-               ☐ `product.service.spec.ts`: Tests related to product's service.
-
-            ☐ **user/**
-              ☐ *controller/*
-               ☐ `user.controller.ts`: Controller for user-related operations.
-              ☐ *model/*
-               ☐ `user.model.ts`: Model for the user entity.
-              ☐ *repository/*
-               ☐ `user.repository.ts`: Database access for the user entity.
-              ☐ *routes/*
-               ☐ `user.routes.ts`: Routes related to users.
-              ☐ *service/*
-               ☐ `user.service.ts`: Use cases related to users.
-              ☐ *dto/*
-               ☐ `user.dto.ts`: Data Transfer Object (DTO) for user.
-              ☐ *tests/*
-               ☐ `user.service.spec.ts`: Tests related to user's service.
-            
-          ☐ **middlewares/**
-            ☐ `authMiddleware.ts`: Middleware for authentication using JWT.
+             ✔ **utils/** @done(24-01-22 23:45)
+               ☐ `admin-body.validator.ts`: Utility for validations.
          
-          ☐ **utils/**
-            ☐ `errorHandler.ts`: Utility for error handling.
-            ☐ `validator.ts`: Utility for validations.
+           ✔ **product/** @done(24-01-22 23:45)
+             ✔ *controller/* @done(24-01-22 23:45)
+               ☐ `product.controller.ts`: Controller for product-related operations.
+               ☐ `product.controller.interface.ts`: Interface for the product controller.
+               ☐ `product.controller.spec.ts`: Tests related to the product controller.
+             ✔ *model/* @done(24-01-22 23:45)
+               ☐ `product.model.ts`: Model for the product entity.
+             ✔ *repository/* @done(24-01-22 23:45)
+               ☐ `product.repository.ts`: Database access for the product entity.
+               ☐ `product.repository.interface.ts`: Interface for the product repository.
+               ☐ `product.repository.spec.ts`: Tests related to the product repository.
+             ✔ *routes/* @done(24-01-22 23:45)
+               ☐ `product.routes.ts`: Routes related to products.
+             ✔ *factory/* @done(24-01-22 23:45)
+               ☐ `product.factory.ts`: Layer used to instance all classes.
+             ✔ *service/* @done(24-01-22 23:45)
+               ☐ `product.service.ts`: Use cases related to products.
+               ☐ `product.service.interface.ts`: Interface for the product service.
+               ☐ `product.service.spec.ts`: Tests related to the product service.
+             ✔ *dto/* @done(24-01-22 23:45)
+               ☐ `product.dto.ts`: Data Transfer Object (DTO) for product.
+             ✔ **utils/** @done(24-01-22 23:45)
+               ☐ `product-body.validator.ts`: Utility for validations.
+         
+           ✔ **user/** @done(24-01-22 23:45)
+             ✔ *controller/* @done(24-01-22 23:45)
+               ☐ `user.controller.ts`: Controller for user-related operations.
+               ☐ `user.controller.interface.ts`: Interface for the user controller.
+               ☐ `user.controller.spec.ts`: Tests related to the user controller.
+             ✔ *model/* @done(24-01-22 23:45)
+               ☐ `user.model.ts`: Model for the user entity.
+             ✔ *repository/* @done(24-01-22 23:45)
+               ☐ `user.repository.ts`: Database access for the user entity.
+               ☐ `user.repository.interface.ts`: Interface for the user repository.
+               ☐ `user.repository.spec.ts`: Tests related to the user repository.
+             ✔ *routes/* @done(24-01-22 23:45)
+               ☐ `user.routes.ts`: Routes related to users.
+             ✔ *factory/* @done(24-01-22 23:45)
+               ☐ `user.factory.ts`: Layer used to instance all classes.
+             ✔ *service/* @done(24-01-22 23:45)
+               ☐ `user.service.ts`: Use cases related to users.
+               ☐ `user.service.interface.ts`: Interface for the user service.
+               ☐ `user.service.spec.ts`: Tests related to the user service.
+             ✔ *dto/* @done(24-01-22 23:45)
+               ☐ `user.dto.ts`: Data Transfer Object (DTO) for user.
+             ✔ **utils/** @done(24-01-22 23:45)
+               ☐ `user-body.validator.ts`: Utility for validations.
+         
+           ✔ *auth/* @done(24-01-22 23:45)
+             ✔ *controller/* @done(24-01-22 23:45)
+               ☐ `auth.controller.ts`: Controller for authentication-related operations.
+               ☐ `auth.controller.interface.ts`: Interface for the auth controller.
+               ☐ `auth.controller.spec.ts`: Tests related to the auth controller.
+             ✔ *model/* @done(24-01-22 23:45)
+               ☐ `auth.model.ts`: Model for the authentication entity.
+             ✔ *repository/* @done(24-01-22 23:45)
+               ☐ `auth.repository.ts`: Database access for the authentication entity.
+               ☐ `auth.repository.interface.ts`: Interface for the auth repository.
+               ☐ `auth.repository.spec.ts`: Tests related to the auth repository.
+             ✔ *routes/* @done(24-01-22 23:45)
+               ☐ `auth.routes.ts`: Routes related to authentication.
+             ✔ *factory/* @done(24-01-22 23:45)
+               ☐ `auth.factory.ts`: Layer used to instance all classes.
+             ✔ *service/* @done(24-01-22 23:45)
+               ☐ `auth.service.ts`: Use cases related to authentication.
+               ☐ `auth.service.interface.ts`: Interface for the auth service.
+               ☐ `auth.service.spec.ts`: Tests related to the auth service.
+             ✔ *dto/* @done(24-01-22 23:45)
+               ☐ `auth.dto.ts`: Data Transfer Object (DTO) for authentication.
+             ✔ **utils/** @done(24-01-22 23:45)
+               ☐ `auth-body.validator.ts`: Utility for validations.
+         
+          ✔ *routes/* @done(24-01-22 23:44)
+            ✔ `routes.ts`: Used to keep all routes in the application. @done(24-01-22 23:44)
+          ✔ **middlewares/** @done(24-01-22 23:19)
+            ✔ `auth.middleware.ts`: Middleware for authentication using JWT. @done(24-01-22 23:45)
          
           ✔ `.env`: Environment variables configuration file. @done(24-01-22 21:59)
-          ✔ `.env.example`: Explaining how the environment variables configuration file should be. @done(24-01-22 21:59)
-          ☐ `app.ts`: Server configuration and Express application.
-          ☐ `server.ts`: Server entry point.
+          ✔ `.env.example`: Explaining how the environment variables configuration file should look like. @done(24-01-22 21:59)
+          ✔ `app.ts`: Server configuration and Express application. @done(24-01-22 22:58)
+          ✔ `server.ts`: Server entry point. @done(24-01-22 22:58)
           ✔ `.gitignore`: File made for ignoring some files and folders, that we don't want people to see. @done(24-01-22 21:59)
           ✔ `package.json`: Project dependencies and scripts. @done(24-01-22 21:59)
           ☐ `README.md`: Project documentation.

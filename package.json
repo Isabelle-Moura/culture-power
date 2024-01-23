@@ -2,10 +2,10 @@
   "name": "project-module-3",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "tsx src/index.ts",
-    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/app.ts",
+    "dev": "tsx watch src/app.ts",
     "build": "tsup src",
     "test": "vitest"
   },
