@@ -1,19 +1,31 @@
-Culture Power - Project Planning:
+Culture Power - Third Module's Back-End Project Planning:
+
+👉 What is this project about? Is a game-changing application for a company.
+👉 Starting at = 22/01/24 at 5:23pm.
+👉 Finishing at = 
+👉 Final date to project's delivering: 18/02/24 at 11:59pm.
+
 /////////////////////////////////////////
 
 _1st Part_ - *Planning and Setup*:
-/////////////////////////////////////////
-  1. Starting the project:
+  1. First things first:
+    ✔ Make repository called: project-module-3. @done(24-01-22 21:50)
+    ✔ Make all the "Starting the project" part. @done(24-01-22 21:51)
+    ☐ Make all the "Structuring the project:" part.
+
+  2. Starting the project:
     1. Development's Environment:
-        ☐ First command ever: `npm init`;
-        ☐ Install all necessary dependencies: `npm i typescript tsx tsup @types/express @types/bcrypt @types/multer @types/jsonwebtoken -D`;
+        ✔ First command ever: `npm init -y`; @done(24-01-22 21:37)
+        ✔ Install all necessary dependencies: `npm i typescript tsx tsup @types/express @types/bcrypt @types/multer @types/jsonwebtoken -D`; @done(24-01-22 21:37)
     2. Production's Environment:
-        ☐ Install all necessary dependencies: `npm i mongoose yup bcrypt express dotenv vitest ts-node jsonwebtoken multer`;
+        ✔ Install all necessary dependencies: `npm i mongoose yup bcrypt express dotenv vitest ts-node jsonwebtoken multer`; @done(24-01-22 21:37)
     3. Generate important files: 
-        ☐ To generate the tsconfig.json file: `npx tsc --init`
-        /////////////////////////////////////////
-  2. Structuring the project:
+        ✔ To generate the tsconfig.json file: `npx tsc --init` @done(24-01-22 21:37)
+    
+  3. Structuring the project:
     1. Creating the layers: 
+
+       ✔ **src/** @done(24-01-22 21:58)
          ☐ **config/**
             ☐ `db.ts`: Database configuration.
             ☐ `dotenv.ts`: Configuration of environment variables as an object.
@@ -74,19 +86,23 @@ _1st Part_ - *Planning and Setup*:
             ☐ `errorHandler.ts`: Utility for error handling.
             ☐ `validator.ts`: Utility for validations.
          
-          ☐ `.env`: Environment variables configuration file.
-          ☐ `.env-example`: Explaining how the environment variables configuration file should be.
+          ✔ `.env`: Environment variables configuration file. @done(24-01-22 21:59)
+          ✔ `.env.example`: Explaining how the environment variables configuration file should be. @done(24-01-22 21:59)
           ☐ `app.ts`: Server configuration and Express application.
           ☐ `server.ts`: Server entry point.
-          ☐ `.gitignore`: File made for ignoring some files and folders, that we don't want people to see.
-          ☐ `package.json`: Project dependencies and scripts.
+          ✔ `.gitignore`: File made for ignoring some files and folders, that we don't want people to see. @done(24-01-22 21:59)
+          ✔ `package.json`: Project dependencies and scripts. @done(24-01-22 21:59)
           ☐ `README.md`: Project documentation.
-        /////////////////////////////////////////
+
+       ✔ **uploads/** @done(24-01-22 21:58)
+          This folder is suposed to keep every image downloaded by multer's library.
+
     2. Configs:
         ☐ Make connection with MongoDB.
         ☐ Initialize server with Express.
-        ☐ Prepare all environment variables: MONGO_URL - JWT_TOKEN - PORT - BASE_URL
+        ✔ Prepare all environment variables: MONGO_URL - JWT_TOKEN - PORT - BASE_URL @done(24-01-22 21:56)
         ☐ Make all models in application.
+        ☐ Make all the layers inside every model.
 
 /////////////////////////////////////////
 
