@@ -29,6 +29,7 @@ _1st Part_ - *Planning and Setup*:
          ✔ **config/** @done(24-01-22 23:27)
            ✔ *database/* @done(24-01-22 23:27)
             ✔ `db.ts`: Database configuration. @done(24-01-22 23:27)
+            ✔ `admin-seed.ts`: For the implementation of the first admin ever, right into the database. @done(24-01-23 20:43)
            ✔ `dotenv.ts`: Configuration of environment variables as an object. @done(24-01-22 23:27)
          
           ✔ *modules/* @done(24-01-22 23:45)
@@ -145,8 +146,8 @@ _1st Part_ - *Planning and Setup*:
           This folder is suposed to keep every image downloaded by multer's library.
 
     2. Configs:
-        ☐ Make connection with MongoDB.
-        ☐ Initialize server with Express.
+        ✔ Make connection with MongoDB. @done(24-01-23 22:53)
+        ✔ Initialize server with Express. @done(24-01-23 22:53)
         ✔ Prepare all environment variables: MONGO_URL - JWT_TOKEN - PORT - BASE_URL @done(24-01-22 21:56)
         ☐ Make all models in application.
         ☐ Make all the layers inside every model.
