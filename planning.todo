@@ -83,27 +83,25 @@ _1st Part_ - *Planning and Setup*:
          
            ✔ **user/** @done(24-01-22 23:45)
              ✔ *controller/* @done(24-01-22 23:45)
-               ☐ `user.controller.ts`: Controller for user-related operations.
-               ☐ `user.controller.interface.ts`: Interface for the user controller.
-               ☐ `user.controller.spec.ts`: Tests related to the user controller.
+               ✔ `user.controller.ts`: Controller for user-related operations. @done(24-01-24 00:23)
+               ✔ `user.controller.interface.ts`: Interface for the user controller. @done(24-01-24 00:23)
              ✔ *model/* @done(24-01-22 23:45)
-               ☐ `user.model.ts`: Model for the user entity.
+               ✔ `user.model.ts`: Model for the user entity. @done(24-01-23 23:43)
+               ✔ `user.model.interface.ts`: Interace for user's entity model. @done(24-01-23 23:43)
              ✔ *repository/* @done(24-01-22 23:45)
-               ☐ `user.repository.ts`: Database access for the user entity.
-               ☐ `user.repository.interface.ts`: Interface for the user repository.
-               ☐ `user.repository.spec.ts`: Tests related to the user repository.
+               ✔ `user.repository.ts`: Database access for the user entity. @done(24-01-24 00:22)
+               ✔ `user.repository.interface.ts`: Interface for the user repository. @done(24-01-24 00:22)
              ✔ *routes/* @done(24-01-22 23:45)
-               ☐ `user.routes.ts`: Routes related to users.
+               ✔ `user.routes.ts`: Routes related to users. @done(24-01-24 00:28)
              ✔ *factory/* @done(24-01-22 23:45)
-               ☐ `user.factory.ts`: Layer used to instance all classes.
+               ✔ `user.factory.ts`: Layer used to instance all classes. @done(24-01-24 00:28)
              ✔ *service/* @done(24-01-22 23:45)
-               ☐ `user.service.ts`: Use cases related to users.
-               ☐ `user.service.interface.ts`: Interface for the user service.
-               ☐ `user.service.spec.ts`: Tests related to the user service.
+               ✔ `user.service.ts`: Use cases related to users. @done(24-01-24 00:22)
+               ✔ `user.service.interface.ts`: Interface for the user service. @done(24-01-24 00:22)
              ✔ *dto/* @done(24-01-22 23:45)
-               ☐ `user.dto.ts`: Data Transfer Object (DTO) for user.
+               ✔ `user.dto.ts`: Data Transfer Object (DTO) for user. @done(24-01-24 00:22)
              ✔ **utils/** @done(24-01-22 23:45)
-               ☐ `user-body.validator.ts`: Utility for validations.
+               ✔ `user-body.validator.ts`: Utility for validations. @done(24-01-24 00:25)
          
            ✔ *auth/* @done(24-01-22 23:45)
              ✔ *controller/* @done(24-01-22 23:45)
@@ -156,15 +154,15 @@ _1st Part_ - *Planning and Setup*:
 
   _2nd Part_ - *All Feature's Development*:
      ☐ Use Cases: 
-        ☐ => User Registration: 
-          ☐ Required Information: 
-            ☐ Name 
-            ☐ E-mail
-            ☐ Password
-            ☐ Photo
-          ☐ Rules: 
-            ☐ Do not allow registration if a user with the same e-mail address already exists.
-            ☐ Encrypt the password before storing it in the database.
+        ✔ => User Registration: @done(24-01-24 00:09)
+          ✔ Required Information: @done(24-01-24 00:09)
+            ✔ Name @done(24-01-24 00:09)
+            ✔ E-mail @done(24-01-24 00:09)
+            ✔ Password @done(24-01-24 00:09)
+            ✔ Photo @done(24-01-24 00:09)
+          ✔ Rules: @done(24-01-24 00:09)
+            ✔ Do not allow registration if a user with the same e-mail address already exists. @done(24-01-24 00:09)
+            ✔ Encrypt the password before storing it in the database. @done(24-01-24 00:09)
 
         ☐ => User Login: 
           ☐ Required Information: 
@@ -240,5 +238,8 @@ _1st Part_ - *Planning and Setup*:
 
   _3rd Part_ - *Tests and Adjustments*:
     ☐ Create all ".spec" file for all layers.
+    ☐ `user.controller.spec.ts`: Tests related to the user controller.
+    ☐ `user.repository.spec.ts`: Tests related to the user repository.
+    ☐ `user.service.spec.ts`: Tests related to the user service.
   _4th Part_ - *Deploy and Documentation*:
     ☐ 
