@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import { env } from "../dotenv";
 
+//FIXME: Algo tá acontecendo com a conexão com o Mongo :/
 export class MongoConnection {
    static async connect() {
       try {
