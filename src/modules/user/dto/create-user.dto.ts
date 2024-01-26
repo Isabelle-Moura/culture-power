@@ -2,5 +2,5 @@ export interface CreateUserDto {
    name: string;
    email: string;
    password: string;
-   photo: string;
+   photo: Express.Multer.File;
 }

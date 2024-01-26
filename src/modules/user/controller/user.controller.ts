@@ -2,7 +2,9 @@ import { Request, Response } from 'express';
 import { IUserController } from './user.controller.interface';
 import { IUserService } from '../service/user.services.interface';
 import { CreateUserDto } from '../dto/create-user.dto';
-import { uploadPhotoMiddleware } from '../../../middlewares/upload-photo.middleware';
+import { userBodyValidator } from '../utils/user-body.validator';
+
+//FIXME: A validação com o yup só aparece o campo: "Photo is required."
 
 export class UserController implements IUserController {
    constructor(private service: IUserService) {}
@@ -11,14 +13,24 @@ export class UserController implements IUserController {
       try {
          const userDto: CreateUserDto = req.body;
          const { file } = req;
-   
+
          if (!file) {
             throw new Error(`There's no such file.`);
          }
-   
+
+         const validationResult = await userBodyValidator(userDto);
+
+         if (!validationResult.areInfosValid) {
+            res.status(400).json({
+               error: true,
+               message: 'Validation error',
+               details: validationResult.message,
+            });
+         }
+
          const user = await this.service.createUser(userDto, file);
          const imageUrl = `${req.protocol}://${req.get('host')}/uploads/${file.filename}`;
-   
+
          res.status(201).json({
             success: true,
             message: 'User was created successfully!',
@@ -28,6 +40,7 @@ export class UserController implements IUserController {
                imageUrl, 
             }, 
          });
+
       } catch (error) {
          console.error(error);
          res.status(500).json({
