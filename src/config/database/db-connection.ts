@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import { env } from "../dotenv";
 
-//FIXME: Algo tá acontecendo com a conexão com o Mongo :/
 export class MongoConnection {
    static async connect() {
       try {
@@ -14,10 +13,12 @@ export class MongoConnection {
          mongoose.connection.on("close", () =>
             console.log("Connection with MongoDB was closed! Bye Bye!👋👋👋")
          );
+
+         await mongoose.connect(env.MONGO_URL);
+
       } catch (error: any) {
          throw new Error(error);
       }
-      return await mongoose.connect(env.DATABASE_URL);
    }
 
    static disconnect() {

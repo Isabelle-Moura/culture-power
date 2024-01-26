@@ -4,4 +4,4 @@ import { uploadPhotoMiddleware } from "../../../middlewares/upload-photo.middlew
 
 export const userRouter = express.Router();
 
-userRouter.post("/user/new-user", uploadPhotoMiddleware.single("photo"), userFactory.createUser.bind(userFactory));
+userRouter.post("/user/new-user", uploadPhotoMiddleware, userFactory.createUser.bind(userFactory));

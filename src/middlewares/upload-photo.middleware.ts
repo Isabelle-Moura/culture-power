@@ -1,13 +1,40 @@
-import multer, { diskStorage } from "multer"
-import { randomUUID } from "crypto"
+import { Request, Response, NextFunction } from 'express';
+import multer from 'multer';
 
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-       cb(null, "uploads/"); // Destination folder for storing files
-    },
-    filename: function (req, file, cb) {
-       cb(null, file.fieldname + "-" + Date.now() + ".jpg"); // Naming convention for files
-    },
- });
+   destination: function (req, file, cb) {
+      cb(null, 'uploads/'); // Pasta de destino para armazenar os arquivos
+   },
+   filename: function (req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now() + '.jpg'); // Convenção de nomenclatura para os arquivos
+   },
+});
 
-export const uploadPhotoMiddleware = multer({ storage: storage });
+const upload = multer({
+   storage: storage,
+   fileFilter: function (req, file, cb) {
+      if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
+         return cb(null, false);
+      }
+      cb(null, true);
+   },
+}).single('photo');
+
+export const uploadPhotoMiddleware = (
+   req: Request,
+   res: Response,
+   next: NextFunction
+) => {
+   upload(req, res, (err: any) => {
+      if (err) {
+         console.error('Error in uploadPhotoMiddleware:', err);
+         return res.status(500).json({
+            error: true,
+            message: 'Error at uploading an image.',
+            status: 500,
+         });
+      }
+      console.log('uploadPhotoMiddleware succeeded');
+      next();
+   });
+};
