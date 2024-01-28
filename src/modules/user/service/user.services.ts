@@ -6,18 +6,20 @@ import { IUserService } from "./user.services.interface";
 
 export class UserService implements IUserService {
    constructor(private repository: UserRepository) {}
-   
-   async createUser(user: CreateUserDto, photo: Express.Multer.File): Promise<IUser> {
+
+   async createUser(user: CreateUserDto, photo: string): Promise<IUser> {
       const userAlreadyExists = await this.repository.findByEmail(user.email);
 
       if (userAlreadyExists) {
-         throw new Error("This user already exists. Try putting another credentials.")
+         throw new Error(
+            "This user already exists. Try putting another credentials."
+         );
       }
 
-      const information: CreateUserDto &  {photo: string } = {
+      const information: CreateUserDto = {
          ...user,
          password: await hash(user.password, 10),
-         photo: photo.filename
+         photo,
       };
 
       const result = await this.repository.createUser(information);

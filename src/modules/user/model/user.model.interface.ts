@@ -1,8 +1,7 @@
-import mongoose from "mongoose";
-
 export interface IUser extends Document {
+   _id?: string;
    name: string;
    email: string;
    password: string;
-   photo: mongoose.Types.ObjectId | string | null;
+   photo: string;
 }
