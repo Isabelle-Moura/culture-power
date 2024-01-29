@@ -1,6 +1,6 @@
-import { AdminDto } from "../dto/admin.dto";
+import { IAdmin } from "../model/admin.model.interface";
 
 export interface IAdminRepository {
-   loginAdmin(adminData: string): Promise<AdminDto | null>;
-   findAdminEmail(email: string): Promise<AdminDto | null>;
+   loginAdmin(email: string, password: string): Promise<IAdmin | null>;
+   findAdminEmail(email: string): Promise<IAdmin | string | null>;
 }

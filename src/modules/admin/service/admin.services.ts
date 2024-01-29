@@ -1,23 +1,20 @@
 import { hash } from "bcrypt";
-import { IAdmin } from "../model/admin.model.interface";
 import { AdminRepository } from "../repository/admin.repository";
+import { AdminDto } from "../dto/admin.dto";
 
 export class AdminService {
    constructor(private repository: AdminRepository) {}
 
-   async loginAdmin(email: string, password: string): Promise<IAdmin | null> {
+   async loginAdmin(email: string, password: string): Promise<AdminDto> {
       const adminEmail = await this.repository.findAdminEmail(email);
 
       if (!adminEmail) {
-         throw new Error("Invalid credentials");
+         throw new Error("Invalid credentials.");
       }
 
-      const information: IAdmin = {
-         ...adminEmail,
-         password: await hash(adminEmail?.password, 10),
-      };
+      const passwordHashed = await hash(password, 10)
 
-      const admin = await this.repository.loginAdmin(email, password);
+      const admin = await this.repository.loginAdmin(adminEmail.email, passwordHashed);
       return admin;
    }
 }
