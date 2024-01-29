@@ -3,6 +3,7 @@ import { IUserController } from "./user.controller.interface";
 import { IUserService } from "../service/user.services.interface";
 import { userBodyValidator } from "../utils/user-body.validator";
 import { env } from "../../../config/dotenv";
+import jwt from "jsonwebtoken";
 
 /* 
   FIXME: [ ] Yup's validation only return one kind of message: "Photo is required." even if "Photo" field is fulfilled.
@@ -57,6 +58,30 @@ export class UserController implements IUserController {
             message: error.message,
             status: 500,
          });
+      }
+   }
+   async getUserById(req: Request, res: Response): Promise<void> {
+      try {
+         const { authorization } = req.headers;
+
+         if (!authorization) {
+            res.status(401).json({ message: "Unauthorized" });
+         }
+
+         const [, token] = authorization?.split(" ") || [];
+
+         const decodeToken: any = jwt.decode(
+            token as any,
+            env.JWT_SECRET_KEY as any
+         );
+
+         const userId = decodeToken?.id;
+
+         const user = await this.service.getUserById(userId);
+
+         res.status(200).json({ userData: user });
+      } catch (error: any) {
+         res.status(500).json({ message: error.message });
       }
    }
 }

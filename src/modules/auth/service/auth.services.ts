@@ -10,7 +10,6 @@ export class AuthService {
    async login(data: LoginDTO) {
       // Validate if this user's email exists in db.
       const user = await this.userRepository.findByEmail(data.email);
-      console.log(user);
 
       if (!user) {
          return {

@@ -105,7 +105,7 @@ _1st Part_ - *Planning and Setup*:
          
            ✔ *auth/* @done(24-01-22 23:45)
              ✔ *controller/* @done(24-01-22 23:45)
-               ☐ `auth.controller.ts`: Controller for authentication-related operations.
+               ✔ `auth.controller.ts`: Controller for authentication-related operations. @done(24-01-28 20:02)
                ☐ `auth.controller.interface.ts`: Interface for the auth controller.
                ☐ `auth.controller.spec.ts`: Tests related to the auth controller.
              ✔ *model/* @done(24-01-22 23:45)
@@ -153,7 +153,7 @@ _1st Part_ - *Planning and Setup*:
 /////////////////////////////////////////
 
   _2nd Part_ - *All Feature's Development*:
-     ☐ Use Cases: 
+     ✔ Use Cases: @done(24-01-28 20:07)
         ✔ => User Registration: @done(24-01-24 00:09)
           ✔ Required Information: @done(24-01-24 00:09)
             ✔ Name @done(24-01-24 00:09)
@@ -164,27 +164,27 @@ _1st Part_ - *Planning and Setup*:
             ✔ Do not allow registration if a user with the same e-mail address already exists. @done(24-01-24 00:09)
             ✔ Encrypt the password before storing it in the database. @done(24-01-24 00:09)
 
-        ☐ => User Login: 
-          ☐ Required Information: 
-            ☐ E-mail
-            ☐ Password
-          ☐ Rules: 
-            ☐ Do not generate a token if there is no user with the e-mail provided.
-            ☐ Do not generate a token if the password sent is not compatible with the one in the database.
-            ☐ Generate a token and return if the credentials are correct.
+        ✔ => User Login: @done(24-01-28 20:07)
+          ✔ Required Information: @done(24-01-28 20:03)
+            ✔ E-mail @done(24-01-28 20:03)
+            ✔ Password @done(24-01-28 20:03)
+          ✔ Rules: @done(24-01-28 20:07)
+            ✔ Do not generate a token if there is no user with the e-mail provided. @done(24-01-28 20:07)
+            ✔ Do not generate a token if the password sent is not compatible with the one in the database. @done(24-01-28 20:07)
+            ✔ Generate a token and return if the credentials are correct. @done(24-01-28 20:07)
  
         ☐ => Admin Login:
           ☐ Required Information:
             ☐ E-mail
             ☐ Password
           ☐ Rules: 
-            ☐ Do not generate a token if there is no admin with the e          mail provided.
+            ☐ Do not generate a token if there is no admin with the email provided.
             ☐ Do not generate a token if the password sent is not compatible with the one in the database.
             ☐ Generate a token and return if the credentials are correct.
 
-        ☐ => View Logged In User (PRIVATE ROUTE)
-          ☐ Action:
-            ☐ Return the logged in user's data.
+        ✔ => View Logged In User (PRIVATE ROUTE) @done(24-01-28 20:51)
+          ✔ Action: @done(24-01-28 20:51)
+            ✔ Return the logged in user's data. @done(24-01-28 20:51)
 
         ☐ => Product Registration (PRIVATE ROUTE - ADMIN)
           ☐ Required Information:

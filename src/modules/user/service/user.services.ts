@@ -25,4 +25,9 @@ export class UserService implements IUserService {
       const result = await this.repository.createUser(information);
       return result;
    }
+
+   async getUserById(userId: string): Promise<IUser | null> {
+      const user = await this.repository.getUserById(userId);
+      return user;
+   }
 }
