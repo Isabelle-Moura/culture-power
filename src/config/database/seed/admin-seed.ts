@@ -5,10 +5,9 @@ import { MongoConnection } from "../db-connection";
 
 (async function AdminSeeder() {
    await MongoConnection.connect();
-   const hasher = new HashBcrypt();
    await AdminModel.create({
       name: "Admin",
       email: "admin@gmail.com",
-      password: await hasher.encrypt("admin_here"),
+      password: await HashBcrypt.encrypt("admin_here"),
    });
 })();

@@ -1,20 +1,29 @@
-import { hash } from "bcrypt";
 import { AdminRepository } from "../repository/admin.repository";
 import { AdminDto } from "../dto/admin.dto";
+import { IAdminService } from "./admin.services.interface";
+import { HashBcrypt } from "../utils/hasher.bcrypt";
 
-export class AdminService {
+export class AdminService implements IAdminService {
    constructor(private repository: AdminRepository) {}
 
    async loginAdmin(email: string, password: string): Promise<AdminDto> {
-      const adminEmail = await this.repository.findAdminEmail(email);
+      try {
+         const adminEmail = await this.repository.findAdminEmail(email);
 
-      if (!adminEmail) {
-         throw new Error("Invalid credentials.");
+         if (!adminEmail) {
+            throw new Error("Invalid credentials.");
+         }
+
+         const passwordMatch = await HashBcrypt.compare(password, adminEmail.password);
+
+         if (!passwordMatch) {
+            throw new Error("Invalid credentials.");
+         }
+
+         return this.repository.loginAdmin(adminEmail.email, password)
+
+      } catch (error: any) {
+         throw new Error("Failed to login. " + error.message);
       }
-
-      const passwordHashed = await hash(password, 10)
-
-      const admin = await this.repository.loginAdmin(adminEmail.email, passwordHashed);
-      return admin;
    }
 }

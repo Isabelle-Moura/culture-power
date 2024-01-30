@@ -1,12 +1,13 @@
-import { Model } from "mongoose";
-import { IAdmin } from "../model/admin.model.interface";
 import { IAdminRepository } from "./admin.repository.interface";
+import { IAdmin } from "../model/admin.model.interface";
+import { Model } from "mongoose";
 
 export class AdminRepository implements IAdminRepository {
    constructor(private model: Model<IAdmin>) {}
 
    async loginAdmin(email: string, password: string): Promise<IAdmin> {
-      const admin = await this.model.findOne({ email, password });
+      
+      const admin = await this.findAdminEmail(email)
 
       if (!admin) {
          throw new Error("There's no such admin.")
@@ -16,7 +17,7 @@ export class AdminRepository implements IAdminRepository {
    }
 
    async findAdminEmail(email: string): Promise<IAdmin> {
-      const adminEmail = await this.model.findOne({ email });
+      const adminEmail = await this.model.findOne({email: email});
    
       if (!adminEmail) {
          throw new Error("No admin was found by this e-mail.");
