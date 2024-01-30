@@ -1,12 +1,15 @@
 import multer from "multer";
+import { randomUUID } from "crypto"
 
 const storage = multer.diskStorage({
-   destination: (req, file, cb) => {
-      cb(null, "./uploads");
-   },
-   filename: (req, file, cb) => {
-      cb(null, file.originalname);
-   },
+   filename(req, file, callback) {
+      const extension = file.mimetype.split("/")[1]
+      const filename = `${randomUUID()}.${extension}`
+      callback(null, filename)
+    },
+    destination(req, file, callback) {
+      callback(null, "uploads/")
+    }
 });
 
 export const uploadPhotoMiddleware = multer({ storage });

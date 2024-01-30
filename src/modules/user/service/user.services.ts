@@ -1,8 +1,8 @@
 import { UserRepository } from "../repository/user.repository";
 import { CreateUserDto } from "../dto/create-user.dto";
 import { IUser } from "../model/user.model.interface";
-import { hash } from "bcrypt";
 import { IUserService } from "./user.services.interface";
+import { HashBcrypt } from "../../../utils/hasher.bcrypt";
 
 export class UserService implements IUserService {
    constructor(private repository: UserRepository) {}
@@ -18,7 +18,7 @@ export class UserService implements IUserService {
 
       const information: CreateUserDto = {
          ...user,
-         password: await hash(user.password, 10),
+         password: await HashBcrypt.encrypt(user.password),
          photo,
       };
 

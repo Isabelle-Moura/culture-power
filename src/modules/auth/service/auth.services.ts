@@ -3,7 +3,7 @@ import { UserRepository } from "../../user/repository/user.repository";
 import { LoginDTO } from "../dto/auth.dto";
 import jwt from "jsonwebtoken";
 import { AdminRepository } from "../../admin/repository/admin.repository";
-import { HashBcrypt } from "../../admin/utils/hasher.bcrypt";
+import { HashBcrypt } from "../../../utils/hasher.bcrypt";
 
 export class AuthService {
    constructor(private userRepository: UserRepository, private adminRepository: AdminRepository) {}

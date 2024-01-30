@@ -5,11 +5,6 @@ import { userBodyValidator } from "../utils/user-body.validator";
 import { env } from "../../../config/dotenv";
 import jwt from "jsonwebtoken";
 
-/* 
-  FIXME: [ ] Yup's validation only return one kind of message: "Photo is required." even if "Photo" field is fulfilled.
-   TODO: [ ] Create everything in Admin's layer.
-*/
-
 export class UserController implements IUserController {
    constructor(private service: IUserService) {}
 
@@ -35,12 +30,9 @@ export class UserController implements IUserController {
          };
 
          await userBodyValidator(bodyValidation);
-         const user = await this.service.createUser(
-            body,
-            file?.originalname || "default-filename"
-         );
+         const user = await this.service.createUser(body, file?.filename as string);
 
-         const imageUrl = `${env.BASE_URL}:/uploads/${file?.originalname}`;
+         const imageUrl = `${env.BASE_URL}/uploads/${file?.filename}`;
 
          res.status(201).json({
             success: true,
