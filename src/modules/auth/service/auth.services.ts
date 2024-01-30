@@ -1,69 +1,61 @@
-import jwt from "jsonwebtoken";
-import { env } from "../../../config/dotenv";
 import { UserRepository } from "../../user/repository/user.repository";
 import { LoginDTO } from "../dto/auth.dto";
 import { AdminRepository } from "../../admin/repository/admin.repository";
 import { HashBcrypt } from "../../../utils/hasher.bcrypt";
 import { IAuthService } from "./auth.services.interface";
+import { JwtToken } from "../utils/generate.token";
+import { ErrorsResponse } from "../../../utils/errors.response";
 
-export class AuthService implements IAuthService{
-   constructor(private userRepository: UserRepository, private adminRepository: AdminRepository) {}
+export class AuthService implements IAuthService {
+   constructor(
+      private userRepository: UserRepository,
+      private adminRepository: AdminRepository
+   ) {}
 
    async userLogin(data: LoginDTO): Promise<any> {
       try {
          const user = await this.userRepository.findByEmail(data.email);
 
-         if (!user || !(await HashBcrypt.compare(data.password ?? "", user.password))) {
-          return this.invalidCredentialsResponse();
+         if (!user) {
+            return await ErrorsResponse.invalidCredentials();
+         }
+         
+         const password = await HashBcrypt.compare(
+            data.password ?? "",
+            user.password
+         );
+
+         if (!password) {
+            return await ErrorsResponse.invalidCredentials();
          }
 
          const payload = { id: user._id, email: user.email };
-         const token = await this.generateToken(payload);
+         const token = await JwtToken.generateToken(payload);
 
          return { token, user };
       } catch (error) {
-         console.error("Error during user login:", error);
-         return this.errorResponse("Failed to authenticate user");
+         return await ErrorsResponse.unauthorizedAccess();
       }
    }
 
    async adminLogin(data: LoginDTO): Promise<any> {
       try {
          const admin = await this.adminRepository.findAdminEmail(data.email);
+         const password = await HashBcrypt.compare(
+            data.password ?? "",
+            admin.password
+         );
 
-         if (!admin || !(await HashBcrypt.compare(data.password ?? "", admin.password))) {
-            return this.invalidCredentialsResponse();
+         if (!admin || !password) {
+            return await ErrorsResponse.invalidCredentials();
          }
 
          const payload = { id: admin._id, email: admin.email };
-         const token = await this.generateToken(payload);
+         const token = await JwtToken.generateToken(payload);
 
          return { token, admin };
       } catch (error) {
-         console.error("Error during admin login:", error);
-         this.errorResponse("Failed to authenticate admin");
+         return await ErrorsResponse.unauthorizedAccess();
       }
-   }
-
-   private invalidCredentialsResponse() {
-      return {
-         error: true,
-         message: "Invalid credentials",
-         status: 400,
-      };
-   }
-
-   private errorResponse(message: string) {
-      return {
-         error: true,
-         message,
-         status: 500,
-      };
-   }
-   
-   private async generateToken(payload: { id?: string; email: string }) {
-      const secretKey = env.JWT_SECRET_KEY;
-      const options = { expiresIn: "1h" };
-      return jwt.sign(payload, secretKey, options);
    }
 }

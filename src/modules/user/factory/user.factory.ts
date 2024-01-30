@@ -4,7 +4,7 @@ import { UserRepository } from "../repository/user.repository";
 import { UserService } from "../service/user.services";
 
 class UserFactory {
-   static initialize() {
+   static getInstance() {
       const repository = new UserRepository(UserModel);
       const service = new UserService(repository);
       const controller = new UserController(service);
@@ -12,4 +12,4 @@ class UserFactory {
    }
 }
 
-export const userFactory = UserFactory.initialize();
+export const userFactory = UserFactory.getInstance();

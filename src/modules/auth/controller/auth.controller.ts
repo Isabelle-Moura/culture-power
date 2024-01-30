@@ -2,6 +2,7 @@ import { AuthService } from "../service/auth.services";
 import { Request, Response } from "express";
 import { IAuthController } from "./auth.controller.interface";
 import { authBodyValidator } from "../utils/auth-body.validator";
+import { ErrorsResponse } from "../../../utils/errors.response";
 
 export class AuthController implements IAuthController {
    constructor(private service: AuthService) {}
@@ -13,7 +14,7 @@ export class AuthController implements IAuthController {
          const result = await this.service.userLogin(body);
    
          if (!result) {
-           throw new Error("Invalid credentials");
+            await ErrorsResponse.invalidCredentials()
          }
          
          await authBodyValidator(body)
@@ -34,7 +35,7 @@ export class AuthController implements IAuthController {
          const result = await this.service.adminLogin(body);
          
          if (!result) {
-            throw new Error("Invalid credentials");
+            await ErrorsResponse.invalidCredentials()
           }
          
          await authBodyValidator(body)

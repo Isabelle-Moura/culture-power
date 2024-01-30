@@ -44,7 +44,6 @@ export class UserController implements IUserController {
             },
          });
       } catch (error: any) {
-         console.error(error);
          res.status(500).json({
             error: true,
             message: error.message,

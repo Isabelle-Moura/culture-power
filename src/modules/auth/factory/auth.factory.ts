@@ -5,7 +5,7 @@ import { UserRepository } from "../../user/repository/user.repository";
 import { AuthController } from "../controller/auth.controller";
 import { AuthService } from "../service/auth.services";
 
-export class AuthModule {
+class AuthModule {
    static getInstance() {
       const userRepository = new UserRepository(UserModel);
       const adminRepository = new AdminRepository(AdminModel);
@@ -14,3 +14,5 @@ export class AuthModule {
       return { service, controller };
    }
 }
+
+export const authFactory = AuthModule.getInstance();

@@ -3,6 +3,7 @@ import { CreateUserDto } from "../dto/create-user.dto";
 import { IUser } from "../model/user.model.interface";
 import { IUserService } from "./user.services.interface";
 import { HashBcrypt } from "../../../utils/hasher.bcrypt";
+import { ErrorsResponse } from "../../../utils/errors.response";
 
 export class UserService implements IUserService {
    constructor(private repository: UserRepository) {}
@@ -11,9 +12,7 @@ export class UserService implements IUserService {
       const userAlreadyExists = await this.repository.findByEmail(user.email);
 
       if (userAlreadyExists) {
-         throw new Error(
-            "This user already exists. Try putting another credentials."
-         );
+         await ErrorsResponse.invalidCredentials()
       }
 
       const information: CreateUserDto = {
@@ -28,6 +27,11 @@ export class UserService implements IUserService {
 
    async getUserById(userId: string): Promise<IUser | null> {
       const user = await this.repository.getUserById(userId);
+
+      if (!user) {
+         await ErrorsResponse.userNotFound()
+      }
+
       return user;
    }
 }
