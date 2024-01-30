@@ -6,5 +6,5 @@ import { adminRouter } from "../modules/admin/routes/admin.routes";
 export const routes = Router();
 
 routes.use(userRouter); // Every user's routes.
-routes.use(authRouter);
-routes.use(adminRouter)
+routes.use(authRouter); 
+routes.use(adminRouter) // Every admin's routes.

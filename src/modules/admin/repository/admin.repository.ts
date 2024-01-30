@@ -17,7 +17,7 @@ export class AdminRepository implements IAdminRepository {
    }
 
    async findAdminEmail(email: string): Promise<IAdmin> {
-      const adminEmail = await this.model.findOne({email: email});
+      const adminEmail = await this.model.findOne({email});
    
       if (!adminEmail) {
          throw new Error("No admin was found by this e-mail.");
