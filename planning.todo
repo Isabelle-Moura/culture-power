@@ -35,25 +35,23 @@ _1st Part_ - *Planning and Setup*:
           ✔ *modules/* @done(24-01-22 23:45)
            ✔ **admin/** @done(24-01-22 23:45)
              ✔ *controller/* @done(24-01-22 23:45)
-               ☐ `admin.controller.ts`: Controller for admin-related operations.
-               ☐ `admin.controller.interface.ts`: Interface for the admin controller.
-               ☐ `admin.controller.spec.ts`: Tests related to the admin controller.
+               ✔ `admin.controller.ts`: Controller for admin-related operations. @done(24-01-30 12:14)
+               ✔ `admin.controller.interface.ts`: Interface for the admin controller. @done(24-01-30 12:14)
              ✔ *model/* @done(24-01-22 23:45)
-               ☐ `admin.model.ts`: Model for the admin entity.
+               ✔ `admin.model.ts`: Model for the admin entity. @done(24-01-30 12:14)
              ✔ *repository/* @done(24-01-22 23:45)
-               ☐ `admin.repository.ts`: Database access for the admin entity.
-               ☐ `admin.repository.interface.ts`: Interface for the admin repository.
-               ☐ `admin.repository.spec.ts`: Tests related to the admin repository.
+               ✔ `admin.repository.ts`: Database access for the admin entity. @done(24-01-30 12:14)
+               ✔ `admin.repository.interface.ts`: Interface for the admin repository. @done(24-01-30 12:14)
+               ✔ `admin.repository.spec.ts`: Tests related to the admin repository. @done(24-01-30 12:14)
              ✔ *routes/* @done(24-01-22 23:45)
-               ☐ `admin.routes.ts`: Routes related to admins.
+               ✔ `admin.routes.ts`: Routes related to admins. @done(24-01-30 12:14)
              ✔ *factory/* @done(24-01-22 23:45)
-               ☐ `admin.factory.ts`: Layer used to instance all classes.
+               ✔ `admin.factory.ts`: Layer used to instance all classes. @done(24-01-30 12:14)
              ✔ *service/* @done(24-01-22 23:45)
-               ☐ `admin.service.ts`: Use cases related to admins.
-               ☐ `admin.service.interface.ts`: Interface for the admin service.
-               ☐ `admin.service.spec.ts`: Tests related to the admin service.
+               ✔ `admin.service.ts`: Use cases related to admins. @done(24-01-30 12:14)
+               ✔ `admin.service.interface.ts`: Interface for the admin service. @done(24-01-30 12:14)
              ✔ *dto/* @done(24-01-22 23:45)
-               ☐ `admin.dto.ts`: Data Transfer Object (DTO) for admin.
+               ✔ `admin.dto.ts`: Data Transfer Object (DTO) for admin. @done(24-01-30 12:14)
              ✔ **utils/** @done(24-01-22 23:45)
                ☐ `admin-body.validator.ts`: Utility for validations.
          
@@ -61,13 +59,11 @@ _1st Part_ - *Planning and Setup*:
              ✔ *controller/* @done(24-01-22 23:45)
                ☐ `product.controller.ts`: Controller for product-related operations.
                ☐ `product.controller.interface.ts`: Interface for the product controller.
-               ☐ `product.controller.spec.ts`: Tests related to the product controller.
              ✔ *model/* @done(24-01-22 23:45)
                ☐ `product.model.ts`: Model for the product entity.
              ✔ *repository/* @done(24-01-22 23:45)
                ☐ `product.repository.ts`: Database access for the product entity.
                ☐ `product.repository.interface.ts`: Interface for the product repository.
-               ☐ `product.repository.spec.ts`: Tests related to the product repository.
              ✔ *routes/* @done(24-01-22 23:45)
                ☐ `product.routes.ts`: Routes related to products.
              ✔ *factory/* @done(24-01-22 23:45)
@@ -75,7 +71,6 @@ _1st Part_ - *Planning and Setup*:
              ✔ *service/* @done(24-01-22 23:45)
                ☐ `product.service.ts`: Use cases related to products.
                ☐ `product.service.interface.ts`: Interface for the product service.
-               ☐ `product.service.spec.ts`: Tests related to the product service.
              ✔ *dto/* @done(24-01-22 23:45)
                ☐ `product.dto.ts`: Data Transfer Object (DTO) for product.
              ✔ **utils/** @done(24-01-22 23:45)
@@ -106,24 +101,16 @@ _1st Part_ - *Planning and Setup*:
            ✔ *auth/* @done(24-01-22 23:45)
              ✔ *controller/* @done(24-01-22 23:45)
                ✔ `auth.controller.ts`: Controller for authentication-related operations. @done(24-01-28 20:02)
-               ☐ `auth.controller.interface.ts`: Interface for the auth controller.
-               ☐ `auth.controller.spec.ts`: Tests related to the auth controller.
-             ✔ *model/* @done(24-01-22 23:45)
-               ☐ `auth.model.ts`: Model for the authentication entity.
-             ✔ *repository/* @done(24-01-22 23:45)
-               ☐ `auth.repository.ts`: Database access for the authentication entity.
-               ☐ `auth.repository.interface.ts`: Interface for the auth repository.
-               ☐ `auth.repository.spec.ts`: Tests related to the auth repository.
+               ✔ `auth.controller.interface.ts`: Interface for the auth controller. @done(24-01-30 12:15)
              ✔ *routes/* @done(24-01-22 23:45)
-               ☐ `auth.routes.ts`: Routes related to authentication.
+               ✔ `auth.routes.ts`: Routes related to authentication. @done(24-01-30 12:28)
              ✔ *factory/* @done(24-01-22 23:45)
-               ☐ `auth.factory.ts`: Layer used to instance all classes.
+               ✔ `auth.factory.ts`: Layer used to instance all classes. @done(24-01-30 12:28)
              ✔ *service/* @done(24-01-22 23:45)
-               ☐ `auth.service.ts`: Use cases related to authentication.
-               ☐ `auth.service.interface.ts`: Interface for the auth service.
-               ☐ `auth.service.spec.ts`: Tests related to the auth service.
+               ✔ `auth.service.ts`: Use cases related to authentication. @done(24-01-30 12:26)
+               ✔ `auth.service.interface.ts`: Interface for the auth service. @done(24-01-30 12:26)
              ✔ *dto/* @done(24-01-22 23:45)
-               ☐ `auth.dto.ts`: Data Transfer Object (DTO) for authentication.
+               ✔ `auth.dto.ts`: Data Transfer Object (DTO) for authentication. @done(24-01-30 12:26)
              ✔ **utils/** @done(24-01-22 23:45)
                ☐ `auth-body.validator.ts`: Utility for validations.
          
@@ -173,14 +160,14 @@ _1st Part_ - *Planning and Setup*:
             ✔ Do not generate a token if the password sent is not compatible with the one in the database. @done(24-01-28 20:07)
             ✔ Generate a token and return if the credentials are correct. @done(24-01-28 20:07)
  
-        ☐ => Admin Login:
-          ☐ Required Information:
-            ☐ E-mail
-            ☐ Password
-          ☐ Rules: 
-            ☐ Do not generate a token if there is no admin with the email provided.
-            ☐ Do not generate a token if the password sent is not compatible with the one in the database.
-            ☐ Generate a token and return if the credentials are correct.
+        ✔ => Admin Login: @done(24-01-30 12:28)
+          ✔ Required Information: @done(24-01-30 12:28)
+            ✔ E-mail @done(24-01-30 12:28)
+            ✔ Password @done(24-01-30 12:28)
+          ✔ Rules: @done(24-01-30 12:28)
+            ✔ Do not generate a token if there is no admin with the email provided. @done(24-01-30 12:28)
+            ✔ Do not generate a token if the password sent is not compatible with the one in the database. @done(24-01-30 12:28)
+            ✔ Generate a token and return if the credentials are correct. @done(24-01-30 12:28)
 
         ✔ => View Logged In User (PRIVATE ROUTE) @done(24-01-28 20:51)
           ✔ Action: @done(24-01-28 20:51)
@@ -237,9 +224,20 @@ _1st Part_ - *Planning and Setup*:
 /////////////////////////////////////////
 
   _3rd Part_ - *Tests and Adjustments*:
-    ☐ Create all ".spec" file for all layers.
-    ☐ `user.controller.spec.ts`: Tests related to the user controller.
-    ☐ `user.repository.spec.ts`: Tests related to the user repository.
-    ☐ `user.service.spec.ts`: Tests related to the user service.
+   ☐ Create all ".spec" file for all layers.
+      ☐ For user's layer: 
+         ☐ `user.controller.spec.ts`: Tests related to the user controller.
+         ☐ `user.repository.spec.ts`: Tests related to the user repository.
+         ☐ `user.service.spec.ts`: Tests related to the user service.
+      ☐ For admin's layer: 
+         ☐ `admin.controller.spec.ts`: Tests related to the admin controller.
+         ☐ `admin.repository.spec.ts`: Tests related to the admin repository.
+         ☐ `admin.service.spec.ts`: Tests related to the admin service.
+      ☐ For product's layer: 
+         ☐ `product.controller.spec.ts`: Tests related to the product controller.
+         ☐ `product.repository.spec.ts`: Tests related to the product repository.
+         ☐ `product.service.spec.ts`: Tests related to the product service.
+   
+   ☐ Refactor the whole project (probaly has many things to improve)
   _4th Part_ - *Deploy and Documentation*:
     ☐ 

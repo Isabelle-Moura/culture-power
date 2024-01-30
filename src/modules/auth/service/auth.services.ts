@@ -1,25 +1,20 @@
+import jwt from "jsonwebtoken";
 import { env } from "../../../config/dotenv";
 import { UserRepository } from "../../user/repository/user.repository";
 import { LoginDTO } from "../dto/auth.dto";
-import jwt from "jsonwebtoken";
 import { AdminRepository } from "../../admin/repository/admin.repository";
 import { HashBcrypt } from "../../../utils/hasher.bcrypt";
+import { IAuthService } from "./auth.services.interface";
 
-export class AuthService {
+export class AuthService implements IAuthService{
    constructor(private userRepository: UserRepository, private adminRepository: AdminRepository) {}
 
-   private async generateToken(payload: { id?: string; email: string }) {
-      const secretKey = env.JWT_SECRET_KEY;
-      const options = { expiresIn: "1h" };
-      return jwt.sign(payload, secretKey, options);
-   }
-
-   async userLogin(data: LoginDTO) {
+   async userLogin(data: LoginDTO): Promise<any> {
       try {
          const user = await this.userRepository.findByEmail(data.email);
 
          if (!user || !(await HashBcrypt.compare(data.password ?? "", user.password))) {
-            return this.invalidCredentialsResponse();
+          return this.invalidCredentialsResponse();
          }
 
          const payload = { id: user._id, email: user.email };
@@ -32,7 +27,7 @@ export class AuthService {
       }
    }
 
-   async adminLogin(data: LoginDTO) {
+   async adminLogin(data: LoginDTO): Promise<any> {
       try {
          const admin = await this.adminRepository.findAdminEmail(data.email);
 
@@ -46,7 +41,7 @@ export class AuthService {
          return { token, admin };
       } catch (error) {
          console.error("Error during admin login:", error);
-         return this.errorResponse("Failed to authenticate admin");
+         this.errorResponse("Failed to authenticate admin");
       }
    }
 
@@ -64,5 +59,11 @@ export class AuthService {
          message,
          status: 500,
       };
+   }
+   
+   private async generateToken(payload: { id?: string; email: string }) {
+      const secretKey = env.JWT_SECRET_KEY;
+      const options = { expiresIn: "1h" };
+      return jwt.sign(payload, secretKey, options);
    }
 }

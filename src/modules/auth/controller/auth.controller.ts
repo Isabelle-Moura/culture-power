@@ -1,29 +1,51 @@
 import { AuthService } from "../service/auth.services";
 import { Request, Response } from "express";
+import { IAuthController } from "./auth.controller.interface";
+import { authBodyValidator } from "../utils/auth-body.validator";
 
-export class AuthController {
+export class AuthController implements IAuthController {
    constructor(private service: AuthService) {}
 
-   async userLogin(req: Request, res: Response) {
-      const { body } = req;
-
-      const result = await this.service.userLogin(body);
-      if ("error" in result) {
-         return res.status((result as { status: number }).status).json(result);
-      }
-
-      return res.json(result);
+   async userLogin(req: Request, res: Response): Promise<void> {
+      try {
+         const { body } = req;
+   
+         const result = await this.service.userLogin(body);
+   
+         if (!result) {
+           throw new Error("Invalid credentials");
+         }
+         
+         await authBodyValidator(body)
+         res.status(200).json(result);
+      } catch (error: any) {
+         res.status(500).json({
+            error: true,
+            message: error.message,
+            status: 500,
+         });
+      }   
    }
 
-   async adminLogin(req: Request, res: Response) {
-      const { body } = req;
+   async adminLogin(req: Request, res: Response): Promise<void> {
+      try {
+         const { body } = req;
+   
+         const result = await this.service.adminLogin(body);
+         
+         if (!result) {
+            throw new Error("Invalid credentials");
+          }
+         
+         await authBodyValidator(body)
+         res.status(200).json(result);
 
-      const result = await this.service.adminLogin(body);
-
-      if ("error" in result) {
-         return res.status((result as { status: number }).status).json(result);
-      }
-
-      return res.json(result);
+      } catch (error: any) {
+         res.status(500).json({
+            error: true,
+            message: error.message,
+            status: 500,
+         });
+      }   
    }
 }
