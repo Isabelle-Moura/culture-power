@@ -30,7 +30,10 @@ export class UserController implements IUserController {
          };
 
          await userBodyValidator(bodyValidation);
-         const user = await this.service.createUser(body, file?.filename as string);
+         const user = await this.service.createUser(
+            body,
+            file?.filename as string
+         );
 
          const imageUrl = `${env.BASE_URL}/uploads/${file?.filename}`;
 
@@ -54,10 +57,6 @@ export class UserController implements IUserController {
    async getUserById(req: Request, res: Response): Promise<void> {
       try {
          const { authorization } = req.headers;
-
-         if (!authorization) {
-            res.status(401).json({ message: "Unauthorized" });
-         }
 
          const [, token] = authorization?.split(" ") || [];
 

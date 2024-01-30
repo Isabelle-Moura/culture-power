@@ -1,10 +1,10 @@
 import { UserRepository } from "../../user/repository/user.repository";
 import { LoginDTO } from "../dto/auth.dto";
 import { AdminRepository } from "../../admin/repository/admin.repository";
-import { HashBcrypt } from "../../../utils/hasher.bcrypt";
+import { HashBcrypt } from "../../../utils/bcrypt/hasher.bcrypt";
 import { IAuthService } from "./auth.services.interface";
 import { JwtToken } from "../utils/generate.token";
-import { ErrorsResponse } from "../../../utils/errors.response";
+import { ErrorsResponse } from "../../../utils/errors/errors.response";
 
 export class AuthService implements IAuthService {
    constructor(
@@ -19,7 +19,7 @@ export class AuthService implements IAuthService {
          if (!user) {
             return await ErrorsResponse.invalidCredentials();
          }
-         
+
          const password = await HashBcrypt.compare(
             data.password ?? "",
             user.password

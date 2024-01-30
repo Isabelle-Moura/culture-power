@@ -1,11 +1,13 @@
 import mongoose, { Schema } from "mongoose";
 import { IAdmin } from "./admin.model.interface";
+import { UserRole } from "../../../enum/roles";
 
 const adminSchema = new Schema<IAdmin>(
    {
       name: { type: String },
       email: { type: String, required: true, unique: true },
       password: { type: String, required: true },
+      role: { type: String, enum: Object.values(UserRole), default: UserRole.ADMIN },
    },
    { timestamps: true }
 );
