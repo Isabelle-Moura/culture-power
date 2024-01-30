@@ -9,6 +9,9 @@ const userSchema = new Schema<IUser>(
       password: { type: String, required: true },
       photo: { type: String, required: true },
       role: { type: String, enum: Object.values(UserRole), default: UserRole.USER },
+      jewelsAmount: { type: [Number] },
+      products: { type: [Schema.Types.ObjectId], ref: "Product" },
+      favoriteProducts: { type: [Schema.Types.ObjectId], ref: "Product" },
    },
    { timestamps: true }
 );
