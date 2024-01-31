@@ -13,8 +13,13 @@ export class ProductService implements IProductService {
       return this.repository.findById(productId);
    }
 
-   async createProduct(product: IProduct): Promise<IProduct> {
-      return this.repository.createProduct(product);
+   async createProduct(product: IProduct, photo: string): Promise<IProduct> {
+      const information: IProduct = {
+         ...product,
+         photo,
+      }
+
+      return this.repository.createProduct(information);
    }
 
    async updateProduct(productId: string, newData: IProduct): Promise<IProduct | null> {

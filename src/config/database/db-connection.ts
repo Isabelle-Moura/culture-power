@@ -4,7 +4,6 @@ import { env } from "../dotenv";
 export class MongoConnection {
    static async connect() {
       try {
-         console.log(env.MONGO_URL);
          mongoose.connection.on("open", () =>
             console.log("MongoDB's connection made successfully! Welcome!✅✨")
          );

@@ -9,7 +9,7 @@ export class ProductRepository implements IProductRepository {
    }
 
    async findAllAvailableProducts(): Promise<IProduct[]> {
-      return this.model.find({ amount: { $gt: 0 } });
+      return this.model.find({ quantity: { $gt: 0 } });
    }
 
    async createProduct(product: IProduct): Promise<IProduct> {

@@ -21,15 +21,14 @@ export class UserService implements IUserService {
          photo,
       };
 
-      const result = await this.repository.createUser(information);
-      return result;
+      return await this.repository.createUser(information);
    }
 
    async getUserById(userId: string): Promise<IUser | null> {
       const user = await this.repository.getUserById(userId);
 
       if (!user) {
-         await ErrorsResponse.userNotFound();
+         await ErrorsResponse.notFound();
       }
 
       return user;
