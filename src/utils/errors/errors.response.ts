@@ -7,7 +7,7 @@ export class ErrorsResponse {
       };
    }
 
-   static userNotFound(): any {
+   static notFound(): any {
       return {
          error: true,
          message: "User not found",
