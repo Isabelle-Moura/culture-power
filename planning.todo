@@ -1,9 +1,9 @@
 🚀 Culture Power - Third Module's Back-End Project Planning 🚀:
 
 👉 What is this project about? Is a game-changing application for a company.
-👉 Starting at = 22/01/24 at 4:13pm (GMT-4).
+👉 Starting at = 24/01/22 at 4:13pm (GMT-4).
 👉 Finishing at = 
-👉 Final date to project's delivering: 18/02/24 at 11:59pm (GMT-3).
+👉 Final date to project's delivering: 24/02/18 at 11:59pm (GMT-3).
 
 ///////////////////////////////////////
 
@@ -11,7 +11,7 @@ _1st Part_ - *Planning and Setup*:
   1. First things first:
     ✔ Make repository called: project-module-3. @done(24-01-22 21:50)
     ✔ Make all the "Starting the project" part. @done(24-01-22 21:51)
-    ☐ Make all the "Structuring the project:" part.
+    ✔ Make all the "Structuring the project:" part. @done(24-01-31 13:55)
 
   2. Starting the project:
     1. Development's Environment:
@@ -53,28 +53,28 @@ _1st Part_ - *Planning and Setup*:
              ✔ *dto/* @done(24-01-22 23:45)
                ✔ `admin.dto.ts`: Data Transfer Object (DTO) for admin. @done(24-01-30 12:14)
              ✔ **utils/** @done(24-01-22 23:45)
-               ☐ `admin-body.validator.ts`: Utility for validations.
+               ✔ `admin-body.validator.ts`: Utility for validations. @done(24-01-31 13:52)
          
            ✔ **product/** @done(24-01-22 23:45)
              ✔ *controller/* @done(24-01-22 23:45)
-               ☐ `product.controller.ts`: Controller for product-related operations.
-               ☐ `product.controller.interface.ts`: Interface for the product controller.
+               ✔ `product.controller.ts`: Controller for product-related operations. @done(24-01-31 13:51)
+               ✔ `product.controller.interface.ts`: Interface for the product controller. @done(24-01-31 13:51)
              ✔ *model/* @done(24-01-22 23:45)
-               ☐ `product.model.ts`: Model for the product entity.
+               ✔ `product.model.ts`: Model for the product entity. @done(24-01-31 13:51)
              ✔ *repository/* @done(24-01-22 23:45)
-               ☐ `product.repository.ts`: Database access for the product entity.
-               ☐ `product.repository.interface.ts`: Interface for the product repository.
+               ✔ `product.repository.ts`: Database access for the product entity. @done(24-01-31 13:51)
+               ✔ `product.repository.interface.ts`: Interface for the product repository. @done(24-01-31 13:51)
              ✔ *routes/* @done(24-01-22 23:45)
-               ☐ `product.routes.ts`: Routes related to products.
+               ✔ `product.routes.ts`: Routes related to products. @done(24-01-31 13:51)
              ✔ *factory/* @done(24-01-22 23:45)
-               ☐ `product.factory.ts`: Layer used to instance all classes.
+               ✔ `product.factory.ts`: Layer used to instance all classes. @done(24-01-31 13:52)
              ✔ *service/* @done(24-01-22 23:45)
-               ☐ `product.service.ts`: Use cases related to products.
-               ☐ `product.service.interface.ts`: Interface for the product service.
+               ✔ `product.service.ts`: Use cases related to products. @done(24-01-31 13:52)
+               ✔ `product.service.interface.ts`: Interface for the product service. @done(24-01-31 13:52)
              ✔ *dto/* @done(24-01-22 23:45)
-               ☐ `product.dto.ts`: Data Transfer Object (DTO) for product.
+               ✔ `product.dto.ts`: Data Transfer Object (DTO) for product. @done(24-01-31 13:52)
              ✔ **utils/** @done(24-01-22 23:45)
-               ☐ `product-body.validator.ts`: Utility for validations.
+               ✔ `product-body.validator.ts`: Utility for validations. @done(24-01-31 13:52)
          
            ✔ **user/** @done(24-01-22 23:45)
              ✔ *controller/* @done(24-01-22 23:45)
@@ -112,7 +112,7 @@ _1st Part_ - *Planning and Setup*:
              ✔ *dto/* @done(24-01-22 23:45)
                ✔ `auth.dto.ts`: Data Transfer Object (DTO) for authentication. @done(24-01-30 12:26)
              ✔ **utils/** @done(24-01-22 23:45)
-               ☐ `auth-body.validator.ts`: Utility for validations.
+               ✔ `auth-body.validator.ts`: Utility for validations. @done(24-01-31 13:51)
          
           ✔ *routes/* @done(24-01-22 23:44)
             ✔ `routes.ts`: Used to keep all routes in the application. @done(24-01-22 23:44)
@@ -134,8 +134,8 @@ _1st Part_ - *Planning and Setup*:
         ✔ Make connection with MongoDB. @done(24-01-23 22:53)
         ✔ Initialize server with Express. @done(24-01-23 22:53)
         ✔ Prepare all environment variables: MONGO_URL - JWT_TOKEN - PORT - BASE_URL @done(24-01-22 21:56)
-        ☐ Make all models in application.
-        ☐ Make all the layers inside every model.
+        ✔ Make all models in application. @done(24-01-31 13:51)
+        ✔ Make all the layers inside every model. @done(24-01-31 13:51)
 
 /////////////////////////////////////////
 
@@ -173,45 +173,45 @@ _1st Part_ - *Planning and Setup*:
           ✔ Action: @done(24-01-28 20:51)
             ✔ Return the logged in user's data. @done(24-01-28 20:51)
 
-        ☐ => Product Registration (PRIVATE ROUTE - ADMIN)
-          ☐ Required Information:
-            ☐ Name
-            ☐ Value
-            ☐ Quantity
-            ☐ Description
-            ☐ Photo
-          ☐ Rules:
+        ✔ => Product Registration (PRIVATE ROUTE - ADMIN) @done(24-01-31 13:50)
+          ✔ Required Information: @done(24-01-31 13:50)
+            ✔ Name @done(24-01-31 13:50)
+            ✔ Value @done(24-01-31 13:50)
+            ✔ Quantity @done(24-01-31 13:50)
+            ✔ Description @done(24-01-31 13:50)
+            ✔ Photo @done(24-01-31 13:50)
+          ✔ Rules: @done(24-01-31 13:50)
             ☐ Do not allow sending if the user performing the action is not an administrator.
 
-        ☐ => Product Editing (PRIVATE ROUTE - ADMIN)
-          ☐ Required Information:
-            ☐ Name
-            ☐ Value
-            ☐ Quantity
-            ☐ Description
-            ☐ Photo
-          ☐ Rules:
+        ✔ => Product Editing (PRIVATE ROUTE - ADMIN) @done(24-01-31 13:50)
+          ✔ Required Information: @done(24-01-31 13:50)
+            ✔ Name @done(24-01-31 13:50)
+            ✔ Value @done(24-01-31 13:50)
+            ✔ Quantity @done(24-01-31 13:50)
+            ✔ Description @done(24-01-31 13:50)
+            ✔ Photo @done(24-01-31 13:50)
+          ✔ Rules: @done(24-01-31 13:50)
             ☐ Do not allow sending if the user performing the action is not an administrator.
 
-        ☐ => List All Products (PRIVATE ROUTE)
-          ☐ Rules:
-            ☐ Must list products with a quantity greater than 0.
+        ✔ => List All Products (PRIVATE ROUTE) @done(24-01-31 13:50)
+          ✔ Rules: @done(24-01-31 13:50)
+            ✔ Must list products with a quantity greater than 0. @done(24-01-31 13:50)
 
-        ☐ => Search Product by ID (PRIVATE ROUTE)
-          ☐ Required Information:
-            ☐ ID
-          ☐ Action:
-            ☐ Should return the product if found.
+        ✔ => Search Product by ID (PRIVATE ROUTE) @done(24-01-31 13:50)
+          ✔ Required Information: @done(24-01-31 13:50)
+            ✔ ID @done(24-01-31 13:50)
+          ✔ Action: @done(24-01-31 13:51)
+            ✔ Should return the product if found. @done(24-01-31 13:51)
 
-        ☐ => Send Jewel to User (PRIVATE ROUTE - ADMIN)
-          ☐ Required Information:
-            ☐ Jewel Quantity
-            ☐ User ID
-          ☐ Rules:
-            ☐ Do not allow sending if the user does not exist.
+        ✔ => Send Jewel to User (PRIVATE ROUTE - ADMIN) @done(24-01-31 15:12)
+          ✔ Required Information: @done(24-01-31 15:12)
+            ✔ Jewel Quantity @done(24-01-31 15:12)
+            ✔ User ID @done(24-01-31 15:12)
+          ✔ Rules: @done(24-01-31 15:12)
+            ✔ Do not allow sending if the user does not exist. @done(24-01-31 15:12)
             ☐ Do not allow sending if the user performing the action is not an administrator.
 
-        ☐ => Redeem Product (PRIVATE ROUTE)
+        ☐ => Redeem Product (PRIVATE ROUTE) 
           ☐ Required Information
             ☐ Product ID
             ☐ User ID

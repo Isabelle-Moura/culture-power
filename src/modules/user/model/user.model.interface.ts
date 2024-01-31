@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import { UserRole } from "../../../enum/roles";
 import { IProduct } from "../../product/model/product.model.interface";
 
@@ -9,6 +10,6 @@ export interface IUser extends Document {
    photo: string;
    role: UserRole;
    jewelsAmount: number[];
-   products: IProduct[];
-   favoriteProducts: IProduct[];
+   products: mongoose.Types.ObjectId[];
+   favoriteProducts: mongoose.Types.ObjectId[];
 }
