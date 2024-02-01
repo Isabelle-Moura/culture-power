@@ -17,6 +17,16 @@ export class AdminRepository implements IAdminRepository {
       return adminEmail;
    }
 
+   async getAdminById(id: string): Promise<IAdmin> {
+      const admin = await this.model.findById(id);
+
+      if (!admin) {
+         return await ErrorsResponse.notFound();
+      }
+
+      return admin
+   }
+
    async sendJewelsToUser(userId: string) {
       const user = await this.userModel.findById(userId);
    

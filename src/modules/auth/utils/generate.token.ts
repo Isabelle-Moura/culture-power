@@ -7,4 +7,9 @@ export class JwtToken {
       const options = { expiresIn: "1h" };
       return jwt.sign(payload, secretKey, options);
    }
+
+   static async verifyToken(token: string) {
+      const secretKey = env.JWT_SECRET_KEY;
+      return jwt.verify(token, secretKey);
+   }
 }

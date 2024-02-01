@@ -30,4 +30,12 @@ export class ErrorsResponse {
          status,
       };
    }
+
+   static forbiddenToUsers(): any {
+      return {
+         error: true,
+         message: "Only admins can perform this action.",
+         status: 403,
+      }
+   }
 }
