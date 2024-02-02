@@ -1,9 +1,10 @@
 import { Model } from "mongoose";
 import { IProduct } from "../model/product.model.interface";
 import { IProductRepository } from "./product.repository.interface";
+import { IUser } from "../../user/model/user.model.interface";
 
 export class ProductRepository implements IProductRepository {
-   constructor(private model: Model<IProduct>) {}
+   constructor(private model: Model<IProduct>, private userModel: Model<IUser>) {}
    async findById(productId: string): Promise<IProduct | null> {
       return this.model.findById(productId);
    }
@@ -20,5 +21,12 @@ export class ProductRepository implements IProductRepository {
       return this.model.findByIdAndUpdate(productId, {
          $set: newData,
       });
+   }
+
+   async redeemProduct(userId: string, productId: string): Promise<any> {
+      const user = await this.userModel.findById(userId);
+      const product = await this.model.findById(productId);
+
+      return { user, product }
    }
 }

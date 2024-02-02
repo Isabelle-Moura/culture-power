@@ -5,4 +5,5 @@ export interface IProductRepository {
    findAllAvailableProducts(): Promise<IProduct[]>;
    createProduct(product: IProduct): Promise<IProduct>;
    updateProduct(productId: string, newData: IProduct): Promise<IProduct | null>;
+   redeemProduct(userId: string, productId: string): Promise<any>;
 }

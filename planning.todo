@@ -181,7 +181,7 @@ _1st Part_ - *Planning and Setup*:
             ✔ Description @done(24-01-31 13:50)
             ✔ Photo @done(24-01-31 13:50)
           ✔ Rules: @done(24-01-31 13:50)
-            ☐ Do not allow sending if the user performing the action is not an administrator.
+            ✔ Do not allow sending if the user performing the action is not an administrator. @done(24-02-02 12:10)
 
         ✔ => Product Editing (PRIVATE ROUTE - ADMIN) @done(24-01-31 13:50)
           ✔ Required Information: @done(24-01-31 13:50)
@@ -191,7 +191,7 @@ _1st Part_ - *Planning and Setup*:
             ✔ Description @done(24-01-31 13:50)
             ✔ Photo @done(24-01-31 13:50)
           ✔ Rules: @done(24-01-31 13:50)
-            ☐ Do not allow sending if the user performing the action is not an administrator.
+            ✔ Do not allow sending if the user performing the action is not an administrator. @done(24-02-02 12:10)
 
         ✔ => List All Products (PRIVATE ROUTE) @done(24-01-31 13:50)
           ✔ Rules: @done(24-01-31 13:50)
@@ -209,7 +209,7 @@ _1st Part_ - *Planning and Setup*:
             ✔ User ID @done(24-01-31 15:12)
           ✔ Rules: @done(24-01-31 15:12)
             ✔ Do not allow sending if the user does not exist. @done(24-01-31 15:12)
-            ☐ Do not allow sending if the user performing the action is not an administrator.
+            ✔ Do not allow sending if the user performing the action is not an administrator. @done(24-02-02 12:10)
 
         ☐ => Redeem Product (PRIVATE ROUTE) 
           ☐ Required Information

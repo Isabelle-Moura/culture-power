@@ -1,4 +1,11 @@
 export class ErrorsResponse {
+   static insufficientFunds(): any {
+      return {
+         error: true,
+         message: "Insufficient funds",
+         status: 400,
+      };
+   }
    static invalidCredentials(): any {
       return {
          error: true,
