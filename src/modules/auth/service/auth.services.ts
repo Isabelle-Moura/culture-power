@@ -3,7 +3,7 @@ import { LoginDTO } from "../dto/auth.dto";
 import { AdminRepository } from "../../admin/repository/admin.repository";
 import { HashBcrypt } from "../../../utils/bcrypt/hasher.bcrypt";
 import { IAuthService } from "./auth.services.interface";
-import { JwtToken } from "../utils/generate.token";
+import { JwtToken } from "../utils/jwt";
 import { ErrorsResponse } from "../../../utils/errors/errors.response";
 
 export class AuthService implements IAuthService {
@@ -29,7 +29,7 @@ export class AuthService implements IAuthService {
             return await ErrorsResponse.invalidCredentials();
          }
 
-         const payload = { id: user._id, email: user.email };
+         const payload = { id: user._id, email: user.email, role: user.role };
          const token = await JwtToken.generateToken(payload);
 
          return { token, user };
@@ -50,7 +50,7 @@ export class AuthService implements IAuthService {
             return await ErrorsResponse.invalidCredentials();
          }
 
-         const payload = { id: admin._id, email: admin.email };
+         const payload = { id: admin._id, email: admin.email, role: admin.role };
          const token = await JwtToken.generateToken(payload);
 
          return { token, admin };

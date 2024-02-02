@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import { adminFactory } from '../factory/admin.factory'
-import { isAdmin } from '../../../middlewares/isAdmin'
+import { isAdminMiddleware } from '../../../middlewares/is-admin.middleware'
 
 export const adminRouter = Router()
 
-adminRouter.post("/admin/send-jewel/:id", isAdmin, adminFactory.sendJewelsToUser.bind(adminFactory))
+adminRouter.post("/admin/send-jewel/:id", isAdminMiddleware, adminFactory.sendJewelsToUser.bind(adminFactory))
