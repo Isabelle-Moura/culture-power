@@ -5,47 +5,47 @@ import { authBodyValidator } from "../utils/auth-body.validator";
 import { ErrorsResponse } from "../../../utils/errors/errors.response";
 
 export class AuthController implements IAuthController {
-   constructor(private service: AuthService) {}
+  constructor(private service: AuthService) {}
 
-   async userLogin(req: Request, res: Response): Promise<void> {
-      try {
-         const { body } = req;
+  async userLogin(req: Request, res: Response): Promise<void> {
+    try {
+      const { body } = req;
 
-         const result = await this.service.userLogin(body);
+      const result = await this.service.userLogin(body);
 
-         if (!result) {
-            await ErrorsResponse.invalidCredentials();
-         }
-
-         await authBodyValidator(body);
-         res.status(200).json(result);
-      } catch (error: any) {
-         res.status(500).json({
-            error: true,
-            message: error.message,
-            status: 500,
-         });
+      if (!result) {
+        await ErrorsResponse.invalidCredentials();
       }
-   }
 
-   async adminLogin(req: Request, res: Response): Promise<void> {
-      try {
-         const { body } = req;
+      await authBodyValidator(body);
+      res.status(200).json(result);
+    } catch (error: any) {
+      res.status(500).json({
+        error: true,
+        message: error.message,
+        status: 500,
+      });
+    }
+  }
 
-         const result = await this.service.adminLogin(body);
+  async adminLogin(req: Request, res: Response): Promise<void> {
+    try {
+      const { body } = req;
 
-         if (!result) {
-            await ErrorsResponse.invalidCredentials();
-         }
+      const result = await this.service.adminLogin(body);
 
-         await authBodyValidator(body);
-         res.status(200).json(result);
-      } catch (error: any) {
-         res.status(500).json({
-            error: true,
-            message: error.message,
-            status: 500,
-         });
+      if (!result) {
+        await ErrorsResponse.invalidCredentials();
       }
-   }
+
+      await authBodyValidator(body);
+      res.status(200).json(result);
+    } catch (error: any) {
+      res.status(500).json({
+        error: true,
+        message: error.message,
+        status: 500,
+      });
+    }
+  }
 }
