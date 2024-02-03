@@ -1,7 +1,7 @@
 import express from "express";
 import { userFactory } from "../factory/user.factory";
 import { uploadPhotoMiddleware } from "../../../middlewares/upload-photo.middleware";
-import { checkAuthorization } from "../../../middlewares/check-authorization.middleware";
+import { checkAuthorization } from "../../../middlewares/authenticateToken";
 
 export const userRouter = express.Router();
 

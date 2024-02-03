@@ -1,3 +1,4 @@
+import { IUser } from "../../user/model/user.model.interface";
 import { IProduct } from "../model/product.model.interface";
 
 export interface IProductRepository {
@@ -5,5 +6,5 @@ export interface IProductRepository {
    findAllAvailableProducts(): Promise<IProduct[]>;
    createProduct(product: IProduct): Promise<IProduct>;
    updateProduct(productId: string, newData: IProduct): Promise<IProduct | null>;
-   redeemProduct(userId: string, productId: string): Promise<any>;
+   redeemProduct(userId: IUser, productId: IProduct): Promise<any>;
 }

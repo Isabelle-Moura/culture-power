@@ -19,7 +19,7 @@ export class ProductService implements IProductService {
       const information: IProduct = {
          ...product,
          photo,
-      }
+      };
 
       return this.repository.createProduct(information);
    }
@@ -31,29 +31,17 @@ export class ProductService implements IProductService {
    async redeemProduct(userId: string, productId: string): Promise<IProduct | null> {
       const user = await this.userRepository.getUserById(userId);
       const product = await this.repository.findById(productId);
-  
+
       if (!user || !product) {
-        return ErrorsResponse.notFound(); // Retorna o erro, sem a necessidade de usar await
+         throw ErrorsResponse.notFound();
       }
-  
-      if (user.jewelsAmount < product.value) {
-        return ErrorsResponse.insufficientFunds(); // Retorna o erro, sem a necessidade de usar await
+
+      if (user.jewelsAmount.length < product.value) {
+         throw ErrorsResponse.insufficientFunds();
       }
-  
-      // Atualiza a quantidade de gemas do usuário
-      user.jewelsAmount -= product.value;
-  
-      // Atualiza o array de produtos do usuário
-      user.products.push(product._id);
-  
-      // Atualiza a quantidade do produto
-      product.quantity -= 1;
-  
-      // Salva as alterações no banco de dados
+
       const redeemedProduct = await this.repository.redeemProduct(user, product);
-      //WIP: Parei aqui.
-      
-      // Retorna o produto resgatado
+
       return redeemedProduct;
-    }
- }
+   }
+}

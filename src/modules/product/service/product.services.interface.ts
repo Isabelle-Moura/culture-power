@@ -5,4 +5,5 @@ export interface IProductService {
    getProductById(productId: string): Promise<IProduct | null>;
    createProduct(product: IProduct, photo: string): Promise<IProduct>;
    updateProduct(productId: string, newData: IProduct): Promise<IProduct | null>;
+   redeemProduct(userId: string, productId: string): Promise<IProduct | null>;
 }

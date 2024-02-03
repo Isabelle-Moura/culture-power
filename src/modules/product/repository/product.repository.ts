@@ -23,10 +23,29 @@ export class ProductRepository implements IProductRepository {
       });
    }
 
-   async redeemProduct(userId: string, productId: string): Promise<any> {
-      const user = await this.userModel.findById(userId);
-      const product = await this.model.findById(productId);
+   async redeemProduct(user: IUser, product: IProduct): Promise<any> {
+      try {
+         const updateUser = await this.userModel.updateOne(
+            { _id: user._id },
+            {
+               $push: { products: product._id },
+               $inc: { jewelsAmount: -product.value },
+            }
+         );
 
-      return { user, product }
+         const updateProduct = await this.model.updateOne(
+            { _id: product._id },
+            {
+               $inc: { quantity: -1 },
+            }
+         );
+
+         if (updateUser && updateProduct) {
+            return product;
+         }
+      } catch (error) {
+         console.error("Error redeeming product:", error);
+         return null;
+      }
    }
 }

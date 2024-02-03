@@ -8,7 +8,7 @@ export interface IUser extends Document {
    password: string;
    photo: string;
    role: UserRole;
-   jewelsAmount: number;
+   jewelsAmount: number[];
    products: mongoose.Types.ObjectId[];
    favoriteProducts: mongoose.Types.ObjectId[];
 }
