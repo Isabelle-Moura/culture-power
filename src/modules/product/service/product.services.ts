@@ -31,12 +31,14 @@ export class ProductService implements IProductService {
    async redeemProduct(userId: string, productId: string): Promise<IProduct | null> {
       const user = await this.userRepository.getUserById(userId);
       const product = await this.repository.findById(productId);
+      console.log("User:", user);
+      console.log("Product:", product);
 
       if (!user || !product) {
          throw ErrorsResponse.notFound();
       }
 
-      if (user.jewelsAmount.length < product.value) {
+      if (user.jewelsAmount < product.value) {
          throw ErrorsResponse.insufficientFunds();
       }
 

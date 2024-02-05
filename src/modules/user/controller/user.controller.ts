@@ -30,10 +30,7 @@ export class UserController implements IUserController {
          };
 
          await userBodyValidator(bodyValidation);
-         const user = await this.service.createUser(
-            body,
-            file?.filename as string
-         );
+         const user = await this.service.createUser(body, file?.filename as string);
 
          const imageUrl = `${env.BASE_URL}/uploads/${file?.filename}`;
 
@@ -60,10 +57,7 @@ export class UserController implements IUserController {
 
          const [, token] = authorization?.split(" ") || [];
 
-         const decodeToken: any = jwt.decode(
-            token as any,
-            env.JWT_SECRET_KEY as any
-         );
+         const decodeToken: any = jwt.decode(token as any, env.JWT_SECRET_KEY as any);
 
          const userId = decodeToken?.id;
 

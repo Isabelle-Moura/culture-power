@@ -4,6 +4,7 @@ import { ErrorsResponse } from "../../../utils/errors/errors.response";
 import { env } from "../../../config/dotenv";
 import { productBodyValidator } from "../utils/product-body.validator";
 import { IUserService } from "../../user/service/user.services.interface";
+import { JwtToken } from "../../auth/utils/jwt";
 
 export class ProductController {
    constructor(private service: IProductService, private userService: IUserService) {}
@@ -96,20 +97,27 @@ export class ProductController {
 
    async redeemProduct(req: Request, res: Response) {
       try {
-         const userIdFromToken = req.body.user._id;
+         const token: any = req.headers["authorization"]?.split(" ")[1];
          const { productId } = req.params;
+         console.log("Token:", token);
+         console.log("ProductId:", productId);
 
-         if (!userIdFromToken || !productId) {
+         const decodedToken: any = await JwtToken.verifyToken(token);
+         const userId = decodedToken.id;
+         console.log("Id do Token:", userId);
+
+         if (!userId || !productId) {
             throw ErrorsResponse.customError("It was not possible to redeem the product", 500);
          }
 
-         const redeemedProduct = await this.service.redeemProduct(userIdFromToken, productId);
+         const redeemedProduct = await this.service.redeemProduct(userId, productId);
+         console.log("Redeemed Product:", redeemedProduct);
 
          if (!redeemedProduct) {
             throw ErrorsResponse.customError("Failed to redeem the product", 500);
          }
 
-         const updatedUser = await this.userService.getUserById(userIdFromToken);
+         const updatedUser = await this.userService.getUserById(userId);
 
          if (!updatedUser) {
             throw ErrorsResponse.customError("Failed to get updated user information", 500);
