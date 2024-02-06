@@ -1,4 +1,5 @@
 import { ErrorsResponse } from "../../../utils/errors/errors.response";
+import { IUser } from "../../user/model/user.model.interface";
 import { IUserRepository } from "../../user/repository/user.repository.interface";
 import { IProduct } from "../model/product.model.interface";
 import { IProductRepository } from "../repository/product.repository.interface";
@@ -7,11 +8,11 @@ import { IProductService } from "./product.services.interface";
 export class ProductService implements IProductService {
    constructor(private repository: IProductRepository, private userRepository: IUserRepository) {}
 
-   async getAllProducts(): Promise<IProduct[]> {
+   async findAllAvailableProducts(): Promise<IProduct[]> {
       return this.repository.findAllAvailableProducts();
    }
 
-   async getProductById(productId: string): Promise<IProduct | null> {
+   async findById(productId: string): Promise<IProduct | null> {
       return this.repository.findById(productId);
    }
 
@@ -28,9 +29,9 @@ export class ProductService implements IProductService {
       return this.repository.updateProduct(productId, newData);
    }
 
-   async redeemProduct(userId: string, productId: string): Promise<IProduct | null> {
-      const user = await this.userRepository.getUserById(userId);
-      const product = await this.repository.findById(productId);
+   async redeemProduct(userId: IUser | string, productId: IProduct | string): Promise<IProduct | null> {
+      const user = await this.userRepository.getUserById(userId as unknown as string);
+      const product = await this.repository.findById(productId as unknown as string);
       console.log("User:", user);
       console.log("Product:", product);
 

@@ -11,7 +11,7 @@ export const fakeUserService = {
    findByEmail() {
       return Promise.resolve(fakeUser);
    },
-   create() {
+   createUser() {
       return Promise.resolve(fakeUser);
    },
 } as unknown as IUserService;

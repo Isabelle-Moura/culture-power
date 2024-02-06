@@ -6,7 +6,7 @@ export const fakeUserModel = {
   find: vitest.fn().mockImplementation(() => fakeUsersArray),
   findOne: vitest.fn().mockImplementation(() => fakeUser),
   create: vitest.fn().mockImplementation(() => fakeUser),
-  findByIdAndUpdate: vitest.fn().mockImplementation(() => fakeUser),
+  findById: vitest.fn().mockImplementation(() => fakeUser),
 } as unknown as Model<IUser>;
 
 export const fakeUsersArray = [
@@ -17,7 +17,7 @@ export const fakeUsersArray = [
     password: "hamster",
     photo: "test.png",
     role: "user",
-    jewelsAmount: 0,
+    jewelsAmount: 15,
     products: [],
     favoriteProducts: [],
   },
@@ -43,6 +43,6 @@ export const fakeUsersArray = [
     products: [],
     favoriteProducts: [],
   },
-];
+]
 
 export const fakeUser = fakeUsersArray[0];
