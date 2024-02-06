@@ -8,7 +8,15 @@ import { IUserRepository } from "../repository/user.repository.interface";
 export class UserService implements IUserService {
    constructor(private repository: IUserRepository) {}
 
-   async createUser(user: CreateUserDto, photo: string): Promise<IUser> {
+   async findByEmail(email: string): Promise<IUser | null> {
+      return this.repository.findByEmail(email);
+   }
+
+   async getAll(): Promise<IUser[]> {
+      return await this.repository.getAll();
+   }
+
+   async createUser(user: CreateUserDto, photo: string): Promise<IUser | null> {
       const userAlreadyExists = await this.repository.findByEmail(user.email);
 
       if (userAlreadyExists) {

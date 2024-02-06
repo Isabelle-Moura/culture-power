@@ -6,6 +6,10 @@ import { IUserRepository } from "./user.repository.interface";
 export class UserRepository implements IUserRepository {
    constructor(private model: Model<IUser>) {}
 
+   async getAll(): Promise<IUser[]> {
+      return await this.model.find();
+   }
+
    async createUser(user: CreateUserDto): Promise<IUser> {
       const newUser = await this.model.create(user);
       return newUser;
