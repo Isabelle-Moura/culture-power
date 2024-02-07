@@ -1,12 +1,12 @@
 import { ErrorsResponse } from "../../../utils/errors/errors.response";
 import { IUser } from "../../user/model/user.model.interface";
-import { UserRepository } from "../../user/repository/user.repository";
+import { IUserRepository } from "../../user/repository/user.repository.interface";
 import { IAdmin } from "../model/admin.model.interface";
 import { AdminRepository } from "../repository/admin.repository";
 import { IAdminService } from "./admin.services.interface";
 
 export class AdminService implements IAdminService {
-   constructor(private repository: AdminRepository, private userRepository: UserRepository) {}
+   constructor(private repository: AdminRepository, private userRepository: IUserRepository) {}
    async findAdminEmail(email: string): Promise<IAdmin> {
       return await this.repository.findAdminEmail(email);      
    }

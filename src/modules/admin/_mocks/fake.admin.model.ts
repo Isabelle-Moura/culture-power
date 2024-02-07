@@ -1,4 +1,3 @@
-// fake.admin.model.ts
 import { IAdmin } from "../model/admin.model.interface";
 import { UserRole } from "../../../enum/roles";
 

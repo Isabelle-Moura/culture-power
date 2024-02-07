@@ -8,4 +8,4 @@ export const fakeAdminService = {
     findAdminEmail() {
         return Promise.resolve(fakeAdmin)
     }
-  } as unknown as IAdminService
+  } as any

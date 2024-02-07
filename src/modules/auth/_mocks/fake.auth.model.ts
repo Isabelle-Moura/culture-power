@@ -1,6 +1,6 @@
 export const fakeUser = {
     _id: "3242535672312vbgfgg2424",
-    email: "test@example.com",
+    email: "user@example.com",
     password: "password123",
     role: "user",
   };

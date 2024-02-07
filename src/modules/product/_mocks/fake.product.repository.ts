@@ -1,7 +1,7 @@
 import { IProductRepository } from "../repository/product.repository.interface";
 import { fakeProduct, fakeProductsArray } from "./fake.product.model";
 
-export const fakeUserRepository = {
+export const fakeProductRepository = {
   findById() {
     return Promise.resolve(fakeProduct);
   },
@@ -19,4 +19,4 @@ export const fakeUserRepository = {
   },
 } as unknown as IProductRepository;
 
-fakeUserRepository.findAllAvailableProducts();
+fakeProductRepository.findAllAvailableProducts();
