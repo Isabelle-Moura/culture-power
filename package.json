@@ -8,7 +8,7 @@
     "build": "tsup src",
     "test": "vitest",
     "seed": "ts-node src/config/database/seed/admin-seed.ts",
-    "coverage": "npx jest --coverage"
+    "coverage": "npx vitest --coverage"
   },
   "keywords": [],
   "author": "",

@@ -43,6 +43,6 @@ export const fakeUsersArray = [
     products: [],
     favoriteProducts: [],
   },
-]
+] as any
 
 export const fakeUser = fakeUsersArray[0];
