@@ -3,9 +3,10 @@ import { Request, Response } from "express";
 import { IAuthController } from "./auth.controller.interface";
 import { authBodyValidator } from "../utils/auth-body.validator";
 import { ErrorsResponse } from "../../../utils/errors/errors.response";
+import { IAuthService } from "../service/auth.services.interface";
 
 export class AuthController implements IAuthController {
-  constructor(private service: AuthService) {}
+  constructor(private service: IAuthService) {}
 
   async userLogin(req: Request, res: Response): Promise<void> {
     try {

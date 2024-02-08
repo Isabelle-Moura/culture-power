@@ -9,9 +9,9 @@ import { JwtToken } from "../../auth/utils/jwt";
 export class ProductController {
    constructor(private service: IProductService, private userService: IUserService) {}
 
-   async getAllProducts(req: Request, res: Response) {
+   async findAllAvailableProducts(req: Request, res: Response) {
       try {
-         const products = await this.service.getAllProducts();
+         const products = await this.service.findAllAvailableProducts();
 
          if (!products) {
             throw ErrorsResponse.notFound();
@@ -62,11 +62,11 @@ export class ProductController {
       }
    }
 
-   async getProductById(req: Request, res: Response) {
+   async findById(req: Request, res: Response) {
       try {
          const { id } = req.params;
 
-         const product = await this.service.getProductById(id);
+         const product = await this.service.findById(id);
 
          if (!product) {
             throw ErrorsResponse.notFound();
