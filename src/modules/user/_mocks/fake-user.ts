@@ -1,4 +1,4 @@
-import { UserRole } from "../../../utils/enum/roles";
+import { UserRole } from "../../../utils/roles/roles";
 import { fakeObjectId } from "../../_mocks/fake-objectId";
 import { faker } from "@faker-js/faker";
 

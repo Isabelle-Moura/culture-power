@@ -1,4 +1,4 @@
-import { UserRole } from "../../../utils/enum/roles";
+import { UserRole } from "../../../utils/roles/roles";
 import { fakeObjectIdForAdmin } from "../../_mocks/fake-objectId";
 import { IAdmin } from "../model/admin.model.interface";
 

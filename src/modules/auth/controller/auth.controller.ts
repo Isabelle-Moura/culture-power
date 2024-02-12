@@ -3,7 +3,7 @@ import { IAuthController } from "./auth.controller.interface";
 import { authBodyValidator } from "../utils/auth-body.validator";
 import { IAuthService } from "../service/auth.services.interface";
 import { ErrorsResponse } from "../../../utils/error/error.response";
-import { StatusCode } from "../../../utils/enum/all-status-code";
+import { StatusCode } from "../../../utils/status-code/all-status-code";
 
 export class AuthController implements IAuthController {
    constructor(private service: IAuthService) {}

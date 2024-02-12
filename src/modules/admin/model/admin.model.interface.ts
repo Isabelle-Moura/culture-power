@@ -1,4 +1,4 @@
-import { UserRole } from "../../../utils/enum/roles";
+import { UserRole } from "../../../utils/roles/roles";
 
 export interface IAdmin extends Document {
    _id?: any;

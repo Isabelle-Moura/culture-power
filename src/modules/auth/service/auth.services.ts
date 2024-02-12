@@ -5,7 +5,7 @@ import { HashBcrypt } from "../../../utils/bcrypt/hasher-bcrypt";
 import { IAuthService } from "./auth.services.interface";
 import { JwtToken } from "../../../utils/jwt/jwt";
 import { ErrorsResponse } from "../../../utils/error/error.response";
-import { StatusCode } from "../../../utils/enum/all-status-code";
+import { StatusCode } from "../../../utils/status-code/all-status-code";
 
 export class AuthService implements IAuthService {
    constructor(private userRepository: UserRepository, private adminRepository: AdminRepository) {}
@@ -30,7 +30,7 @@ export class AuthService implements IAuthService {
 
    async adminLogin(data: LoginDTO): Promise<any> {
       try {
-         const admin = await this.adminRepository.findAdminEmail(data.email);
+         const admin: any = await this.adminRepository.findAdminByEmail(data.email);
          const password = await HashBcrypt.compare(data.password ?? "", admin.password);
 
          if (!admin || !password) {

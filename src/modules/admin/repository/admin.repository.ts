@@ -3,7 +3,7 @@ import { IAdmin } from "../model/admin.model.interface";
 import { Model } from "mongoose";
 import { IUser } from "../../user/model/user.model.interface";
 import { ErrorsResponse } from "../../../utils/error/error.response";
-import { StatusCode } from "../../../utils/enum/all-status-code";
+import { StatusCode } from "../../../utils/status-code/all-status-code";
 
 export class AdminRepository implements IAdminRepository {
    constructor(private model: Model<IAdmin>, private userModel: Model<IUser>) {}

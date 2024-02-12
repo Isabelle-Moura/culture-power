@@ -1,7 +1,7 @@
 import "dotenv/config";
 import { AdminModel } from "../../modules/admin/model/admin.model";
 import { HashBcrypt } from "../../utils/bcrypt/hasher-bcrypt";
-import { UserRole } from "../../utils/enum/roles";
+import { UserRole } from "../../utils/roles/roles";
 import { MongoConnection } from "../database/db-connection";
 
 (async function AdminSeeder() {

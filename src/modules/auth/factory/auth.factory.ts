@@ -8,7 +8,7 @@ import { AuthService } from "../service/auth.services";
 class AuthModule {
    static getInstance() {
       const userRepository = new UserRepository(UserModel);
-      const adminRepository = new AdminRepository(AdminModel);
+      const adminRepository = new AdminRepository(AdminModel, UserModel);
       const service = new AuthService(userRepository, adminRepository);
       const controller = new AuthController(service);
       return { service, controller };

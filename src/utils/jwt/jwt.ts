@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { env } from "../dotenv/dotenv";
-import { UserRole } from "../enum/roles";
+import { UserRole } from "../roles/roles";
 
 export class JwtToken {
    static async generateToken(payload: { id?: string; email: string; role: UserRole }) {

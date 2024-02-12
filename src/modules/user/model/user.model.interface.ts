@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { UserRole } from "../../../utils/enum/roles";
+import { UserRole } from "../../../utils/roles/roles";
 
 export interface IUser extends Document {
    _id?: string;
