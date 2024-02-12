@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import jwt from "jsonwebtoken";
-import { env } from "../config/dotenv";
+import { JwtToken } from "../modules/auth/utils/jwt";
 
 export const authenticateTokenMiddleware = (req: Request, res: Response, next: NextFunction) => {
    try {
@@ -8,11 +7,11 @@ export const authenticateTokenMiddleware = (req: Request, res: Response, next: N
 
       if (!token) {
          return res.status(401).json({
-            message: "Token wasn't given, so you didn't receive the permission.",
+            message: "Token wasn't given, so you didn't receive the permission to this.",
          });
       }
 
-      const decodedToken = jwt.verify(token, env.JWT_SECRET_KEY) as any;
+      const decodedToken: any = JwtToken.verifyToken(token);
 
       req.body.user = {
          _id: decodedToken._id,
@@ -22,6 +21,6 @@ export const authenticateTokenMiddleware = (req: Request, res: Response, next: N
 
       next();
    } catch (error: any) {
-      res.status(403).json({ message: error.message });
+      res.status(403).json({ error: true, message: error.message });
    }
 };

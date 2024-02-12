@@ -1,7 +1,7 @@
 import express from "express";
 import { userFactory } from "../factory/user.factory";
 import { uploadPhotoMiddleware } from "../../../middlewares/upload-photo.middleware";
-import { authenticateTokenMiddleware } from "../../../middlewares/authenticateToken";
+import { authenticateTokenMiddleware } from "../../../middlewares/authenticate-token.middleware";
 
 export const userRouter = express.Router();
 

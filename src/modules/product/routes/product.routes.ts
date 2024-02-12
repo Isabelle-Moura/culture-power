@@ -1,8 +1,8 @@
 import express from "express";
 import { productFactory } from "../factory/product.factory";
 import { uploadPhotoMiddleware } from "../../../middlewares/upload-photo.middleware";
-import { isAdminMiddleware } from "../../../middlewares/is-admin.middleware";
-import { authenticateTokenMiddleware } from "../../../middlewares/authenticateToken";
+import { isAdminMiddleware } from "../../../middlewares/admin-verification.middleware";
+import { authenticateTokenMiddleware } from "../../../middlewares/authenticate-token.middleware";
 
 export const productRouter = express.Router();
 

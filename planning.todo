@@ -125,10 +125,9 @@ _1st Part_ - *Planning and Setup*:
           ✔ `server.ts`: Server entry point. @done(24-01-22 22:58)
           ✔ `.gitignore`: File made for ignoring some files and folders, that we don't want people to see. @done(24-01-22 21:59)
           ✔ `package.json`: Project dependencies and scripts. @done(24-01-22 21:59)
-          ☐ `README.md`: Project documentation.
 
        ✔ **uploads/** @done(24-01-22 21:58)
-          This folder is suposed to keep every image downloaded by multer's library.
+          This folder is suposed to keep every image uploaded by multer's library.
 
     2. Configs:
         ✔ Make connection with MongoDB. @done(24-01-23 22:53)
@@ -211,33 +210,54 @@ _1st Part_ - *Planning and Setup*:
             ✔ Do not allow sending if the user does not exist. @done(24-01-31 15:12)
             ✔ Do not allow sending if the user performing the action is not an administrator. @done(24-02-02 12:10)
 
-        ☐ => Redeem Product (PRIVATE ROUTE) 
-          ☐ Required Information
-            ☐ Product ID
-            ☐ User ID
-          ☐ Rules
-            ☐ Do not allow redemption if the product or user does not exist.
-            ☐ Do not allow redemption if the user does not have enough gems.
-            ☐ Decrease the value of the product by the number of jewels.
-            ☐ Decrement the product quantity.
+        ✔ => Redeem Product (PRIVATE ROUTE) @done(24-02-11 21:35)
+          ✔ Required Information @done(24-02-11 21:35)
+            ✔ Product ID @done(24-02-11 21:35)
+            ✔ User ID @done(24-02-11 21:35)
+          ✔ Rules @done(24-02-11 21:35)
+            ✔ Do not allow redemption if the product or user does not exist. @done(24-02-11 21:35)
+            ✔ Do not allow redemption if the user does not have enough gems. @done(24-02-11 21:35)
+            ✔ Decrease the value of the product by the number of jewels. @done(24-02-11 21:35)
+            ✔ Decrement the product quantity. @done(24-02-11 21:35)
 
 /////////////////////////////////////////
 
   _3rd Part_ - *Tests and Adjustments*:
-   ☐ Create all ".spec" file for all layers.
-      ☐ For user's layer: 
-         ☐ `user.controller.spec.ts`: Tests related to the user controller.
-         ☐ `user.repository.spec.ts`: Tests related to the user repository.
-         ☐ `user.service.spec.ts`: Tests related to the user service.
-      ☐ For admin's layer: 
-         ☐ `admin.controller.spec.ts`: Tests related to the admin controller.
-         ☐ `admin.repository.spec.ts`: Tests related to the admin repository.
-         ☐ `admin.service.spec.ts`: Tests related to the admin service.
-      ☐ For product's layer: 
-         ☐ `product.controller.spec.ts`: Tests related to the product controller.
-         ☐ `product.repository.spec.ts`: Tests related to the product repository.
-         ☐ `product.service.spec.ts`: Tests related to the product service.
+   ✔ Create all ".spec" file for all layers. @done(24-02-11 21:35)
+      ✔ For user's layer: @done(24-02-11 21:35)
+         ✔ `user.controller.spec.ts`: Tests related to the user controller. @done(24-02-11 21:35)
+         ✔ `user.repository.spec.ts`: Tests related to the user repository. @done(24-02-11 21:36)
+         ✔ `user.service.spec.ts`: Tests related to the user service. @done(24-02-11 21:36)
+      ✔ For admin's layer: @done(24-02-11 21:36)
+         ✔ `admin.controller.spec.ts`: Tests related to the admin controller. @done(24-02-11 21:36)
+         ✔ `admin.repository.spec.ts`: Tests related to the admin repository. @done(24-02-11 21:36)
+         ✔ `admin.service.spec.ts`: Tests related to the admin service. @done(24-02-11 21:36)
+      ✔ For product's layer: @done(24-02-11 21:36)
+         ✔ `product.controller.spec.ts`: Tests related to the product controller. @done(24-02-11 21:36)
+         ✔ `product.repository.spec.ts`: Tests related to the product repository. @done(24-02-11 21:36)
+         ✔ `product.service.spec.ts`: Tests related to the product service. @done(24-02-11 21:36)
    
-   ☐ Refactor the whole project (probaly has many things to improve)
+   ☐ Refactor project: 
+     ☐ Related to user's layer:
+       ☐ 
+     ☐ Related to admin's layer:
+       ☐ 
+     ☐ Related to product's layer:
+       ☐ 
+     ☐ Related to auth's layer:
+       ☐ 
+     ☐ Related to general: 
+       ☐ Check all the names, of all funtions, variables and classes.
+       ☐ Resolve "coverage" problem.
+       ✔ All outside the layer "modules" is ok. @done(24-02-11 22:07)
+
+/////////////////////////////////////////
+     
   _4th Part_ - *Deploy and Documentation*:
-    ☐ 
+    ☐ Project's deployment at Railway.
+    ☐ Prepare export for Insomnia file.
+    ☐ Make Swagger for project.
+    ☐ Make README file for project's documentation.
+    ☐ Send project (The last thing to do).
+
+/////////////////////////////////////////

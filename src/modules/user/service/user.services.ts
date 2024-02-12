@@ -1,7 +1,7 @@
 import { CreateUserDto } from "../dto/create-user.dto";
 import { IUser } from "../model/user.model.interface";
 import { IUserService } from "./user.services.interface";
-import { HashBcrypt } from "../../../utils/bcrypt/hasher.bcrypt";
+import { HashBcrypt } from "../../../utils/bcrypt/hasher-bcrypt";
 import { ErrorsResponse } from "../../../utils/errors/errors.response";
 import { IUserRepository } from "../repository/user.repository.interface";
 
@@ -30,7 +30,7 @@ export class UserService implements IUserService {
       };
 
       const newUser = await this.repository.createUser(information);
-      return newUser
+      return newUser;
    }
 
    async getUserById(userId: string): Promise<IUser | null> {
