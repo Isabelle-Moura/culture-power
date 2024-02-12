@@ -1,4 +1,4 @@
-import { ErrorsResponse } from "../../../utils/errors/errors.response";
+import { ErrorsResponse } from "../../../utils/error/errors.response";
 import { IUser } from "../../user/model/user.model.interface";
 import { IUserRepository } from "../../user/repository/user.repository.interface";
 import { IProduct } from "../model/product.model.interface";

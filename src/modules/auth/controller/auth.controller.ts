@@ -1,52 +1,48 @@
-import { AuthService } from "../service/auth.services";
 import { Request, Response } from "express";
 import { IAuthController } from "./auth.controller.interface";
 import { authBodyValidator } from "../utils/auth-body.validator";
-import { ErrorsResponse } from "../../../utils/errors/errors.response";
 import { IAuthService } from "../service/auth.services.interface";
+import { ErrorsResponse } from "../../../utils/error/error.response";
+import { StatusCode } from "../../../utils/enum/all-status-code";
 
 export class AuthController implements IAuthController {
-  constructor(private service: IAuthService) {}
+   constructor(private service: IAuthService) {}
 
-  async userLogin(req: Request, res: Response): Promise<void> {
-    try {
-      const { body } = req;
+   async userLogin(req: Request, res: Response): Promise<void> {
+      try {
+         const { body } = req;
 
-      const result = await this.service.userLogin(body);
+         const result = await this.service.userLogin(body);
 
-      if (!result) {
-        await ErrorsResponse.invalidCredentials();
+         if (!result) {
+            await ErrorsResponse.error("Invalid credentials.", StatusCode.BAD_REQUEST);
+         }
+
+         await authBodyValidator(body);
+         res.status(StatusCode.OK).json({ success: true, message: "User's login was made successfully!", data: result });
+      } catch (error: any) {
+         res.status(StatusCode.INTERNAL_SERVER_ERROR).json({
+            error: error.message,
+         });
       }
+   }
 
-      await authBodyValidator(body);
-      res.status(200).json(result);
-    } catch (error: any) {
-      res.status(500).json({
-        error: true,
-        message: error.message,
-        status: 500,
-      });
-    }
-  }
+   async adminLogin(req: Request, res: Response): Promise<void> {
+      try {
+         const { body } = req;
 
-  async adminLogin(req: Request, res: Response): Promise<void> {
-    try {
-      const { body } = req;
+         const result = await this.service.adminLogin(body);
 
-      const result = await this.service.adminLogin(body);
+         if (!result) {
+            await ErrorsResponse.error("Invalid credentials.", StatusCode.BAD_REQUEST);
+         }
 
-      if (!result) {
-        await ErrorsResponse.invalidCredentials();
+         await authBodyValidator(body);
+         res.status(StatusCode.OK).json({ success: true, message: "Admin's login was made successfully!", data: result });
+      } catch (error: any) {
+         res.status(StatusCode.INTERNAL_SERVER_ERROR).json({
+            error: error.message,
+         });
       }
-
-      await authBodyValidator(body);
-      res.status(200).json(result);
-    } catch (error: any) {
-      res.status(500).json({
-        error: true,
-        message: error.message,
-        status: 500,
-      });
-    }
-  }
+   }
 }

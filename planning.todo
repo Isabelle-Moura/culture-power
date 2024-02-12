@@ -236,20 +236,18 @@ _1st Part_ - *Planning and Setup*:
          ✔ `product.controller.spec.ts`: Tests related to the product controller. @done(24-02-11 21:36)
          ✔ `product.repository.spec.ts`: Tests related to the product repository. @done(24-02-11 21:36)
          ✔ `product.service.spec.ts`: Tests related to the product service. @done(24-02-11 21:36)
+      ✔ For auth's layer: @done(24-02-11 21:36)
+         ✔ `auth.controller.spec.ts`: Tests related to the auth controller. @done(24-02-11 21:36)
+         ✔ `auth.repository.spec.ts`: Tests related to the auth repository. @done(24-02-11 21:36)
+         ✔ `auth.service.spec.ts`: Tests related to the auth service. @done(24-02-11 21:36)
    
    ☐ Refactor project: 
-     ☐ Related to user's layer:
-       ☐ 
-     ☐ Related to admin's layer:
-       ☐ 
-     ☐ Related to product's layer:
-       ☐ 
-     ☐ Related to auth's layer:
-       ☐ 
      ☐ Related to general: 
        ☐ Check all the names, of all funtions, variables and classes.
        ☐ Resolve "coverage" problem.
-       ✔ All outside the layer "modules" is ok. @done(24-02-11 22:07)
+       ✔ All outside the layer "modules" is okay. @done(24-02-11 22:07)
+       ☐ Fix all tests.
+       ☐ Fix every return message, is either success or error.
 
 /////////////////////////////////////////
      

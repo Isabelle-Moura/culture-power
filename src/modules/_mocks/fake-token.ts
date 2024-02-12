@@ -1,0 +1,1 @@
+export const fakeToken = "Bearer h4mst3rh4mst3rh4mst3rh4mst3rh4mst3rh4mst3rh4mst3rh4mst3rh4mst3rh4mst3rh4mst3rh4mst3rh4mst3rh4mst3rh4mst3rh4mst3h4mst3rh4mst3r";

@@ -1,4 +1,4 @@
-import { ErrorsResponse } from "../../../utils/errors/errors.response";
+import { ErrorsResponse } from "../../../utils/error/errors.response";
 import { IUser } from "../../user/model/user.model.interface";
 import { IUserRepository } from "../../user/repository/user.repository.interface";
 import { IAdmin } from "../model/admin.model.interface";
@@ -6,9 +6,9 @@ import { AdminRepository } from "../repository/admin.repository";
 import { IAdminService } from "./admin.services.interface";
 
 export class AdminService implements IAdminService {
-   constructor(private repository: AdminRepository, private userRepository: IUserRepository) {}
-   async findAdminEmail(email: string): Promise<IAdmin> {
-      return await this.repository.findAdminEmail(email);      
+   constructor(private repository: IAdminRepository, private userRepository: IUserRepository) {}
+   async findAdminByEmail(email: string): Promise<IAdmin> {
+      return await this.repository.findAdminByEmail(email);
    }
 
    async sendJewelsToUser(userId: string): Promise<IUser | string> {

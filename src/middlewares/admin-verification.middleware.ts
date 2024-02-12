@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { JwtToken } from "../modules/auth/utils/jwt";
+import { JwtToken } from "../utils/jwt/jwt";
 
 export const adminVerificationMiddleware = async (req: Request, res: Response, next: NextFunction) => {
    const token = req.headers["authorization"]?.split(" ")[1];

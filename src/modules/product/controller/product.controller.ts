@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 import { IProductService } from "../service/product.services.interface";
-import { ErrorsResponse } from "../../../utils/errors/errors.response";
+import { ErrorsResponse } from "../../../utils/error/errors.response";
 import { env } from "../../../config/dotenv";
 import { productBodyValidator } from "../utils/product-body.validator";
 import { IUserService } from "../../user/service/user.services.interface";
-import { JwtToken } from "../../auth/utils/jwt";
+import { JwtToken } from "../../../utils/jwt/jwt";
 
 export class ProductController {
    constructor(private service: IProductService, private userService: IUserService) {}

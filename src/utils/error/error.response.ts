@@ -1,5 +1,5 @@
 export class ErrorsResponse {
-   static error(message: string, status: number) {
+   static async error(message: string, status: number) {
       return {
          error: true,
          message,

@@ -1,7 +1,6 @@
-import { IUserRepository } from "../repository/user.repository.interface";
-import { fakeUsersArray, fakeUser } from "./fake.user.model";
+import { fakeUsersArray, fakeUser } from "./fake-user";
 
-export const fakeUserRepository = {
+export const fakeUserService = {
    getAll() {
       return Promise.resolve(fakeUsersArray);
    },
@@ -14,6 +13,6 @@ export const fakeUserRepository = {
    createUser() {
       return Promise.resolve(fakeUser);
    },
-} as unknown as IUserRepository;
+} as any;
 
-fakeUserRepository.getAll();
+fakeUserService.getAll();

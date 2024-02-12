@@ -1,6 +1,7 @@
-import { AdminDto } from "../dto/admin.dto";
+import { IUser } from "../../user/model/user.model.interface";
+import { IAdmin } from "../model/admin.model.interface";
 
 export interface IAdminRepository {
-   findAdminEmail(email: string): Promise<AdminDto | string | null>;
-   sendJewelsToUser(userId: string): Promise<void>;
+   findAdminByEmail(email: string): Promise<IAdmin | null>;
+   sendJewelsToUser(userId: string): Promise<IUser | null>;
 }

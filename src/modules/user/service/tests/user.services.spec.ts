@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
-import { fakeUser, fakeUsersArray } from "../_mocks/fake.user.model";
-import { fakeUserService } from "../_mocks/fake.user.services";
-import { UserService } from "./user.services";
+import { fakeUser, fakeUsersArray } from "../../_mocks/fake-user";
+import { fakeUserService } from "../../_mocks/fake-user.services";
+import { UserService } from "../user.services";
 
 const userService = new UserService(fakeUserService);
 
