@@ -1,36 +1,38 @@
 import { Request, Response } from "express";
 import { IProductService } from "../service/product.services.interface";
-import { ErrorsResponse } from "../../../utils/error/errors.response";
-import { env } from "../../../config/dotenv";
+import { IProductController } from "./product.controller.interface";
 import { productBodyValidator } from "../utils/product-body.validator";
 import { IUserService } from "../../user/service/user.services.interface";
 import { JwtToken } from "../../../utils/jwt/jwt";
+import { env } from "../../../utils/dotenv/dotenv";
+import { throwError } from "../../../utils/error/error-response";
+import { StatusCode } from "../../../utils/status-code/all-status-code";
 
-export class ProductController {
+export class ProductController implements IProductController {
    constructor(private service: IProductService, private userService: IUserService) {}
 
-   async findAllAvailableProducts(req: Request, res: Response) {
+   async findAllAvailableProducts(req: Request, res: Response): Promise<void> {
       try {
          const products = await this.service.findAllAvailableProducts();
 
          if (!products) {
-            throw ErrorsResponse.notFound();
+            throwError("Products not found.", StatusCode.NOT_FOUND);
          }
 
-         res.status(200).json({ success: true, data: products });
+         res.status(StatusCode.OK).json({ success: true, data: products });
       } catch (error: any) {
-         res.status(500).json({ error: true, message: error.message });
+         res.status(StatusCode.INTERNAL_SERVER_ERROR).json({ error: true, message: error.message });
       }
    }
 
-   async createProduct(req: Request, res: Response) {
+   async createProduct(req: Request, res: Response): Promise<void> {
       try {
          const { body } = req;
          const { file } = req;
 
-         // Check for file presence before validation
+         // Check for file presence before validation.
          if (!file) {
-            res.status(400).json({
+            res.status(StatusCode.BAD_REQUEST).json({
                error: true,
                message: "Please select a photo.",
                status: 400,
@@ -51,34 +53,33 @@ export class ProductController {
 
          const imageUrl = `${env.BASE_URL}/uploads/${file?.filename}`;
 
-         res.status(201).json({
+         res.status(StatusCode.CREATED).json({
             success: true,
             message: "Product was created successfully!",
-            status: 201,
             data: { product, imageUrl },
          });
       } catch (error: any) {
-         res.status(500).json({ error: true, message: error.message });
+         res.status(StatusCode.INTERNAL_SERVER_ERROR).json({ error: true, message: error.message });
       }
    }
 
-   async findById(req: Request, res: Response) {
+   async findById(req: Request, res: Response): Promise<void> {
       try {
          const { id } = req.params;
 
          const product = await this.service.findById(id);
 
          if (!product) {
-            throw ErrorsResponse.notFound();
+            throwError("Product not found.", StatusCode.NOT_FOUND);
          }
 
-         res.status(200).json({ success: true, data: product });
+         res.status(StatusCode.OK).json({ success: true, data: product });
       } catch (error: any) {
-         res.status(500).json({ error: true, message: error.message });
+         res.status(StatusCode.INTERNAL_SERVER_ERROR).json({ error: true, message: error.message });
       }
    }
 
-   async updateProduct(req: Request, res: Response) {
+   async updateProduct(req: Request, res: Response): Promise<void> {
       try {
          const { id } = req.params;
          const { body } = req;
@@ -86,50 +87,46 @@ export class ProductController {
          const product = await this.service.updateProduct(id, body);
 
          if (!product) {
-            throw ErrorsResponse.customError("It was not possible to update the product", 500);
+            throwError("It wasn't able to update product.", StatusCode.BAD_REQUEST);
          }
 
-         res.status(200).json({ success: true, data: product });
+         res.status(StatusCode.OK).json({ success: true, data: product });
       } catch (error: any) {
-         res.status(500).json({ error: true, message: error.message });
+         res.status(StatusCode.INTERNAL_SERVER_ERROR).json({ error: true, message: error.message });
       }
    }
 
-   async redeemProduct(req: Request, res: Response) {
+   async redeemProduct(req: Request, res: Response): Promise<void> {
       try {
          const token: any = req.headers["authorization"]?.split(" ")[1];
          const { productId } = req.params;
-         console.log("Token:", token);
-         console.log("ProductId:", productId);
 
          const decodedToken: any = await JwtToken.verifyToken(token);
          const userId = decodedToken.id;
-         console.log("Id do Token:", userId);
 
          if (!userId || !productId) {
-            throw ErrorsResponse.customError("It was not possible to redeem the product", 500);
+            throwError("User id or Product id not found.", StatusCode.NOT_FOUND);
          }
 
          const redeemedProduct = await this.service.redeemProduct(userId, productId);
-         console.log("Redeemed Product:", redeemedProduct);
 
          if (!redeemedProduct) {
-            throw ErrorsResponse.customError("Failed to redeem the product", 500);
+            throwError("It wasn't able to redeem product.", StatusCode.BAD_REQUEST);
          }
 
-         const updatedUser = await this.userService.getUserById(userId);
+         const user = await this.userService.getUserById(userId);
 
-         if (!updatedUser) {
-            throw ErrorsResponse.customError("Failed to get updated user information", 500);
+         if (!user) {
+            throwError("User not found.", StatusCode.NOT_FOUND);
          }
 
-         res.status(200).json({
+         res.status(StatusCode.OK).json({
             success: true,
             message: "Product was redeemed successfully!",
-            data: { user: updatedUser, redeemedProduct },
+            data: { user: user, redeemedProduct },
          });
       } catch (error: any) {
-         res.status(500).json({ error: true, message: error.message });
+         res.status(StatusCode.INTERNAL_SERVER_ERROR).json({ error: true, message: error.message });
       }
    }
 }

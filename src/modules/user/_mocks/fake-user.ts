@@ -9,7 +9,7 @@ const generateFakeUser = () => ({
    password: faker.internet.password(),
    photo: faker.image.avatar(),
    role: UserRole.USER,
-   jewelsAmount: faker.number.int({ min: 0, max: 10 }),
+   jewelsAmount: faker.number.int({ min: 0, max: 100 }),
    products: faker.helpers.arrayElements([]),
    favoriteProducts: faker.helpers.arrayElements([]),
    createdAt: String(faker.date.past()),

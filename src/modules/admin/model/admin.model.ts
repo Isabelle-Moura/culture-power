@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import { IAdmin } from "./admin.model.interface";
-import { UserRole } from "../../../enum/roles";
+import { UserRole } from "../../../utils/roles/roles";
 
 const adminSchema = new Schema<IAdmin>(
    {

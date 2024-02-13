@@ -4,7 +4,7 @@ import { AdminRepository } from "../../admin/repository/admin.repository";
 import { HashBcrypt } from "../../../utils/bcrypt/hasher-bcrypt";
 import { IAuthService } from "./auth.services.interface";
 import { JwtToken } from "../../../utils/jwt/jwt";
-import { ErrorsResponse } from "../../../utils/error/error.response";
+import { throwError } from "../../../utils/error/error-response";
 import { StatusCode } from "../../../utils/status-code/all-status-code";
 
 export class AuthService implements IAuthService {
@@ -16,7 +16,7 @@ export class AuthService implements IAuthService {
          const password = await HashBcrypt.compare(data.password ?? "", user.password);
 
          if (!user || !password) {
-            return await ErrorsResponse.error("Invalid credentials.", StatusCode.BAD_REQUEST);
+            throwError("Invalid credentials.", StatusCode.BAD_REQUEST);
          }
 
          const payload = { id: user._id, email: user.email, role: user.role };
@@ -24,7 +24,7 @@ export class AuthService implements IAuthService {
 
          return { token, user };
       } catch (error: any) {
-         return await ErrorsResponse.error(error.message, StatusCode.INTERNAL_SERVER_ERROR);
+         throwError(error.message, StatusCode.INTERNAL_SERVER_ERROR);
       }
    }
 
@@ -34,7 +34,7 @@ export class AuthService implements IAuthService {
          const password = await HashBcrypt.compare(data.password ?? "", admin.password);
 
          if (!admin || !password) {
-            return await ErrorsResponse.error("Invalid credentials.", StatusCode.BAD_REQUEST);
+            throwError("Invalid credentials.", StatusCode.BAD_REQUEST);
          }
 
          const payload = { id: admin._id, email: admin.email, role: admin.role };
@@ -42,7 +42,7 @@ export class AuthService implements IAuthService {
 
          return { token, admin };
       } catch (error: any) {
-         return await ErrorsResponse.error(error.message, StatusCode.INTERNAL_SERVER_ERROR);
+         throwError(error.message, StatusCode.INTERNAL_SERVER_ERROR);
       }
    }
 }

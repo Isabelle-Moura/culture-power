@@ -3,5 +3,5 @@ import { IAdmin } from "../model/admin.model.interface";
 
 export interface IAdminRepository {
    findAdminByEmail(email: string): Promise<IAdmin | null>;
-   sendJewelsToUser(userId: string): Promise<IUser | null>;
+   sendJewelsToUser(userId: string, amount: number): Promise<IUser | null>;
 }

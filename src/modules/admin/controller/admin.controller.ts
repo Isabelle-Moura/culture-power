@@ -1,24 +1,33 @@
-import { AdminService } from "../service/admin.services";
 import { Request, Response } from "express";
 import { IAdminController } from "./admin.controller.interface";
-import { ErrorsResponse } from "../../../utils/error/errors.response";
+import { StatusCode } from "../../../utils/status-code/all-status-code";
+import { throwError } from "../../../utils/error/error-response";
+import { IAdminService } from "../service/admin.services.interface";
 
 export class AdminController implements IAdminController {
-   constructor(private service: AdminService) {}
+   constructor(private service: IAdminService) {}
 
-   async sendJewelsToUser(req: Request, res: Response) {
+   async sendJewelsToUser(req: Request, res: Response): Promise<void> {
       try {
          const { id } = req.params;
+         const { amount } = req.body;
 
          if (!id) {
-            throw new Error(ErrorsResponse.notFound());
+            throwError("Id not found.", StatusCode.NOT_FOUND);
          }
 
-         const result = await this.service.sendJewelsToUser(id);
+         if (!amount) {
+            throwError("Please give an amount of jewels.", StatusCode.BAD_REQUEST);
+         }
 
-         res.status(200).json({ success: true, data: result });
+         const result = await this.service.sendJewelsToUser(id, amount);
+
+         res.status(StatusCode.OK).json({ success: true, message: "Jewels sent to user successfully!", data: result });
       } catch (error: any) {
-         res.status(500).json({ error: true, message: error.message });
+         res.status(StatusCode.INTERNAL_SERVER_ERROR).json({
+            error: true,
+            message: error.message,
+         });
       }
    }
 }

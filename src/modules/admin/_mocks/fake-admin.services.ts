@@ -2,10 +2,10 @@ import { IAdminService } from "../service/admin.services.interface";
 import { fakeAdmin } from "./fake-admin";
 
 export const fakeAdminService = {
-   sendJewelsToUser() {
+   findAdminByEmail() {
       return Promise.resolve(fakeAdmin);
    },
-   findAdminByEmail() {
+   sendJewelsToUser() {
       return Promise.resolve(fakeAdmin);
    },
 } as unknown as IAdminService;
