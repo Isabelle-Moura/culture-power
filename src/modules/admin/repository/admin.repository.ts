@@ -31,7 +31,7 @@ export class AdminRepository implements IAdminRepository {
          }
 
          if (user.jewelsAmount || user.jewelsAmount >= 0) {
-            await this.userModel.updateOne({ _id: userId }, { $inc: { jewelsAmount: amount } });
+            return await this.userModel.findByIdAndUpdate({ _id: userId }, { $inc: { jewelsAmount: amount } });
          }
 
          const updatedUser = await this.userModel.findById(userId);

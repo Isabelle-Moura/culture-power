@@ -8,4 +8,5 @@ export const fakeUserModel = {
    findOne: vitest.fn().mockImplementation(() => fakeUser),
    create: vitest.fn().mockImplementation(() => fakeUser),
    findById: vitest.fn().mockImplementation(() => fakeUser),
+   findByIdAndUpdate: vitest.fn().mockImplementation(() => fakeUser),
 } as unknown as Model<IUser>;

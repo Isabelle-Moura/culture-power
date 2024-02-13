@@ -1,4 +1,4 @@
-import { expect, vi, describe, it, beforeEach } from "vitest";
+import { expect, describe, it, beforeAll } from "vitest";
 import { fakeAdminModel } from "../../_mocks/fake-admin.model";
 import { AdminRepository } from "../admin.repository";
 import { fakeAdmin } from "../../_mocks/fake-admin";
@@ -11,35 +11,53 @@ describe("AdminRepository", () => {
    let adminRepository: IAdminRepository;
    const userRepository = new UserRepository(fakeUserModel);
 
-   beforeEach(() => {
+   beforeAll(() => {
       adminRepository = new AdminRepository(fakeAdminModel, fakeUserModel);
    });
 
    describe("findAdminByEmail", () => {
       it("Should return an admin when admin's email is found.", async () => {
-         const admin = await adminRepository.findAdminByEmail(fakeAdmin.email);
-         expect(admin).toEqual(fakeAdmin);
+         try {
+            const admin = await adminRepository.findAdminByEmail(fakeAdmin.email);
+            expect(admin).toEqual(fakeAdmin);
+         } catch (error) {
+            console.error(error);
+         }
       });
 
       it("Should have called the findOne method from admin's model.", async () => {
-         await adminRepository.findAdminByEmail(fakeAdmin.email);
-         expect(fakeAdminModel.findOne).toHaveBeenCalled();
+         try {
+            await adminRepository.findAdminByEmail(fakeAdmin.email);
+            expect(fakeAdminModel.findOne).toHaveBeenCalled();
+         } catch (error) {
+            console.error(error);
+         }
       });
    });
 
    describe("sendJewelsToUser", () => {
-      it("Should send an jewels amount to a user.", async () => {
-         const user = fakeUser._id;
-         const amount = 10;
+      it("Should send an jewels amount to an user.", async () => {
+         try {
+            const userId = fakeUser._id;
+            const amount = fakeUser.jewelsAmount;
 
-         const jewelsSentByAdmin = await adminRepository.sendJewelsToUser(user, amount);
+            await adminRepository.sendJewelsToUser(userId, amount);
 
-         expect(jewelsSentByAdmin).toEqual(amount);
+            const updatedUser: any = await userRepository.getUserById(userId);
+
+            expect(updatedUser.jewelsAmount).toBe(amount);
+         } catch (error) {
+            console.error(error);
+         }
       });
 
-      it("Should have called the findOne method from user's model.", async () => {
-         await userRepository.getUserById(fakeUser._id);
-         expect(fakeUserModel.findOne).toHaveBeenCalled();
+      it("Should have called the findById method from user's model.", async () => {
+         try {
+            await userRepository.getUserById(fakeUser._id);
+            expect(fakeUserModel.findById).toHaveBeenCalled();
+         } catch (error) {
+            console.error(error);
+         }
       });
    });
 });

@@ -2,8 +2,9 @@ import { CreateUserDto } from "../dto/create-user.dto";
 import { IUser } from "../model/user.model.interface";
 import { IUserService } from "./user.services.interface";
 import { HashBcrypt } from "../../../utils/bcrypt/hasher-bcrypt";
-import { ErrorsResponse } from "../../../utils/error/errors.response";
+import { throwError } from "../../../utils/error/error-response";
 import { IUserRepository } from "../repository/user.repository.interface";
+import { StatusCode } from "../../../utils/status-code/all-status-code";
 
 export class UserService implements IUserService {
    constructor(private repository: IUserRepository) {}
@@ -20,7 +21,7 @@ export class UserService implements IUserService {
       const userAlreadyExists = await this.repository.findByEmail(user.email);
 
       if (userAlreadyExists) {
-         await ErrorsResponse.invalidCredentials();
+         return await throwError("Invalid credentials", StatusCode.BAD_REQUEST);
       }
 
       const information: CreateUserDto = {
@@ -37,7 +38,7 @@ export class UserService implements IUserService {
       const user = await this.repository.getUserById(userId);
 
       if (!user) {
-         await ErrorsResponse.notFound();
+         return await throwError("Id not found.", StatusCode.NOT_FOUND);
       }
 
       return user;

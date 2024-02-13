@@ -1,7 +1,7 @@
 import { StatusCode } from "../status-code/all-status-code";
 
 class ErrorsResponse {
-   static async error(message: string, status: number) {
+   static error(message: string, status: number) {
       return {
          error: true,
          message,
