@@ -2,8 +2,9 @@ import { Request, Response } from "express";
 import { IUserController } from "./user.controller.interface";
 import { IUserService } from "../service/user.services.interface";
 import { userBodyValidator } from "../utils/user-body.validator";
-import { env } from "../../../config/dotenv";
-import jwt from "jsonwebtoken";
+import { JwtToken } from "../../../utils/jwt/jwt";
+import { env } from "../../../utils/dotenv/dotenv";
+import { StatusCode } from "../../../utils/status-code/all-status-code";
 
 export class UserController implements IUserController {
    constructor(private service: IUserService) {}
@@ -11,14 +12,12 @@ export class UserController implements IUserController {
    async createUser(req: Request, res: Response): Promise<void> {
       try {
          const { body } = req;
-         const { file } = req;
+         const { file } = req.body;
 
-         // Check for file presence before validation
          if (!file) {
-            res.status(400).json({
+            res.status(StatusCode.BAD_REQUEST).json({
                error: true,
                message: "Please select a photo.",
-               status: 400,
             });
          }
 
@@ -34,38 +33,51 @@ export class UserController implements IUserController {
 
          const imageUrl = `${env.BASE_URL}/uploads/${file?.filename}`;
 
-         res.status(201).json({
+         res.status(StatusCode.CREATED).json({
             success: true,
             message: "User was created successfully!",
-            status: 201,
             data: {
                user,
                imageUrl,
             },
          });
       } catch (error: any) {
-         res.status(500).json({
+         res.status(StatusCode.INTERNAL_SERVER_ERROR).json({
             error: true,
             message: error.message,
-            status: 500,
          });
       }
    }
+
+   async getAll(req: Request, res: Response): Promise<void> {
+      try {
+         const users = await this.service.getAll();
+
+         if (!users) {
+            res.status(StatusCode.NOT_FOUND).json({ error: true, message: "No user was found." });
+         }
+
+         res.status(StatusCode.OK).json({ success: true, message: "Users found!", users });
+      } catch (error: any) {
+         res.status(StatusCode.INTERNAL_SERVER_ERROR).json({ error: true, message: error.message });
+      }
+   }
+
    async getUserById(req: Request, res: Response): Promise<void> {
       try {
          const { authorization } = req.headers;
 
          const [, token] = authorization?.split(" ") || [];
 
-         const decodeToken: any = jwt.decode(token as any, env.JWT_SECRET_KEY as any);
+         const decodeToken: any = await JwtToken.decodeToken(token);
 
          const userId = decodeToken?.id;
 
          const user = await this.service.getUserById(userId);
 
-         res.status(200).json({ userData: user });
+         res.status(StatusCode.OK).json({ success: true, message: "User found!", userData: user });
       } catch (error: any) {
-         res.status(500).json({ message: error.message });
+         res.status(StatusCode.INTERNAL_SERVER_ERROR).json({ error: true, message: error.message });
       }
    }
 }

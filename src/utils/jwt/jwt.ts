@@ -14,4 +14,9 @@ export class JwtToken {
       const secretKey = env.JWT_SECRET_KEY;
       return jwt.verify(token, secretKey);
    }
+
+   static async decodeToken(token: string) {
+      const secretKey = env.JWT_SECRET_KEY;
+      return jwt.decode(token, secretKey as any);
+   }
 }

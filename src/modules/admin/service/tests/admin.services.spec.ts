@@ -16,7 +16,7 @@ describe("AdminService", () => {
    });
 
    describe("findAdminByEmail", () => {
-      it("Should return an admin when finding admin email", async () => {
+      it("Should return an admin when finding admin email.", async () => {
          try {
             const result = await adminService.findAdminByEmail(fakeAdmin.email);
             expect(fakeAdmin).toHaveProperty("email");
@@ -26,7 +26,7 @@ describe("AdminService", () => {
          }
       });
 
-      it("Should handle admin not found when finding admin email", async () => {
+      it("Should return an error if isn't possible to find an admin by e-mail.", async () => {
          try {
             vi.spyOn(fakeAdminRepository, "findAdminByEmail").mockImplementationOnce(() => Promise.resolve(null));
             await expect(adminService.findAdminByEmail("")).rejects.toThrow();
@@ -53,7 +53,7 @@ describe("AdminService", () => {
          }
       });
 
-      it("Should return an error if not possible to send jewels.", async () => {
+      it("Should return an error if isn't possible to send jewels.", async () => {
          try {
             vi.spyOn(fakeUserRepository, "getUserById").mockImplementationOnce(() => Promise.resolve(null));
             await expect(adminService.sendJewelsToUser(userId, amount)).rejects.toThrow();

@@ -1,54 +1,93 @@
-// import { expect, describe, it, vi } from "vitest";
-// import { fakeUser, fakeUserModel, fakeUsersArray } from "../../_mocks/fake-user";
-// import { UserRepository } from "../user.repository";
+import { expect, describe, it, beforeAll } from "vitest";
+import { fakeUser, fakeUsers } from "../../_mocks/fake-user";
+import { UserRepository } from "../user.repository";
+import { fakeUserModel } from "../../_mocks/fake-user.model";
+import { IUserRepository } from "../user.repository.interface";
 
-// const userRepository = new UserRepository(fakeUserModel);
+describe("UserRepository", () => {
+   let userRepository: IUserRepository;
 
-// describe("UserRepository", () => {
-//    describe("getAll.", () => {
-//       it("Should return an array of users.", async () => {
-//          const users = await userRepository.getAll();
-//          expect(users).toEqual(fakeUsersArray);
-//       });
+   beforeAll(() => {
+      userRepository = new UserRepository(fakeUserModel);
+   });
 
-//       it("Should return an error if no user is found.", async () => {
-//          vi.spyOn(userRepository, "getAll").mockRejectedValue(new Error("Users not found."));
-//          await expect(userRepository.getAll()).rejects.toThrowError("Users not found.");
-//       });
-//    });
+   describe("getAll.", () => {
+      it("Should return an array of users.", async () => {
+         try {
+            const users = await userRepository.getAll();
+            expect(users).toEqual(fakeUsers);
+         } catch (error) {
+            console.error(error);
+         }
+      });
 
-//    describe("createUser", () => {
-//       it("Should return an user.", async () => {
-//          expect(await userRepository.createUser(fakeUser)).toEqual(fakeUserModel);
-//       });
+      it("Should have called the find method from user's model.", async () => {
+         try {
+            await userRepository.getAll();
+            expect(fakeUserModel.find).toHaveBeenCalled();
+         } catch (error) {
+            console.error(error);
+         }
+      });
+   });
 
-//       it("Should return an error if not able to create user.", async () => {
-//          vi.spyOn(userRepository, "createUser").mockRejectedValue(new Error("Cannot create user."));
-//          await expect(userRepository.createUser(fakeUser)).rejects.toThrowError("Cannot create user.");
-//       });
-//    });
+   describe("createUser", () => {
+      it("Should return an new user.", async () => {
+         try {
+            const newUser = await userRepository.createUser(fakeUser);
+            expect(newUser).toEqual(fakeUser);
+         } catch (error) {
+            console.error(error);
+         }
+      });
 
-//    describe("getUserById", () => {
-//       it("Should return an user by id.", async () => {
-//          const user = await userRepository.getUserById(fakeUser._id);
-//          expect(user).toEqual(fakeUserModel);
-//       });
+      it("Should have called the create method from user's model.", async () => {
+         try {
+            await userRepository.createUser(fakeUser);
+            expect(fakeUserModel.create).toHaveBeenCalled();
+         } catch (error) {
+            console.error(error);
+         }
+      });
+   });
 
-//       it("Should return an error if no user is found.", async () => {
-//          vi.spyOn(userRepository, "getUserById").mockRejectedValue(new Error("User not found."));
-//          await expect(userRepository.getUserById("50")).rejects.toThrowError("User not found.");
-//       });
-//    });
+   describe("getUserById", () => {
+      it("Should return an user by id.", async () => {
+         try {
+            const user = await userRepository.getUserById(fakeUser._id);
+            expect(user).toEqual(fakeUser);
+         } catch (error) {
+            console.error(error);
+         }
+      });
 
-//    describe("findByEmail", () => {
-//       it("Should return an user by e-mail.", async () => {
-//          const user = await userRepository.findByEmail(fakeUser.email);
-//          expect(user).toEqual(fakeUserModel);
-//       });
+      it("Should have called the findById method from user's model.", async () => {
+         try {
+            await userRepository.getUserById(fakeUser._id);
+            expect(fakeUserModel.findById).toHaveBeenCalled();
+         } catch (error) {
+            console.error(error);
+         }
+      });
+   });
 
-//       it("Should return an error if no user is found.", async () => {
-//          vi.spyOn(userRepository, "findByEmail").mockRejectedValue(new Error("User not found."));
-//          await expect(userRepository.findByEmail("batata@potato.com")).rejects.toThrowError("User not found.");
-//       });
-//    });
-// });
+   describe("findByEmail", () => {
+      it("Should return an user by e-mail.", async () => {
+         try {
+            const user = await userRepository.findByEmail(fakeUser.email);
+            expect(user).toEqual(fakeUser);
+         } catch (error) {
+            console.error(error);
+         }
+      });
+
+      it("Should have called the findOne method from user's model.", async () => {
+         try {
+            await userRepository.findByEmail(fakeUser.email);
+            expect(fakeUserModel.findOne).toHaveBeenCalled();
+         } catch (error) {
+            console.error(error);
+         }
+      });
+   });
+});

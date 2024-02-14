@@ -17,7 +17,7 @@ export class UserService implements IUserService {
       return await this.repository.getAll();
    }
 
-   async createUser(user: CreateUserDto, photo: string): Promise<IUser> {
+   async createUser(user: CreateUserDto, photo: string): Promise<IUser | null> {
       const userAlreadyExists = await this.repository.findByEmail(user.email);
 
       if (userAlreadyExists) {

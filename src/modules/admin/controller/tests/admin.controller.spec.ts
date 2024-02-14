@@ -15,7 +15,9 @@ describe("AdminController", () => {
       it("Should send an jewels amount to an user.", async () => {
          req.params.id = fakeUser._id;
          req.body.amount = 10;
+
          await adminController.sendJewelsToUser(req, res);
+
          expect(res.json).toHaveBeenCalledWith({
             data: expect.objectContaining({ _id: fakeUser._id }),
             message: "Jewels sent to user successfully!",

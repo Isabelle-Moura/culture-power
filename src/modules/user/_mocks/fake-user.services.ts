@@ -1,8 +1,8 @@
-import { fakeUsersArray, fakeUser } from "./fake-user";
+import { fakeUsers, fakeUser } from "./fake-user";
 
 export const fakeUserService = {
    getAll() {
-      return Promise.resolve(fakeUsersArray);
+      return Promise.resolve(fakeUsers);
    },
    getUserById() {
       return Promise.resolve(fakeUser);
