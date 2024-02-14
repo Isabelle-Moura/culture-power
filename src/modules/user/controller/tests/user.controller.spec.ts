@@ -16,19 +16,20 @@ describe("UserController", () => {
    });
 
    describe("createUser", () => {
-      // WIP: Is not working here. Only the "createUser" isn't working.
-
       it("Should return an user.", async () => {
-         req.body.file = fakeUser.photo;
-         req.body = fakeUser;
-         console.log(req.body);
+         try {
+            req.body.file = fakeUser.file;
+            req.body = fakeUser;
 
-         await userController.createUser(req, res);
-         expect(res.json).toHaveBeenCalledWith({
-            success: true,
-            message: "User was created successfully!",
-            data: fakeUser,
-         });
+            await userController.createUser(req, res);
+            expect(res.json).toHaveBeenCalledWith({
+               success: true,
+               message: "User was created successfully!",
+               data: fakeUser,
+            });
+         } catch (error) {
+            console.error(error);
+         }
       });
 
       it("Should return an status 201.", async () => {

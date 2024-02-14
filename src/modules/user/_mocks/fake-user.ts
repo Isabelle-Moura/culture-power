@@ -16,7 +16,7 @@ const generateFakeUser = () => ({
    name: `${faker.person.prefix()} ${faker.person.lastName()}`,
    email: faker.internet.email(),
    password: faker.internet.password(),
-   photo: fakeImageFile,
+   file: fakeImageFile,
    role: UserRole.USER,
    jewelsAmount: faker.number.int({ min: 0, max: 100 }),
    products: faker.helpers.arrayElements([]),
