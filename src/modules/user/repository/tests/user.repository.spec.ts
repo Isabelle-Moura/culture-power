@@ -11,7 +11,7 @@ describe("UserRepository", () => {
       userRepository = new UserRepository(fakeUserModel);
    });
 
-   describe("getAll.", () => {
+   describe("getAll", () => {
       it("Should return an array of users.", async () => {
          try {
             const users = await userRepository.getAll();

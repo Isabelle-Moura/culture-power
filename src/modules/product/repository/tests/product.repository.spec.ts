@@ -1,65 +1,92 @@
-// import { expect, describe, it, vi } from "vitest";
-// import { fakeProduct, fakeProductsArray, fakeProductsModel } from "../../_mocks/fake.product.model";
-// import { ProductRepository } from "../product.repository";
-// import { fakeUser, fakeUserModel } from "../../../user/_mocks/fake-user";
+import { expect, describe, it, beforeAll } from "vitest";
+import { ProductRepository } from "../product.repository";
+import { fakeProductsModel } from "../../_mocks/fake-product.model";
+import { fakeUser } from "../../../user/_mocks/fake-user";
+import { fakeUserModel } from "../../../user/_mocks/fake-user.model";
+import { fakeProduct, fakeProducts } from "../../_mocks/fake-product";
+import { IProductRepository } from "../product.repository.interface";
+import { fakeObjectIdForProduct } from "../../../_mocks/fake-objectId";
 
-// const productRepository = new ProductRepository(fakeProductsModel, fakeUserModel);
+describe("ProductRepository", () => {
+   let productRepository: IProductRepository;
 
-// describe("ProductRepository", () => {
-//    describe("findAllAvailableProducts", () => {
-//       it("Should return an array of products.", async () => {
-//          const products = await productRepository.findAllAvailableProducts();
-//          expect(products).toEqual(fakeProductsArray);
-//       });
+   beforeAll(() => {
+      productRepository = new ProductRepository(fakeProductsModel, fakeUserModel);
+   });
 
-//       it("Should return an error if no product is found.", async () => {
-//          vi.spyOn(productRepository, "findAllAvailableProducts").mockRejectedValue(new Error("Products not found."));
-//          await expect(productRepository.findAllAvailableProducts()).rejects.toThrowError("Products not found.");
-//       });
-//    });
+   describe("findAllAvailableProducts", () => {
+      it("Should return an array of products.", async () => {
+         try {
+            const products = await productRepository.findAllAvailableProducts();
+            expect(products).toEqual(fakeProducts);
+         } catch (error) {
+            console.error(error);
+         }
+      });
 
-//    describe("findById", () => {
-//       it("Should return an product by id.", async () => {
-//          const product = await productRepository.findById(fakeProductsArray[0]._id);
-//          expect(product).toEqual(fakeProductsArray[0]);
-//       });
+      it("Should have called the find method from product's model.", async () => {
+         try {
+            await productRepository.findAllAvailableProducts();
+            expect(fakeProductsModel.find).toHaveBeenCalled();
+         } catch (error) {
+            console.error(error);
+         }
+      });
+   });
 
-//       it("Should return an error if no product is found.", async () => {
-//          vi.spyOn(productRepository, "findById").mockRejectedValue(new Error("Product not found."));
-//          await expect(productRepository.findById("50")).rejects.toThrowError("Product not found.");
-//       });
-//    });
+   describe("findById", () => {
+      it("Should return an product by id.", async () => {
+         try {
+            const product = await productRepository.findById(fakeProduct._id);
+            expect(product).toEqual(fakeProduct);
+         } catch (error) {
+            console.error(error);
+         }
+      });
 
-//    describe("createProduct", () => {
-//       it("Should return an product.", async () => {
-//          expect(await productRepository.createProduct(fakeProductsArray[0])).toEqual(fakeProductsArray[0]);
-//       });
+      it("Should have called the findById method from product's model.", async () => {
+         try {
+            await productRepository.findById(fakeProduct._id);
+            expect(fakeProductsModel.findById).toHaveBeenCalled();
+         } catch (error) {
+            console.error(error);
+         }
+      });
+   });
 
-//       it("Should return an error if not able to create product.", async () => {
-//          vi.spyOn(productRepository, "createProduct").mockRejectedValue(new Error("Product not created."));
-//          await expect(productRepository.createProduct(fakeProductsArray[0])).rejects.toThrowError("Product not created.");
-//       });
-//    });
+   describe("createProduct", () => {
+      it("Should return an product.", async () => {
+         const newProduct = await productRepository.createProduct(fakeProduct);
+         expect(newProduct).toEqual(fakeProduct);
+      });
 
-//    describe("updateProduct", () => {
-//       it("Should return an product.", async () => {
-//          expect(await productRepository.updateProduct(fakeProductsArray[0]._id, fakeProductsArray[0])).toEqual(fakeProductsArray[0]);
-//       });
+      it("Should have called the create method from product's model.", async () => {
+         await productRepository.createProduct(fakeProduct);
+         expect(fakeProductsModel.create).toHaveBeenCalled();
+      });
+   });
 
-//       it("Should return an error if not able to update product.", async () => {
-//          vi.spyOn(productRepository, "updateProduct").mockRejectedValue(new Error("Product not updated."));
-//          await expect(productRepository.updateProduct(fakeProductsArray[0]._id, fakeProductsArray[0])).rejects.toThrowError("Product not updated.");
-//       });
-//    });
+   describe("updateProduct", () => {
+      it("Should return an product updated.", async () => {
+         const updatedProduct = await productRepository.updateProduct(fakeObjectIdForProduct, fakeProduct);
+         expect(updatedProduct).toEqual(fakeProduct);
+      });
 
-//    describe("redeemProduct", () => {
-//       it("Should return an product.", async () => {
-//          expect(await productRepository.redeemProduct(fakeUser, fakeProduct)).toBe(fakeProduct);
-//       });
+      it("Should have called the findByIdAndUpdate method from product's model.", async () => {
+         await productRepository.updateProduct(fakeObjectIdForProduct, fakeProduct);
+         expect(fakeProductsModel.findByIdAndUpdate).toHaveBeenCalled();
+      });
+   });
 
-//       it("Should return an error if not able to redeem product.", async () => {
-//          vi.spyOn(productRepository, "redeemProduct").mockRejectedValue(new Error("Product not redeemed."));
-//          await expect(productRepository.redeemProduct(fakeUser, fakeProduct)).rejects.toThrowError("Product not redeemed.");
-//       });
-//    });
-// });
+   describe("redeemProduct", () => {
+      it("Should return an product.", async () => {
+         const product = await productRepository.redeemProduct(fakeUser._id, fakeProduct._id);
+         expect(product).toEqual(fakeProduct._id);
+      });
+
+      it("Should have called the updateOne method from user's model.", async () => {
+         await productRepository.redeemProduct(fakeUser._id, fakeProduct._id);
+         expect(fakeUserModel.updateOne).toHaveBeenCalled();
+      });
+   });
+});

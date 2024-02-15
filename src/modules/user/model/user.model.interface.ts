@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { UserRole } from "../../../utils/roles/roles";
 
 export interface IUser extends Document {
-   _id?: string;
+   _id?: any;
    name: string;
    email: string;
    password: string;

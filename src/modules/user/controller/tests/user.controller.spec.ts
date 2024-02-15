@@ -22,10 +22,14 @@ describe("UserController", () => {
             req.body = fakeUser;
 
             await userController.createUser(req, res);
+
             expect(res.json).toHaveBeenCalledWith({
-               success: true,
+               data: {
+                  imageUrl: `//uploads/${fakeUser.file.filename}`,
+                  user: fakeUser,
+               },
                message: "User was created successfully!",
-               data: fakeUser,
+               success: true,
             });
          } catch (error) {
             console.error(error);
@@ -35,6 +39,7 @@ describe("UserController", () => {
       it("Should return an status 201.", async () => {
          try {
             await userController.createUser(req, res);
+
             expect(res.status).toHaveBeenCalledWith(StatusCode.CREATED);
          } catch (error) {
             console.error(error);
@@ -43,8 +48,10 @@ describe("UserController", () => {
 
       it("Should return an status 500.", async () => {
          try {
-            vi.spyOn(fakeUserService, "createUser").mockImplementationOnce(() => Promise.reject(null));
+            vi.spyOn(fakeUserService, "createUser").mockRejectedValueOnce(() => Promise.reject(null));
+
             await userController.createUser(req, res);
+
             expect(res.status).toHaveBeenCalledWith(StatusCode.INTERNAL_SERVER_ERROR);
          } catch (error) {
             console.error(error);
@@ -56,8 +63,10 @@ describe("UserController", () => {
       it("Should return an user by id.", async () => {
          try {
             req.params.id = fakeUser._id;
+
             await userController.getUserById(req, res);
-            expect(res.json).toHaveBeenCalledWith(fakeUser);
+
+            expect(res.json).toHaveBeenCalledWith({ success: true, message: "User found!", userData: fakeUser });
          } catch (error) {
             console.error(error);
          }
@@ -75,7 +84,9 @@ describe("UserController", () => {
       it("Should return an status 500.", async () => {
          try {
             vi.spyOn(fakeUserService, "getUserById").mockRejectedValueOnce(() => Promise.reject(null));
+
             await userController.getUserById(req, res);
+
             expect(res.status).toHaveBeenCalledWith(StatusCode.INTERNAL_SERVER_ERROR);
          } catch (error) {
             console.error(error);
@@ -87,7 +98,8 @@ describe("UserController", () => {
       it("Should return an array of users.", async () => {
          try {
             await userController.getAll(req, res);
-            expect(res.json).toHaveBeenCalledWith(fakeUsers);
+
+            expect(res.json).toHaveBeenCalledWith({ success: true, message: "Users found!", users: fakeUsers });
          } catch (error) {
             console.error(error);
          }
@@ -96,6 +108,7 @@ describe("UserController", () => {
       it("Should return an status 200.", async () => {
          try {
             await userController.getAll(req, res);
+
             expect(res.status).toHaveBeenCalledWith(StatusCode.OK);
          } catch (error) {
             console.error(error);
@@ -105,7 +118,9 @@ describe("UserController", () => {
       it("Should return an status 500.", async () => {
          try {
             vi.spyOn(fakeUserService, "getAll").mockRejectedValueOnce(() => Promise.reject([]));
+
             await userController.getAll(req, res);
+
             expect(res.status).toHaveBeenCalledWith(StatusCode.INTERNAL_SERVER_ERROR);
          } catch (error) {
             console.error(error);
