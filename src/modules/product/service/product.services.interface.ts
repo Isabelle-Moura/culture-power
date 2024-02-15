@@ -4,7 +4,7 @@ import { IProduct } from "../model/product.model.interface";
 export interface IProductService {
    findAllAvailableProducts(): Promise<IProduct[]>;
    findById(productId: string): Promise<IProduct | null>;
-   createProduct(product: IProduct, photo?: string): Promise<IProduct>;
+   createProduct(product: IProduct, photo?: string): Promise<IProduct | null>;
    updateProduct(productId: string, newData: IProduct): Promise<IProduct | null>;
    redeemProduct(userId: IUser | string, productId: IProduct | string): Promise<IProduct | null>;
 }

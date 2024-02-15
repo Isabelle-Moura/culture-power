@@ -1,3 +1,4 @@
+import { IUserService } from "../service/user.services.interface";
 import { fakeUsers, fakeUser } from "./fake-user";
 
 export const fakeUserService = {
@@ -13,6 +14,6 @@ export const fakeUserService = {
    createUser() {
       return Promise.resolve(fakeUser);
    },
-} as any;
+} as unknown as IUserService;
 
 fakeUserService.getAll();

@@ -1,9 +1,9 @@
 import { IUserRepository } from "../repository/user.repository.interface";
-import { fakeUsersArray, fakeUser } from "./fake-user";
+import { fakeUsers, fakeUser } from "./fake-user";
 
 export const fakeUserRepository = {
    getAll() {
-      return Promise.resolve(fakeUsersArray);
+      return Promise.resolve(fakeUsers);
    },
    getUserById() {
       return Promise.resolve(fakeUser);

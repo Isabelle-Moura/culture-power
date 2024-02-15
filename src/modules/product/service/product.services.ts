@@ -1,4 +1,5 @@
-import { ErrorsResponse } from "../../../utils/error/errors.response";
+import { throwError } from "../../../utils/error/error-response";
+import { StatusCode } from "../../../utils/status-code/all-status-code";
 import { IUser } from "../../user/model/user.model.interface";
 import { IUserRepository } from "../../user/repository/user.repository.interface";
 import { IProduct } from "../model/product.model.interface";
@@ -16,7 +17,7 @@ export class ProductService implements IProductService {
       return this.repository.findById(productId);
    }
 
-   async createProduct(product: IProduct, photo: string): Promise<IProduct> {
+   async createProduct(product: IProduct, photo: string): Promise<IProduct | null> {
       const information: IProduct = {
          ...product,
          photo,
@@ -32,15 +33,13 @@ export class ProductService implements IProductService {
    async redeemProduct(userId: IUser | string, productId: IProduct | string): Promise<IProduct | null> {
       const user = await this.userRepository.getUserById(userId as unknown as string);
       const product = await this.repository.findById(productId as unknown as string);
-      console.log("User:", user);
-      console.log("Product:", product);
 
       if (!user || !product) {
-         throw ErrorsResponse.notFound();
+         throwError("User or product not found.", StatusCode.NOT_FOUND);
       }
 
       if (user.jewelsAmount < product.value) {
-         throw ErrorsResponse.insufficientFunds();
+         throwError("Not enough jewels.", StatusCode.BAD_REQUEST);
       }
 
       const redeemedProduct = await this.repository.redeemProduct(user, product);

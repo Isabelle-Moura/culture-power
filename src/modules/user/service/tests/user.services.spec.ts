@@ -1,6 +1,5 @@
 import { describe, expect, it, vi, beforeAll } from "vitest";
 import { fakeUser, fakeUsers } from "../../_mocks/fake-user";
-import { fakeUserService } from "../../_mocks/fake-user.services";
 import { UserService } from "../user.services";
 import { fakeUserRepository } from "../../_mocks/fake-user.repository";
 import { IUserService } from "../user.services.interface";
@@ -9,7 +8,7 @@ let userService: IUserService;
 
 describe("UserService", () => {
    beforeAll(() => {
-      userService = new UserService(fakeUserService);
+      userService = new UserService(fakeUserRepository);
    });
 
    describe("getAll", () => {
