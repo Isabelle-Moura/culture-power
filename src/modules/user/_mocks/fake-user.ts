@@ -24,7 +24,7 @@ const generateFakeUser = () =>
       favoriteProducts: faker.helpers.arrayElements([]),
       createdAt: String(faker.date.past()),
       updatedAt: String(faker.date.past()),
-   } as unknown as IUser);
+   } as any);
 
 export const fakeUser = generateFakeUser();
 

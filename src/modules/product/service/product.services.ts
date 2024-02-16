@@ -13,7 +13,7 @@ export class ProductService implements IProductService {
       const products = await this.repository.findAllAvailableProducts();
 
       if (!products) {
-         throwError("Products not found.", StatusCode.NOT_FOUND);
+         throwError("No product was found.", StatusCode.NOT_FOUND);
       }
 
       return products
@@ -38,7 +38,7 @@ export class ProductService implements IProductService {
       const newProduct = await this.repository.createProduct(information);
 
       if (!newProduct) {
-         throwError("Product not created.", StatusCode.BAD_REQUEST);
+         throwError("Not able to create product.", StatusCode.BAD_REQUEST);
       }
 
       return newProduct

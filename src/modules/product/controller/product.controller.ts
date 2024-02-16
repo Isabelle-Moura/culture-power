@@ -19,7 +19,7 @@ export class ProductController implements IProductController {
             throwError("Products not found.", StatusCode.NOT_FOUND);
          }
 
-         res.status(StatusCode.OK).json({ success: true, data: products });
+         res.status(StatusCode.OK).json({ success: true, message: "Products found!",data: products });
       } catch (error: any) {
          res.status(StatusCode.INTERNAL_SERVER_ERROR).json({ error: true, message: error.message });
       }
@@ -30,7 +30,6 @@ export class ProductController implements IProductController {
          const { body } = req;
          const { file } = req.body;
 
-         // Check for file presence before validation.
          if (!file) {
             res.status(StatusCode.BAD_REQUEST).json({
                error: true,
@@ -73,7 +72,7 @@ export class ProductController implements IProductController {
             throwError("Product not found.", StatusCode.NOT_FOUND);
          }
 
-         res.status(StatusCode.OK).json({ success: true, data: product });
+         res.status(StatusCode.OK).json({ success: true, message: "Product found!", data: product });
       } catch (error: any) {
          res.status(StatusCode.INTERNAL_SERVER_ERROR).json({ error: true, message: error.message });
       }
@@ -90,7 +89,7 @@ export class ProductController implements IProductController {
             throwError("It wasn't able to update product.", StatusCode.BAD_REQUEST);
          }
 
-         res.status(StatusCode.OK).json({ success: true, data: product });
+         res.status(StatusCode.OK).json({ success: true, message: "Product was updated!", data: product });
       } catch (error: any) {
          res.status(StatusCode.INTERNAL_SERVER_ERROR).json({ error: true, message: error.message });
       }
