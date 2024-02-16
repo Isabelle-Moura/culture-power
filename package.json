@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "app.ts",
   "scripts": {
-    "start": "tsx src/app.ts",
     "dev": "tsx watch src/app.ts",
+    "start": "node dist/app.cjs",
     "build": "tsup src",
     "test": "vitest",
     "seed": "ts-node src/config/database/seed/admin-seed.ts",
