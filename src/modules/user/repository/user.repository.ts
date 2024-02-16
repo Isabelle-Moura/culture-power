@@ -6,7 +6,7 @@ import { IUserRepository } from "./user.repository.interface";
 export class UserRepository implements IUserRepository {
    constructor(private model: Model<IUser>) {}
 
-   async getAll(): Promise<IUser[]> {
+   async getAll(): Promise<Array<IUser | null>>{
       return await this.model.find();
    }
 

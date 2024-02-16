@@ -19,12 +19,12 @@ const generateFakeUser = () =>
       password: faker.internet.password(),
       file: fakeImageFile,
       role: UserRole.USER,
-      jewelsAmount: faker.number.int({ min: 0, max: 100 }),
+      jewelsAmount: faker.number.int({ min: 100, max: 1000 }),
       products: faker.helpers.arrayElements([]),
       favoriteProducts: faker.helpers.arrayElements([]),
       createdAt: String(faker.date.past()),
       updatedAt: String(faker.date.past()),
-   } as unknown as IUser);
+   } as any);
 
 export const fakeUser = generateFakeUser();
 

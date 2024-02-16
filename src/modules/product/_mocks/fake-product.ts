@@ -1,6 +1,5 @@
 import { faker } from "@faker-js/faker";
 import { fakeObjectIdForProduct } from "../../_mocks/fake-objectId";
-import { IProduct } from "../model/product.model.interface";
 
 const generateFakeImageFile = () => ({
    originalname: `${faker.string.uuid()}.jpg`,
@@ -14,11 +13,11 @@ const generateFakeProduct = () =>
    ({
       _id: fakeObjectIdForProduct,
       name: faker.commerce.productName(),
-      value: faker.number.int(),
-      quantity: faker.number.int(),
+      value: faker.number.int({ min: 0, max: 100 }),
+      quantity: faker.number.int({ min: 0, max: 100 }),
       description: faker.lorem.text(),
-      photo: fakeImageFile,
-   } as unknown as IProduct);
+      file: fakeImageFile,
+   } as any);
 
 export const fakeProduct = generateFakeProduct();
 
