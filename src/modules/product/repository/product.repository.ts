@@ -24,7 +24,6 @@ export class ProductRepository implements IProductRepository {
    }
 
    async redeemProduct(user: IUser, product: IProduct): Promise<any> {
-      try {
          const updateUser = await this.userModel.updateOne(
             { _id: user._id },
             {
@@ -43,9 +42,5 @@ export class ProductRepository implements IProductRepository {
          if (updateUser && updateProduct) {
             return product;
          }
-      } catch (error) {
-         console.error("Error redeeming product:", error);
-         return null;
-      }
    }
 }

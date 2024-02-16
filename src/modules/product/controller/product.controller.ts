@@ -28,7 +28,7 @@ export class ProductController implements IProductController {
    async createProduct(req: Request, res: Response): Promise<void> {
       try {
          const { body } = req;
-         const { file } = req;
+         const { file } = req.body;
 
          // Check for file presence before validation.
          if (!file) {
