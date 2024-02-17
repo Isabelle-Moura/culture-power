@@ -19,7 +19,7 @@ export class ProductController implements IProductController {
             throwError("Products not found.", StatusCode.NOT_FOUND);
          }
 
-         res.status(StatusCode.OK).json({ success: true, message: "Products found!",data: products });
+         res.status(StatusCode.OK).json({ success: true, message: "Products found!", data: products });
       } catch (error: any) {
          res.status(StatusCode.INTERNAL_SERVER_ERROR).json({ error: true, message: error.message });
       }
@@ -97,7 +97,8 @@ export class ProductController implements IProductController {
 
    async redeemProduct(req: Request, res: Response): Promise<void> {
       try {
-         const token: any = req.headers["authorization"]?.split(" ")[1];
+         const token: any = req.headers.authorization?.split(" ")[1];
+
          const { productId } = req.params;
 
          const decodedToken: any = await JwtToken.verifyToken(token);

@@ -243,19 +243,20 @@ _1st Part_ - *Planning and Setup*:
    
    ☐ Refactor project: 
      ☐ Related to general: 
+     ✔ All outside the layer "modules" is okay. @done(24-02-11 22:07)
        ☐ Check all the names, of all funtions, variables and classes.
-       ☐ Resolve "coverage" problem.
-       ✔ All outside the layer "modules" is okay. @done(24-02-11 22:07)
+       ☐ Check if there is anything to improve in each file.
+       ☐ Resolve "coverage" problem. 
        ☐ Fix all tests.
        ☐ Fix every return message, is either success or error.
 
 /////////////////////////////////////////
      
   _4th Part_ - *Deploy and Documentation*:
-    ☐ Project's deployment at Railway.
+    ✔ Project's deployment at Railway. @done(24-02-16 23:36)
+    ✔ Make README file for project's documentation. @done(24-02-17 00:25)
     ☐ Prepare export for Insomnia file.
-    ☐ Make Swagger for project.
-    ☐ Make README file for project's documentation.
     ☐ Send project (The last thing to do).
 
 /////////////////////////////////////////
+Archive:

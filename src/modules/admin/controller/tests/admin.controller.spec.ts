@@ -31,7 +31,7 @@ describe("AdminController", () => {
       });
 
       it("Should return an status 500.", async () => {
-         vi.spyOn(fakeAdminService, "sendJewelsToUser").mockImplementation(() => Promise.reject(throwError("It wasn't able to send jewels to user", StatusCode.INTERNAL_SERVER_ERROR)));
+         vi.spyOn(fakeAdminService, "sendJewelsToUser").mockRejectedValueOnce(() => Promise.reject(throwError("It wasn't able to send jewels to user", StatusCode.INTERNAL_SERVER_ERROR)));
          await adminController.sendJewelsToUser(req, res);
          expect(res.status).toHaveBeenCalledWith(StatusCode.INTERNAL_SERVER_ERROR);
       });
