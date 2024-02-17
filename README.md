@@ -10,7 +10,7 @@
   
 -  🦸‍♂️🤝 And last but not least, to all of my amazing teachers that, pretty much, saved my life in this project: **Profº Victor de Souto Soares, Profº Lucas Perdigão and Monitor Jessie Moura**. 🦸‍♂️🤝
 
-### Without any of you, _I could never do this project_. Thank you **so much**!!!🙏💖
+## Without any of you, _I could never do this project_. Thank you so much!!!🙏💖
 
 # 🔷 Project Introduction 🚀
 
