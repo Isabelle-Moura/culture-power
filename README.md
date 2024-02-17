@@ -6,7 +6,7 @@
 
 -  ✝ **God, Jesus,** and **Blessed Mary**, _that are my light and my safe harbor._ ✝
  
--  ❤🤗 The most wonderful and beautiful family that I could have: **Mom, Nana, Jessie, Grandpa, and Grandma**. I love you guys so, so, so badly! ❤🤗
+-  ❤🤗 The most wonderful and beautiful family that I could have: **Mom, Nana, Jessie, Grandpa, and Grandma**. _I love you guys so, so, so badly!_ ❤🤗
   
 -  🦸‍♂️🤝 And last but not least, to all of my amazing teachers that, pretty much, saved my life in this project: **Profº Victor de Souto Soares, Profº Lucas Perdigão and Monitor Jessie Moura**. 🦸‍♂️🤝
 
