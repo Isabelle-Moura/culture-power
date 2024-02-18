@@ -252,6 +252,10 @@ _1st Part_ - *Planning and Setup*:
        ☐ Resolve "coverage" problem. 
        ☐ Fix that 2 tests that are failing.
        ☐ Test all the routes, to make sure that everything is working.
+       
+// FIXME: File is coming undefined. Here and at Create Product.
+// FIXME: Products redeemed by user is coming only its id. How can i add the entire product?
+// FIXME: Incrementing jewels and update product route are working, but when i make the request, at the response doesn't come what it has to be updated. It seems that there is a delay at the following routes.
 
 /////////////////////////////////////////
      

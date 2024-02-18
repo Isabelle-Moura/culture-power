@@ -7,16 +7,17 @@ export const authenticateTokenMiddleware = (req: Request, res: Response, next: N
 
       if (!token) {
          return res.status(401).json({
-            message: "Token wasn't given, so you didn't receive the permission to this.",
+            error: true,
+            message: "Token wasn't given.",
          });
       }
 
-      const decodedToken: any = JwtToken.verifyToken(token);
+      const tokenVerified: any = JwtToken.verifyToken(token);
 
       req.body.user = {
-         _id: decodedToken._id,
-         email: decodedToken.email,
-         role: decodedToken.role,
+         _id: tokenVerified._id,
+         email: tokenVerified.email,
+         role: tokenVerified.role,
       };
 
       next();

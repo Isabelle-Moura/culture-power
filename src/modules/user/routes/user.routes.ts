@@ -5,14 +5,8 @@ import { authenticateTokenMiddleware } from "../../../middlewares/authenticate-t
 
 export const userRouter = express.Router();
 
-userRouter.post(
-  "/user/new-user",
-  uploadPhotoMiddleware.single("photo"),
-  userFactory.createUser.bind(userFactory)
-);
+userRouter.post("/user/new-user", uploadPhotoMiddleware.single("photo"), userFactory.createUser.bind(userFactory));
 
-userRouter.get(
-  "/user/me",
-  authenticateTokenMiddleware,
-  userFactory.getUserById.bind(userFactory)
-);
+userRouter.get("/user/me", authenticateTokenMiddleware, userFactory.getUserById.bind(userFactory));
+
+userRouter.get("/user/all-users", userFactory.getAll.bind(userFactory));
