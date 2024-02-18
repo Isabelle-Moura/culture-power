@@ -12,13 +12,13 @@
 
 **Without any of you, _I could never do this project_. Thank you so much!🙏💖**
 
-# 🔷 Project Introduction 🚀
+# 🔷 Project Introduction:
 
 **Culture Power** is a gamification application developed for a company, offering an engaging and interactive experience for users. 
 
 The platform revolves around three main entities: **Admin**, **User**, and **Product**, each with specific attributes contributing to the system's dynamics.
 
-## 🔷 Entities and Attributes
+## 🔷 Entities and Attributes:
 
 #### 🔹 Admin
 
@@ -102,7 +102,7 @@ The platform revolves around three main entities: **Admin**, **User**, and **Pro
       -  Decreases the product value by the jewel quantity.
       -  Decreases the product quantity.
 
-## 🔷 Project Structure
+## 🔷 Project Structure:
 
 The project has been organized using the N-Tier architecture, where each entity has its own folder with the following subdivisions:
 
@@ -115,20 +115,20 @@ The project has been organized using the N-Tier architecture, where each entity 
 -  **routes:** Defines the entity's routes in the application.
 -  **utils:** Contains utilities, including validation with Yup.
 
-## 🔷 Tests
+## 🔷 Tests:
 In addition, unit tests have been implemented in each layer (service, repository, and controller).
 
 Unit tests are essential for ensuring the reliability and robustness of the system. They validate individual components, ensuring they function as expected. Benefits of unit testing include early bug's detection, facilitates refactoring and saves some headaches.
 
-## 🔷 Project's Documentation at Swagger
+## 🔷 Project's Documentation at Swagger:
 Detailed documentation is crucial for understanding, maintaining, and scaling a project. It serves as a reference for developers, stakeholders, and anyone involved in the project lifecycle.
 
 Access the [Swagger Documentation](link_to_swagger) for an interactive API exploration.
 
-## 🔷 Insomnia Exported File
+## 🔷 Insomnia Exported File:
 Click here to have access to the [Insomnia File](link_to_insomnia) to facilitate API usage.
 
-## 🔷 Technologies Used in The Project
+## 🔷 Technologies Used in The Project:
 The project utilizes the following technologies:
 
 #### 🔹 DevDependencies:
@@ -157,12 +157,12 @@ The project utilizes the following technologies:
 - vitest: Testing framework for JavaScript and TypeScript.
 - yup: JavaScript schema builder for value parsing and validation.
 
-## 🔷 Database
+## 🔷 Database:
 The project utilizes **MongoDB** as the database. 
 
 MongoDB is a **NoSQL** database that provides **flexibility and scalability**, making it suitable for applications with evolving requirements.
 
-## 🔷 Commands to Run
+## 🔷 Commands to Run:
 
 - Starts the development server using tsx watch.
 ```bash
