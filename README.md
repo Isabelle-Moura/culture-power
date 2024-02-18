@@ -129,7 +129,9 @@ Access the [Swagger Documentation](link_to_swagger) for an interactive API explo
 
 ## 🔷 Postman Exported File:
 
-Click here to have access to the [Postman's file download](https://github.com/Isabelle-Moura/project-module-3/raw/main/postman-collection.json), to make things easier at the API usage.
+Click [here](https://github.com/Isabelle-Moura/project-module-3/main/postman-collection.json) to have access to the Postman's routes file. 
+
+By going to this file, you'll have to go to the options above and click at the "Download raw file". Then, make sure that you import the downloaded file at your client HTTP request app, like Insomnia or Postman. 
 
 ## 🔷 Technologies Used in The Project:
 
