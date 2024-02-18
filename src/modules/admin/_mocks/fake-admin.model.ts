@@ -4,6 +4,6 @@ import { IAdmin } from "../model/admin.model.interface";
 import { Model } from "mongoose";
 
 export const fakeAdminModel = {
-   findOne: vitest.fn().mockImplementation(() => fakeAdmin),
-   findById: vitest.fn().mockImplementation(() => fakeAdmin),
+  findOne: vitest.fn().mockImplementation(() => fakeAdmin),
+  findById: vitest.fn().mockImplementation(() => fakeAdmin),
 } as unknown as Model<IAdmin>;

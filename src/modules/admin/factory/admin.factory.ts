@@ -6,7 +6,7 @@ import { AdminRepository } from "../repository/admin.repository";
 import { AdminService } from "../service/admin.services";
 
 class AdminFactory {
-   static initialize() {
+   static getInstance() {
       const repository = new AdminRepository(AdminModel, UserModel);
       const userRepository = new UserRepository(UserModel);
       const service = new AdminService(repository, userRepository);
@@ -15,4 +15,4 @@ class AdminFactory {
    }
 }
 
-export const adminFactory = AdminFactory.initialize()
+export const adminFactory = AdminFactory.getInstance()

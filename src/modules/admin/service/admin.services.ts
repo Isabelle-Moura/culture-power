@@ -7,35 +7,41 @@ import { IAdminRepository } from "../repository/admin.repository.interface";
 import { IAdminService } from "./admin.services.interface";
 
 export class AdminService implements IAdminService {
-   constructor(private repository: IAdminRepository, private userRepository: IUserRepository) {}
+  constructor(
+    private repository: IAdminRepository,
+    private userRepository: IUserRepository
+  ) {}
 
-   async findAdminByEmail(email: string): Promise<IAdmin | null> {
-      try {
-         const admin = await this.repository.findAdminByEmail(email);
+  async findAdminByEmail(email: string): Promise<IAdmin | null> {
+    try {
+      const admin = await this.repository.findAdminByEmail(email);
 
-         if (!admin) {
-            throwError("Admin not found.", StatusCode.NOT_FOUND);
-         }
-
-         return admin;
-      } catch (error: any) {
-         throwError(error.message, StatusCode.INTERNAL_SERVER_ERROR);
+      if (!admin) {
+        throwError("Admin not found.", StatusCode.NOT_FOUND);
       }
-   }
 
-   async sendJewelsToUser(userId: string, amount: number): Promise<IUser | null> {
-      try {
-         const user = await this.userRepository.getUserById(userId);
+      return admin;
+    } catch (error: any) {
+      throwError(error.message, StatusCode.INTERNAL_SERVER_ERROR);
+    }
+  }
 
-         if (!user) {
-            throwError("User not found.", StatusCode.NOT_FOUND);
-         }
+  async sendJewelsToUser(
+    userId: string,
+    amount: number
+  ): Promise<IUser | null> {
+    try {
+      const user = await this.userRepository.getUserById(userId);
 
-         const jewels = await this.repository.sendJewelsToUser(userId, amount);
-
-         return jewels;
-      } catch (error: any) {
-         throwError(error.message, StatusCode.INTERNAL_SERVER_ERROR);
+      if (!user) {
+        throwError("User not found.", StatusCode.NOT_FOUND);
       }
-   }
+
+      const jewels = await this.repository.sendJewelsToUser(userId, amount);
+
+      return jewels;
+    } catch (error: any) {
+      throwError(error.message, StatusCode.INTERNAL_SERVER_ERROR);
+    }
+  }
 }

@@ -4,4 +4,8 @@ import { adminVerificationMiddleware } from "../../../middlewares/admin-verifica
 
 export const adminRouter = Router();
 
-adminRouter.post("/admin/send-jewel/:id", adminVerificationMiddleware, adminFactory.sendJewelsToUser.bind(adminFactory));
+adminRouter.post(
+  "/admin/send-jewel/:id",
+  adminVerificationMiddleware,
+  adminFactory.sendJewelsToUser.bind(adminFactory)
+);

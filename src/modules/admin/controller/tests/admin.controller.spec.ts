@@ -11,29 +11,36 @@ const req = fakeRequest();
 const res = fakeResponse();
 
 describe("AdminController", () => {
-   describe("sendJewelsToUser", () => {
-      it("Should send an jewels amount to an user.", async () => {
-         req.params.id = fakeUser._id;
-         req.body.amount = 10;
+  describe("sendJewelsToUser", () => {
+    it("Should send an jewels amount to an user.", async () => {
+      req.params.id = fakeUser._id;
+      req.body.amount = 10;
 
-         await adminController.sendJewelsToUser(req, res);
+      await adminController.sendJewelsToUser(req, res);
 
-         expect(res.json).toHaveBeenCalledWith({
-            data: expect.objectContaining({ _id: fakeUser._id }),
-            message: "Jewels sent to user successfully!",
-            success: true,
-         });
+      expect(res.json).toHaveBeenCalledWith({
+        data: expect.objectContaining({ _id: fakeUser._id }),
+        message: "Jewels sent to user successfully!",
+        success: true,
       });
+    });
 
-      it("Should return an status 200.", async () => {
-         await adminController.sendJewelsToUser(req, res);
-         expect(res.status).toHaveBeenCalledWith(StatusCode.OK);
-      });
+    it("Should return an status 200.", async () => {
+      await adminController.sendJewelsToUser(req, res);
+      expect(res.status).toHaveBeenCalledWith(StatusCode.OK);
+    });
 
-      it("Should return an status 500.", async () => {
-         vi.spyOn(fakeAdminService, "sendJewelsToUser").mockRejectedValueOnce(() => Promise.reject(throwError("It wasn't able to send jewels to user", StatusCode.INTERNAL_SERVER_ERROR)));
-         await adminController.sendJewelsToUser(req, res);
-         expect(res.status).toHaveBeenCalledWith(StatusCode.INTERNAL_SERVER_ERROR);
-      });
-   });
+    it("Should return an status 500.", async () => {
+      vi.spyOn(fakeAdminService, "sendJewelsToUser").mockRejectedValueOnce(() =>
+        Promise.reject(
+          throwError(
+            "It wasn't able to send jewels to user",
+            StatusCode.INTERNAL_SERVER_ERROR
+          )
+        )
+      );
+      await adminController.sendJewelsToUser(req, res);
+      expect(res.status).toHaveBeenCalledWith(StatusCode.INTERNAL_SERVER_ERROR);
+    });
+  });
 });
