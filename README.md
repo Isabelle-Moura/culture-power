@@ -117,7 +117,7 @@ The project has been organized using the N-Tier architecture, where each entity 
 
 
 ## 🔷 Tests:
-In addition, unit tests have been implemented in each layer (service, repository, and controller).
+In addition, unit tests have been implemented in each layer (service, repository, and controller) using the framework **Vitest**.
 
 Unit tests are essential for ensuring the reliability and robustness of the system. They validate individual components, ensuring they function as expected. Benefits of unit testing include early bug's detection, facilitates refactoring and saves some headaches.
 
