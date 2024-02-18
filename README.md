@@ -115,6 +115,7 @@ The project has been organized using the N-Tier architecture, where each entity 
 -  **routes:** Defines the entity's routes in the application.
 -  **utils:** Contains utilities, including validation with Yup.
 
+
 ## 🔷 Tests:
 In addition, unit tests have been implemented in each layer (service, repository, and controller).
 
@@ -156,6 +157,8 @@ The project utilizes the following technologies:
 - ts-node: TypeScript execution environment for Node.js.
 - vitest: Testing framework for JavaScript and TypeScript.
 - yup: JavaScript schema builder for value parsing and validation.
+
+#### Obs: You can find the command to install every dependecy above at the `planning.todo` file.
 
 ## 🔷 Database:
 The project utilizes **MongoDB** as the database. 
