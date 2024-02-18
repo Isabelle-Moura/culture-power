@@ -168,13 +168,13 @@ MongoDB is a **NoSQL** database that provides **flexibility and scalability**, m
 ```bash
 npm run dev
 ```
-- Starts the production server using compiled JavaScript.
-```bash
-npm run start
-```
 - Transpiles code from TS to JS using tsup.
 ```bash
 npm run build
+```
+- Starts the production server using compiled JavaScript.
+```bash
+npm run start
 ```
 - Runs unit tests using Vitest.
 ```bash
