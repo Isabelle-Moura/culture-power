@@ -158,7 +158,7 @@ The project utilizes the following technologies:
 - vitest: Testing framework for JavaScript and TypeScript.
 - yup: JavaScript schema builder for value parsing and validation.
 
-#### Obs: You can find the command to install every dependecy above at the `planning.todo` file.
+👉 **Obs: You can find the command to install every dependecy above at the `planning.todo` file.**
 
 ## 🔷 Database:
 The project utilizes **MongoDB** as the database. 
