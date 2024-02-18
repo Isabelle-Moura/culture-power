@@ -129,7 +129,7 @@ Access the [Swagger Documentation](link_to_swagger) for an interactive API explo
 
 ## 🔷 Postman Exported File:
 
-Click here to have access to the [Postman's file download](https://github.com/Isabelle-Moura/project-module-3/blob/main/postman-collection.json "Clique para baixar"), to make things easier to the API usage.
+Click here to have access to the [Postman's file download](https://github.com/Isabelle-Moura/project-module-3/raw/main/postman-collection.json), to make things easier at the API usage.
 
 ## 🔷 Technologies Used in The Project:
 
