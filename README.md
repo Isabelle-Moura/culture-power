@@ -2,19 +2,19 @@
 
 ## 🔷 Special Thanks
 
- **👉 Before we start this documentation, _I would love to dedicate this entire project to_:**
+**👉 Before we start this documentation, _I would love to dedicate this entire project to_:**
 
 -  ✝ **God, Jesus,** and **Blessed Mary**, _that are my light and my safe harbor._ ✝
- 
+
 -  ❤🤗 The most wonderful and beautiful family that I could have: **Mom, Nana, Jessie, Grandpa, and Grandma**. _I love you guys so, so, so badly!_ ❤🤗
-  
+
 -  🦸‍♂️🤝 And last but not least, to all of my amazing teachers that, pretty much, saved my life in this project: **Profº Victor de Souto Soares, Profº Lucas Perdigão and Monitor Jessie Moura**. 🦸‍♂️🤝
 
 **Without any of you, _I could never do this project_. Thank you so much!🙏💖**
 
 # 🔷 Project Introduction:
 
-**Culture Power** is a gamification application developed for a company, offering an engaging and interactive experience for users. 
+**Culture Power** is a gamification application developed for a company, offering an engaging and interactive experience for users.
 
 The platform revolves around three main entities: **Admin**, **User**, and **Product**, each with specific attributes contributing to the system's dynamics.
 
@@ -59,12 +59,12 @@ The platform revolves around three main entities: **Admin**, **User**, and **Pro
    -  Does not generate a token if the sent password does not match the one in the database.
    -  Generates a token and returns if the credentials are correct.
 
- 3. 🔹 **Admin Login:**
+3. 🔹 **Admin Login:**
 
-   -  Required information: email and password.
-   -  Does not generate a token if there is no admin with the provided email.
-   -  Does not generate a token if the sent password does not match the one in the database.
-   -  Generates a token and returns if the credentials are correct.
+-  Required information: email and password.
+-  Does not generate a token if there is no admin with the provided email.
+-  Does not generate a token if the sent password does not match the one in the database.
+-  Generates a token and returns if the credentials are correct.
 
 4. 🔹 **View Logged-in User (PRIVATE ROUTE):**
 
@@ -95,7 +95,7 @@ The platform revolves around three main entities: **Admin**, **User**, and **Pro
    -  Does not allow sending if the user does not exist.
    -  Does not allow sending if the user performing the action is not an administrator.
 
-10. 🔹 **Redeem Product (PRIVATE ROUTE):**
+10.   🔹 **Redeem Product (PRIVATE ROUTE):**
       -  Required information: product ID, user ID.
       -  Does not allow redemption if the product or user does not exist.
       -  Does not allow redemption if the user does not have enough jewels.
@@ -115,80 +115,95 @@ The project has been organized using the N-Tier architecture, where each entity 
 -  **routes:** Defines the entity's routes in the application.
 -  **utils:** Contains utilities, including validation with Yup.
 
-
 ## 🔷 Tests:
+
 In addition, unit tests have been implemented in each layer (service, repository, and controller) using the framework **Vitest**.
 
 Unit tests are essential for ensuring the reliability and robustness of the system. They validate individual components, ensuring they function as expected. Benefits of unit testing include early bug's detection, facilitates refactoring and saves some headaches.
 
 ## 🔷 Project's Documentation at Swagger:
+
 Detailed documentation is crucial for understanding, maintaining, and scaling a project. It serves as a reference for developers, stakeholders, and anyone involved in the project lifecycle.
 
 Access the [Swagger Documentation](link_to_swagger) for an interactive API exploration.
 
-## 🔷 Insomnia Exported File:
-Click here to have access to the [Insomnia File](link_to_insomnia) to facilitate API usage.
+## 🔷 Postman Exported File:
+
+Click here to have access to the [Postman File](link_to_postman) to facilitate API usage.
 
 ## 🔷 Technologies Used in The Project:
+
 The project utilizes the following technologies:
 
 #### 🔹 DevDependencies:
 
-- @faker-js/faker: Generates fake data for testing purposes.
-- @types/bcrypt: TypeScript type definitions for bcrypt.
-- @types/express: TypeScript type definitions for Express.
-- @types/jest: TypeScript type definitions for Jest.
-- @types/jsonwebtoken: TypeScript type definitions for JSON Web Token.
-- @types/multer: TypeScript type definitions for Multer.
-- @vitest/coverage-v8: Code coverage tool for V8 JavaScript engine.
-- @vitest/ui: UI components for Vitest testing framework.
-- tsup: TypeScript module bundler.
-- tsx: TypeScript execution environment.
-- typescript: TypeScript programming language.
+-  @faker-js/faker: Generates fake data for testing purposes.
+-  @types/bcrypt: TypeScript type definitions for bcrypt.
+-  @types/express: TypeScript type definitions for Express.
+-  @types/jest: TypeScript type definitions for Jest.
+-  @types/jsonwebtoken: TypeScript type definitions for JSON Web Token.
+-  @types/multer: TypeScript type definitions for Multer.
+-  @vitest/coverage-v8: Code coverage tool for V8 JavaScript engine.
+-  @vitest/ui: UI components for Vitest testing framework.
+-  tsup: TypeScript module bundler.
+-  tsx: TypeScript execution environment.
+-  typescript: TypeScript programming language.
 
 #### 🔹 Dependencies:
 
-- bcrypt: Library for hashing passwords.
-- dotenv: Module for loading environment variables.
-- express: Web application framework for Node.js.
-- jsonwebtoken: Library for generating and verifying JSON Web Tokens.
-- mongoose: MongoDB object modeling for Node.js.
-- multer: Middleware for handling file uploads.
-- ts-node: TypeScript execution environment for Node.js.
-- vitest: Testing framework for JavaScript and TypeScript.
-- yup: JavaScript schema builder for value parsing and validation.
+-  bcrypt: Library for hashing passwords.
+-  dotenv: Module for loading environment variables.
+-  express: Web application framework for Node.js.
+-  jsonwebtoken: Library for generating and verifying JSON Web Tokens.
+-  mongoose: MongoDB object modeling for Node.js.
+-  multer: Middleware for handling file uploads.
+-  ts-node: TypeScript execution environment for Node.js.
+-  vitest: Testing framework for JavaScript and TypeScript.
+-  yup: JavaScript schema builder for value parsing and validation.
 
 👉 **Obs: You can find the command to install every dependecy above at the `planning.todo` file.**
 
 ## 🔷 Database:
-The project utilizes **MongoDB** as the database. 
+
+The project utilizes **MongoDB** as the database.
 
 MongoDB is a **NoSQL** database that provides **flexibility and scalability**, making it suitable for applications with evolving requirements.
 
 ## 🔷 Commands to Run:
 
-- Starts the development server using tsx watch.
+-  Starts the development server using tsx watch.
+
 ```bash
 npm run dev
 ```
-- Transpiles code from TS to JS using tsup.
+
+-  Transpiles code from TS to JS using tsup.
+
 ```bash
 npm run build
 ```
-- Starts the production server using compiled JS.
+
+-  Starts the production server using compiled JS.
+
 ```bash
 npm run start
 ```
-- Runs unit tests using Vitest.
+
+-  Runs unit tests using Vitest.
+
 ```bash
 npm run test
 ```
-- Seeds the database with initial data using ts-node.
+
+-  Seeds the database with initial data using ts-node.
+
 ```bash
 npm run seed
 ```
-- Runs tests with code coverage using Vitest coverage tool.
-bash
+
+-  Runs tests with code coverage using Vitest coverage tool.
+   bash
+
 ```bash
 npm run coverage
 ```
