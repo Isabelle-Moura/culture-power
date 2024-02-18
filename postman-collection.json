@@ -19,30 +19,30 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Isabelle",
+									"value": "",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "isamoura12@gmail.com",
+									"value": "",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "hamster",
+									"value": "",
 									"type": "text"
 								},
 								{
 									"key": "photo",
 									"type": "file",
-									"src": "postman-cloud:///1eece785-984d-4920-9a30-c96c6cb87084"
+									"src": ""
 								}
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/user/new-user",
+							"raw": "{{url}}/user/new-user",
 							"host": [
-								"{{base_url}}"
+								"{{url}}"
 							],
 							"path": [
 								"user",
@@ -113,9 +113,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/user/all-users",
+							"raw": "{{url}}/user/all-users",
 							"host": [
-								"{{base_url}}"
+								"{{url}}"
 							],
 							"path": [
 								"user",
@@ -165,7 +165,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Yjk2ZjA1YzE5Y2QzMmVmOWIzNjA2MyIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzA4Mjc0OTY3LCJleHAiOjE3MDgyNzg1Njd9.QeLrsl3CVqhFwNycJ2wdnuejJmkbttHajpghS76NvUQ",
+									"value": "",
 									"type": "string"
 								}
 							]
@@ -182,14 +182,20 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/admin/send-jewel/65bffc13371ec8e49835e2e8",
+							"raw": "{{url}}/admin/send-jewel/:userId",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"admin",
 								"send-jewel",
-								"65bffc13371ec8e49835e2e8"
+								":userId"
+							], 
+							"variable": [
+								{
+									"key": "userId",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -208,7 +214,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YmZmYzEzMzcxZWM4ZTQ5ODM1ZTJlOCIsImVtYWlsIjoiaXNhbW91cmFAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MDcwOTQ2NDAsImV4cCI6MTcwNzA5ODI0MH0.jJEeZLBCBvbm580Y8F8Q6N8GIWs7Ze3JhGZdV-_9Fmc",
+									"value": "",
 									"type": "string"
 								}
 							]
@@ -216,7 +222,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/product/redeem-product/:productId",
+							"raw": "{{url}}/product/redeem-product/:product_id_here",
 							"host": [
 								"{{url}}"
 							],
@@ -243,7 +249,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Yjk2ZjA1YzE5Y2QzMmVmOWIzNjA2MyIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzA4MjkyMTE4LCJleHAiOjE3MDgyOTU3MTh9.n-m1mS-PHTKrKiLwIczqxmWsxn8PCkrMxIOgLO6y8EM",
+									"value": "",
 									"type": "string"
 								}
 							]
@@ -255,35 +261,35 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Fone",
+									"value": "",
 									"type": "text"
 								},
 								{
 									"key": "value",
-									"value": "15",
+									"value": "",
 									"type": "text"
 								},
 								{
 									"key": "quantity",
-									"value": "10",
+									"value": "",
 									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "Best Headphone Ever!",
+									"value": "",
 									"type": "text"
 								},
 								{
 									"key": "photo",
 									"type": "file",
-									"src": "postman-cloud:///1eecea95-97b9-4410-9dc6-c50871b4a6a6"
+									"src": ""
 								}
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/product/new-product",
+							"raw": "{{url}}/product/new-product",
 							"host": [
-								"{{base_url}}"
+								"{{url}}"
 							],
 							"path": [
 								"product",
@@ -299,13 +305,19 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/products/65ba85e45730d53b4075d434",
+							"raw": "{{url}}/products/:productId",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"products",
-								"65ba85e45730d53b4075d434"
+								":productId"
+							], 
+							"variable": [
+								{
+									"key": "productId",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -337,7 +349,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Yjk2ZjA1YzE5Y2QzMmVmOWIzNjA2MyIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzA4MjkyMTE4LCJleHAiOjE3MDgyOTU3MTh9.n-m1mS-PHTKrKiLwIczqxmWsxn8PCkrMxIOgLO6y8EM",
+									"value": "",
 									"type": "string"
 								}
 							]
@@ -354,14 +366,20 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/product/update-product/65d27ec147876c0e89e6557d",
+							"raw": "{{url}}/product/update-product/:productId",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"product",
 								"update-product",
-								"65d27ec147876c0e89e6557d"
+								":productId"
+							], 
+							"variable": [
+								{
+									"key": "productId",
+									"value": ""
+								}
 							]
 						}
 					},
