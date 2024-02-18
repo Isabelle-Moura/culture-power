@@ -244,11 +244,14 @@ _1st Part_ - *Planning and Setup*:
    ☐ Refactor project: 
      ☐ Related to general: 
      ✔ All outside the layer "modules" is okay. @done(24-02-11 22:07)
-       ☐ Check all the names, of all funtions, variables and classes.
-       ☐ Check if there is anything to improve in each file.
+       ✔ Check all the names, of all funtions, variables and classes. @done(24-02-17 23:11)
+       ✔ Check if there is anything to improve in each file. @done(24-02-17 23:11)
+       ✔ Fix all tests. @done(24-02-17 23:10)
+       ✔ Fix every return message, is either success or error. @done(24-02-17 23:11)
+       ✔ Make sure that each file is formatted. @done(24-02-17 23:10)
        ☐ Resolve "coverage" problem. 
-       ☐ Fix all tests.
-       ☐ Fix every return message, is either success or error.
+       ☐ Fix that 2 tests that are failing.
+       ☐ Test all the routes, to make sure that everything is working.
 
 /////////////////////////////////////////
      
@@ -256,7 +259,7 @@ _1st Part_ - *Planning and Setup*:
     ✔ Project's deployment at Railway. @done(24-02-16 23:36)
     ✔ Make README file for project's documentation. @done(24-02-17 00:25)
     ☐ Prepare export for Insomnia file.
+    ☐ Prepare Swagger for project.
     ☐ Send project (The last thing to do).
 
 /////////////////////////////////////////
-Archive:
