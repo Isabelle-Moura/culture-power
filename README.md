@@ -175,7 +175,7 @@ npm run dev
 ```bash
 npm run build
 ```
-- Starts the production server using compiled JavaScript.
+- Starts the production server using compiled JS.
 ```bash
 npm run start
 ```
