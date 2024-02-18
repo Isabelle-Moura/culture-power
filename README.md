@@ -121,12 +121,6 @@ In addition, unit tests have been implemented in each layer (service, repository
 
 Unit tests are essential for ensuring the reliability and robustness of the system. They validate individual components, ensuring they function as expected. Benefits of unit testing include early bug's detection, facilitates refactoring and saves some headaches.
 
-## 🔷 Project's Documentation at Swagger:
-
-Detailed documentation is crucial for understanding, maintaining, and scaling a project. It serves as a reference for developers, stakeholders, and anyone involved in the project lifecycle.
-
-Access the [Swagger Documentation](link_to_swagger) for an interactive API exploration.
-
 ## 🔷 Postman Exported File:
 
 [Click here](https://github.com/Isabelle-Moura/project-module-3/blob/main/postman-collection.json) to have access to the Postman's routes file. 
