@@ -28,7 +28,8 @@ export class ProductController implements IProductController {
    async createProduct(req: Request, res: Response): Promise<void> {
       try {
          const { body } = req;
-         const { file } = req.body;
+         const { file } = req;
+         req.body.file = file;
 
          if (!file) {
             res.status(StatusCode.BAD_REQUEST).json({

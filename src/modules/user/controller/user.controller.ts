@@ -12,7 +12,8 @@ export class UserController implements IUserController {
    async createUser(req: Request, res: Response): Promise<void> {
       try {
          const { body } = req;
-         const { file } = req.body;
+         const { file } = req;
+         req.body.file = file;
 
          if (!file) {
             res.status(StatusCode.BAD_REQUEST).json({
@@ -30,7 +31,7 @@ export class UserController implements IUserController {
 
          await userBodyValidator(bodyValidation);
 
-         const user = await this.service.createUser(body, file?.filename as string);
+         const user = await this.service.createUser(body, file?.originalname as string);
 
          const imageUrl = `${env.BASE_URL}/uploads/${file?.filename}`;
 

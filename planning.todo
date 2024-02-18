@@ -249,12 +249,11 @@ _1st Part_ - *Planning and Setup*:
        ✔ Fix all tests. @done(24-02-17 23:10)
        ✔ Fix every return message, is either success or error. @done(24-02-17 23:11)
        ✔ Make sure that each file is formatted. @done(24-02-17 23:10)
-       ☐ Resolve "coverage" problem. 
+       ✔ Test all the routes, to make sure that everything is working. @done(24-02-18 19:22)
+       ☐ Try to run "coverage". 
        ☐ Fix that 2 tests that are failing.
-       ☐ Test all the routes, to make sure that everything is working.
-       
-// FIXME: File is coming undefined. Here and at Create Product.
-// FIXME: Products redeemed by user is coming only its id. How can i add the entire product?
+
+// FIXME: Products redeemed by user is coming only its id. How can i add the entire product inside of it?
 // FIXME: Incrementing jewels and update product route are working, but when i make the request, at the response doesn't come what it has to be updated. It seems that there is a delay at the following routes.
 
 /////////////////////////////////////////
@@ -262,7 +261,7 @@ _1st Part_ - *Planning and Setup*:
   _4th Part_ - *Deploy and Documentation*:
     ✔ Project's deployment at Railway. @done(24-02-16 23:36)
     ✔ Make README file for project's documentation. @done(24-02-17 00:25)
-    ☐ Prepare export for Insomnia file.
+    ✔ Prepare export for Insomnia file. @done(24-02-18 19:22)
     ☐ Prepare Swagger for project.
     ☐ Send project (The last thing to do).
 
