@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "a6c2d8ab-0f60-4703-b7d0-93555f6857cb",
 		"name": "Culture Power",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "29249694"
 	},
 	"item": [
@@ -10,7 +10,7 @@
 			"name": "User's Routes",
 			"item": [
 				{
-					"name": "Create User *",
+					"name": "Create User",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -35,20 +35,11 @@
 								{
 									"key": "photo",
 									"type": "file",
-									"src": ""
+									"src": []
 								}
 							]
 						},
-						"url": {
-							"raw": "{{url}}/user/new-user",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"user",
-								"new-user"
-							]
-						}
+						"url": "{{url}}/user/new-user"
 					},
 					"response": []
 				},
@@ -66,16 +57,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{url}}/user/login",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"user",
-								"login"
-							]
-						}
+						"url": "{{url}}/user/login"
 					},
 					"response": []
 				},
@@ -84,26 +66,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": ""
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{url}}/user/me",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"user",
-								"me"
-							]
-						}
+						"url": "{{url}}/user/me"
 					},
 					"response": []
 				},
@@ -112,16 +81,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{url}}/user/all-users",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"user",
-								"all-users"
-							]
-						}
+						"url": "{{url}}/user/all-users"
 					},
 					"response": []
 				}
@@ -144,16 +104,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{url}}/admin/login",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"admin",
-								"login"
-							]
-						}
+						"url": "{{url}}/admin/login"
 					},
 					"response": []
 				},
@@ -162,13 +113,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": ""
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -181,23 +128,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{url}}/admin/send-jewel/:userId",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"admin",
-								"send-jewel",
-								":userId"
-							], 
-							"variable": [
-								{
-									"key": "userId",
-									"value": ""
-								}
-							]
-						}
+						"url": "{{base_url}}/admin/send-jewel/65bffc13371ec8e49835e2e8"
 					},
 					"response": []
 				}
@@ -211,18 +142,14 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": ""
+							}
 						},
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/product/redeem-product/:product_id_here",
+							"raw": "{{url}}/product/redeem-product/:productId",
 							"host": [
 								"{{url}}"
 							],
@@ -242,17 +169,13 @@
 					"response": []
 				},
 				{
-					"name": "Create Product *",
+					"name": "Create Product",
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Yjk2ZjA1YzE5Y2QzMmVmOWIzNjA2MyIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzA4Mjk4ODkwLCJleHAiOjE3MDgzMDI0OTB9._E4l0owYQYnnxxuFs1ib5E_6uKSxSiRZGcfaK39UZLk"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -282,20 +205,11 @@
 								{
 									"key": "photo",
 									"type": "file",
-									"src": ""
+									"src": []
 								}
 							]
 						},
-						"url": {
-							"raw": "{{url}}/product/new-product",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"product",
-								"new-product"
-							]
-						}
+						"url": "{{url}}/product/new-product"
 					},
 					"response": []
 				},
@@ -312,7 +226,7 @@
 							"path": [
 								"products",
 								":productId"
-							], 
+							],
 							"variable": [
 								{
 									"key": "productId",
@@ -328,16 +242,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{url}}/product/all-products",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"product",
-								"all-products"
-							]
-						}
+						"url": "{{url}}/product/all-products"
 					},
 					"response": []
 				},
@@ -346,19 +251,15 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Yjk2ZjA1YzE5Y2QzMmVmOWIzNjA2MyIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzA4MjkyMTE4LCJleHAiOjE3MDgyOTU3MTh9.n-m1mS-PHTKrKiLwIczqxmWsxn8PCkrMxIOgLO6y8EM"
+							}
 						},
 						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Headphone X50 Frt 2000\"\r\n}",
+							"raw": "{\r\n    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -374,7 +275,7 @@
 								"product",
 								"update-product",
 								":productId"
-							], 
+							],
 							"variable": [
 								{
 									"key": "productId",
@@ -390,8 +291,16 @@
 	],
 	"variable": [
 		{
+			"key": "BASE_URL",
+			"value": "http://localhost:3333"
+		},
+		{
 			"key": "url",
 			"value": "https://project-module-3-production.up.railway.app"
+		},
+		{
+			"key": "localhost",
+			"value": "https://localhost:3333"
 		},
 		{
 			"key": "base_url",
