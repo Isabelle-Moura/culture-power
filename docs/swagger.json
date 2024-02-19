@@ -1,0 +1,206 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "2.0.0",
+    "title": "Culture Power API",
+    "description": "This Swagger documentation is meant to be used by the API consumer",
+    "contact": {
+      "name": "Isabelle Moura",
+      "email": "mourabisabelle@gmail.com"
+    }
+  },
+  "host": "localhost:3333",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "User",
+      "description": "User entity routes"
+    },
+    {
+      "name": "Admin",
+      "description": "Admin entity routes"
+    },
+    {
+      "name": "Product",
+      "description": "Product entity routes"
+    }
+  ],
+  "schemes": ["http"],
+  "securityDefinitions": {},
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/user/new-user": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Create a new user",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User object that needs to be created",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            },
+            "examples": {
+              "example-1": {
+                "value": {
+                  "username": "exampleUsername",
+                  "password": "examplePassword",
+                  "email": "example@email.com"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "User created successfully"
+          }
+        }
+      }
+    },
+    "/user/me": {
+      "get": {
+        "tags": ["User"],
+        "summary": "Get user profile",
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/user/login": {
+      "post": {
+        "tags": ["User"],
+        "summary": "User login",
+        "responses": {
+          "default": {
+            "description": "Login successful"
+          }
+        }
+      }
+    },
+    "/admin/login": {
+      "post": {
+        "tags": ["Admin"],
+        "summary": "Admin login",
+        "responses": {
+          "default": {
+            "description": "Login successful"
+          }
+        }
+      }
+    },
+    "/admin/send-jewel/{id}": {
+      "post": {
+        "tags": ["Admin"],
+        "summary": "Send a jewel to a user",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Jewel sent successfully"
+          }
+        }
+      }
+    },
+    "/product/new-product": {
+      "post": {
+        "tags": ["Product"],
+        "summary": "Create a new product",
+        "responses": {
+          "default": {
+            "description": "Product created successfully"
+          }
+        }
+      }
+    },
+    "/product/update-product/{id}": {
+      "patch": {
+        "tags": ["Product"],
+        "summary": "Update a product",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Product updated successfully"
+          }
+        }
+      }
+    },
+    "/product/all-products": {
+      "get": {
+        "tags": ["Product"],
+        "summary": "Get all products",
+        "responses": {
+          "default": {
+            "description": "Products retrieved successfully"
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "tags": ["Product"],
+        "summary": "Get product by ID",
+        "responses": {
+          "default": {
+            "description": "Product retrieved successfully"
+          }
+        }
+      }
+    },
+    "/product/redeem-product/{productId}": {
+      "post": {
+        "tags": ["Product"],
+        "summary": "Redeem a product",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    }
+  }
+}
