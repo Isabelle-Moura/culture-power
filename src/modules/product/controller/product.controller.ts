@@ -102,7 +102,7 @@ export class ProductController implements IProductController {
 
    async redeemProduct(req: Request, res: Response): Promise<void> {
       try {
-         const token: any = req.headers.authorization?.split(" ")[1];
+         const token: any = (req.headers.authorization as any)!.split(" ")[1];
 
          const { productId } = req.params;
 
@@ -131,7 +131,7 @@ export class ProductController implements IProductController {
             data: { user: user, redeemedProduct },
          });
       } catch (error: any) {
-         res.status(StatusCode.INTERNAL_SERVER_ERROR).json({ error: true, message: error.message });
+         res.status(StatusCode.INTERNAL_SERVER_ERROR).json({ error: true, tralala: "empadinha", message: error.message });
       }
    }
 }

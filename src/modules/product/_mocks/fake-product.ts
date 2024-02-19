@@ -16,7 +16,7 @@ const generateFakeProduct = () =>
       value: faker.number.int({ min: 0, max: 100 }),
       quantity: faker.number.int({ min: 0, max: 100 }),
       description: faker.lorem.text(),
-      file: fakeImageFile,
+      photo: fakeImageFile,
    } as any);
 
 export const fakeProduct = generateFakeProduct();

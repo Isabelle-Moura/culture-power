@@ -6,44 +6,38 @@ import { throwError } from "../../../utils/error/error-response";
 import { StatusCode } from "../../../utils/status-code/all-status-code";
 
 export class AdminRepository implements IAdminRepository {
-  constructor(private model: Model<IAdmin>, private userModel: Model<IUser>) {}
+   constructor(private model: Model<IAdmin>, private userModel: Model<IUser>) {}
 
-  async findAdminByEmail(email: string): Promise<IAdmin | null> {
-    try {
-      const adminEmail = await this.model.findOne({ email });
+   async findAdminByEmail(email: string): Promise<IAdmin | null> {
+      try {
+         const adminEmail = await this.model.findOne({ email });
 
-      if (!adminEmail) {
-        throwError("Admin not found.", StatusCode.NOT_FOUND);
+         if (!adminEmail) {
+            throwError("Admin not found.", StatusCode.NOT_FOUND);
+         }
+
+         return adminEmail;
+      } catch (error: any) {
+         throwError(error.message, StatusCode.INTERNAL_SERVER_ERROR);
       }
+   }
 
-      return adminEmail;
-    } catch (error: any) {
-      throwError(error.message, StatusCode.INTERNAL_SERVER_ERROR);
-    }
-  }
+   async sendJewelsToUser(userId: string, amount: number): Promise<IUser | null> {
+      try {
+         const user = await this.userModel.findById(userId);
 
-  async sendJewelsToUser(
-    userId: string,
-    amount: number
-  ): Promise<IUser | null> {
-    try {
-      const user = await this.userModel.findById(userId);
+         if (!user) {
+            throwError("User not found.", StatusCode.NOT_FOUND);
+         }
 
-      if (!user) {
-        throwError("User not found.", StatusCode.NOT_FOUND);
+         if (user.jewelsAmount || user.jewelsAmount >= 0) {
+            return await this.userModel.findByIdAndUpdate({ _id: userId }, { $inc: { jewelsAmount: amount } }, { new: true });
+         }
+
+         //  const updatedUser = await this.userModel.findById(userId);
+         return user;
+      } catch (error: any) {
+         throwError(error.message, StatusCode.INTERNAL_SERVER_ERROR);
       }
-
-      if (user.jewelsAmount || user.jewelsAmount >= 0) {
-        return await this.userModel.findByIdAndUpdate(
-          { _id: userId },
-          { $inc: { jewelsAmount: amount } }
-        );
-      }
-
-      const updatedUser = await this.userModel.findById(userId);
-      return updatedUser;
-    } catch (error: any) {
-      throwError(error.message, StatusCode.INTERNAL_SERVER_ERROR);
-    }
-  }
+   }
 }

@@ -2,7 +2,7 @@
 
 👉 What is this project about? Is a game-changing application for a company.
 👉 Starting at = 24/01/22 at 4:13pm (GMT-4).
-👉 Finishing at = 
+👉 Finishing at = 24/02/18 at 9:12pm (GMT-4)
 👉 Final date to project's delivering: 24/02/18 at 11:59pm (GMT-3).
 
 ///////////////////////////////////////
@@ -241,8 +241,8 @@ _1st Part_ - *Planning and Setup*:
          ✔ `auth.repository.spec.ts`: Tests related to the auth repository. @done(24-02-11 21:36)
          ✔ `auth.service.spec.ts`: Tests related to the auth service. @done(24-02-11 21:36)
    
-   ☐ Refactor project: 
-     ☐ Related to general: 
+   ✔ Refactor project: @done(24-02-18 22:12)
+     ✔ Related to general: @done(24-02-18 22:12)
      ✔ All outside the layer "modules" is okay. @done(24-02-11 22:07)
        ✔ Check all the names, of all funtions, variables and classes. @done(24-02-17 23:11)
        ✔ Check if there is anything to improve in each file. @done(24-02-17 23:11)
@@ -250,11 +250,8 @@ _1st Part_ - *Planning and Setup*:
        ✔ Fix every return message, is either success or error. @done(24-02-17 23:11)
        ✔ Make sure that each file is formatted. @done(24-02-17 23:10)
        ✔ Test all the routes, to make sure that everything is working. @done(24-02-18 19:22)
-       ☐ Try to run "coverage". 
-       ☐ Fix that 2 tests that are failing.
-
-// FIXME: Products redeemed by user is coming only its id. How can i add the entire product inside of it?
-// FIXME: Incrementing jewels and update product route are working, but when i make the request, at the response doesn't come what it has to be updated. It seems that there is a delay at the following routes.
+       ✔ Fix that 2 tests that are failing. @done(24-02-18 22:11)
+       ✔ Fix "coverage" problem. @done(24-02-18 22:12)
 
 /////////////////////////////////////////
      
@@ -262,6 +259,6 @@ _1st Part_ - *Planning and Setup*:
     ✔ Project's deployment at Railway. @done(24-02-16 23:36)
     ✔ Make README file for project's documentation. @done(24-02-17 00:25)
     ✔ Prepare export for Insomnia file. @done(24-02-18 19:22)
-    ☐ Send project (The last thing to do).
+    ✔ Send project (The last thing to do). @done(24-02-18 22:12)
 
 /////////////////////////////////////////

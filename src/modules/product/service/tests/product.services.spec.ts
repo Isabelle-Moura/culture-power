@@ -22,7 +22,7 @@ describe("ProductService", () => {
       });
 
       it("Should return an error if no product is found.", async () => {
-         vi.spyOn(fakeProductRepository, "findAllAvailableProducts").mockImplementationOnce(() => Promise.resolve([]));
+         vi.spyOn(fakeProductRepository, "findAllAvailableProducts").mockImplementationOnce(() => Promise.reject([]));
          await expect(productService.findAllAvailableProducts()).rejects.toThrow();
       });
    });
