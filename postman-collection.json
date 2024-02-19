@@ -128,7 +128,7 @@
 								}
 							}
 						},
-						"url": "{{base_url}}/admin/send-jewel/65bffc13371ec8e49835e2e8"
+						"url": "{{base_url}}/admin/send-jewel/:userId"
 					},
 					"response": []
 				}
@@ -174,7 +174,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Yjk2ZjA1YzE5Y2QzMmVmOWIzNjA2MyIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzA4Mjk4ODkwLCJleHAiOjE3MDgzMDI0OTB9._E4l0owYQYnnxxuFs1ib5E_6uKSxSiRZGcfaK39UZLk"
+								"token": ""
 							}
 						},
 						"method": "POST",
@@ -252,7 +252,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Yjk2ZjA1YzE5Y2QzMmVmOWIzNjA2MyIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzA4MjkyMTE4LCJleHAiOjE3MDgyOTU3MTh9.n-m1mS-PHTKrKiLwIczqxmWsxn8PCkrMxIOgLO6y8EM"
+								"token": ""
 							}
 						},
 						"method": "PATCH",
@@ -291,16 +291,8 @@
 	],
 	"variable": [
 		{
-			"key": "BASE_URL",
-			"value": "http://localhost:3333"
-		},
-		{
 			"key": "url",
 			"value": "https://project-module-3-production.up.railway.app"
-		},
-		{
-			"key": "localhost",
-			"value": "https://localhost:3333"
 		},
 		{
 			"key": "base_url",
