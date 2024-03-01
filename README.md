@@ -12,7 +12,7 @@
 
 **Without any of you, _I could never do this project_. Thank you so much!🙏💖**
 
-# 🔷 Project Introduction:
+## 🔷 Introduction:
 
 **Culture Power** is a gamification application developed for a company, offering an engaging and interactive experience for users.
 
@@ -198,7 +198,6 @@ npm run seed
 ```
 
 -  Runs tests with code coverage using Vitest coverage tool.
-   bash
 
 ```bash
 npm run coverage
