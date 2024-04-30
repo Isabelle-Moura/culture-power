@@ -61,10 +61,10 @@ The platform revolves around three main entities: **Admin**, **User**, and **Pro
 
 3. 🔹 **Admin Login:**
 
--  Required information: email and password.
--  Does not generate a token if there is no admin with the provided email.
--  Does not generate a token if the sent password does not match the one in the database.
--  Generates a token and returns if the credentials are correct.
+   -  Required information: email and password.
+   -  Does not generate a token if there is no admin with the provided email.
+   -  Does not generate a token if the sent password does not match the one in the database.
+   -  Generates a token and returns if the credentials are correct.
 
 4. 🔹 **View Logged-in User (PRIVATE ROUTE):**
 
